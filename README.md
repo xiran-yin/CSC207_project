@@ -1,12 +1,12 @@
 # CSC207_project
 
 ## Basic informations
-| name      | GitHub username      |                   |
-|-----------|---------------------|--------------------------------|
+| name      | GitHub username                                      |                   |
+|-----------|------------------------------------------------------|--------------------------------|
 | EMMA YIMING CHEN | [@EmmaYimingChen](https://github.com/EmmaYimingChen) |  |
-|     Beryl Guo    | [@Zhenbei Guo](https://github.com/GBeryl) |  |
-|    Ruohan Wang   | [@RuohanW1](https://github.com/RuohanW1) |  |
-|     Xiran Yin    | [@xiran-yin](https://github.com/xiran-yin) |  |
+|     Beryl Guo    | [@GBeryl](https://github.com/GBeryl)                 |  |
+|    Ruohan Wang   | [@RuohanW1](https://github.com/RuohanW1)             |  |
+|     Xiran Yin    | [@xiran-yin](https://github.com/xiran-yin)           |  |
 
 
 User Stories: 
