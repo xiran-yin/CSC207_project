@@ -14,8 +14,6 @@ import java.util.List;
 public class KeywordUrlUseCase {
     //define some constent
     private static final String API_URL = "https://api.edamam.com/api/recipes/v2?type=public";
-    private static final String CONTENT_TYPE = "Content-Type";
-    private static final String APPLICATION_JSON = "application/json";
     private static final String STATUS_CODE = "status_code";
     private static final int SUCCESS_CODE = 200;
 
@@ -33,19 +31,19 @@ public class KeywordUrlUseCase {
 
         final Request request = new Request.Builder()
                 .url(String.format("%s&q=%s&app_id=%s&app_key=%s", API_URL, keyword, APP_ID, APP_KEY))
-                .addHeader("Content-Type", CONTENT_TYPE)
                 .build();
+
         List<String> labels = new ArrayList<>();
 
         try {
             final Response response = client.newCall(request).execute();
             String responseBody = response.body().string();
-            JSONObject jsonObject = new JSONObject(responseBody);
             int statusCode = response.code();
             if (statusCode == SUCCESS_CODE) {
+                JSONObject jsonObject = new JSONObject(responseBody);
                 JSONArray hits = jsonObject.getJSONArray("hits");
 
-                for (int i = 0; i < hits.length(); i++) {
+                for (int i = 0; i < hits.length() && labels.size() < 5; i++) {
                     JSONObject recipeObject = hits.getJSONObject(i).getJSONObject("recipe");
                     String label = recipeObject.getString("label");
                     labels.add(label);

@@ -33,10 +33,11 @@ public class KeywordUrlUseCaseTest {
         String keyword = "chicken";
         List<String> actualFoods = GetKeywordFoods(keyword);
         List<String> expectedFoods = new ArrayList<>();
-        expectedFoods.add("Pickle Chicken");
-        expectedFoods.add("Mustard and Honey Chicken");
-        expectedFoods.add("Pickle Chicken Recipe");
-        expectedFoods.add("Delicious Salsa Chicken crockpot recipe. Three ingredients. Done.");
+        expectedFoods.add("Shredded chicken");
+        expectedFoods.add("Rotisserie Chicken Recipe");
+        expectedFoods.add("Teriyaki Chicken");
+        expectedFoods.add("Chicken Paprikash");
+        expectedFoods.add("Baked Chicken");
         assertEquals(expectedFoods, actualFoods);
 
     }
