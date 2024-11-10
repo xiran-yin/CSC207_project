@@ -59,7 +59,6 @@ public class RecipeView extends JFrame {
         add(filterPanel, BorderLayout.NORTH);
         add(new JScrollPane(resultArea), BorderLayout.CENTER);
 
-        // 按钮的监听器
         generateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
