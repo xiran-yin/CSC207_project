@@ -17,4 +17,15 @@ User Stories:
 - Karen is controlling her calorie intake. She runs the recipe generator program with food keywords and filters the results based on a calorie range. The program provides her with a list of recipes that fit her choices. [Emma’s story]
 
 Use case:
-Input keywords/choose filters for the recepies -> 
+Input keywords/choose filters for the recepies ->
+
+Beryl's Story (Cuisine and Ingredient-based Filtering)
+-Task: Implement the functionality for filtering Asian recipes based on ingredient keywords.
+-Interactor: The Recipe Search Interactor that handles API requests.
+-Controller: RecipeSearchController to manage user input (ingredients, cuisine type).
+-Presenter: RecipeSearchPresenter to display the results.
+
+-User Input Data
+  These are the pieces of data that the user (Karen) provides in the search interface:
+  Ingredient Keywords: A set of ingredients the user wants to search for in recipes (e.g., "chicken", "tomato", "garlic").
+  Cuisine Type: The user selects a cuisine type to filter recipes by (e.g., "Asian"). This can be a dropdown menu or a set of checkboxes where users can choose one or more types.
