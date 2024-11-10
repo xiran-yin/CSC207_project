@@ -1,4 +1,5 @@
-# CSC207_project
+# CSC207_project Recipe
+This is a project for a recipe generator which can help the users find the recipes they want.
 
 ## Basic informations
 | name      | GitHub username                                      | Usecases                  |
