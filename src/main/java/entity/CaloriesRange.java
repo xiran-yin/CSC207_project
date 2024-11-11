@@ -15,7 +15,6 @@ public class CaloriesRange {
         return maxCalories;
     }
 
-    public boolean isWithinRange(int calories) {
-        return minCalories <= calories <= maxCalories;
+    public boolean isWithinRange(int calories) {return minCalories <= calories && calories <= maxCalories;
     }
 }
