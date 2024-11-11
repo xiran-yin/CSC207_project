@@ -17,4 +17,16 @@ Karen is losing weight, she wants to get foods with low fat and low carb. She ru
 Karen is controlling her calorie intake. She runs the recipe generator program with food keywords and filters the results based on a calorie range. The program provides her with a list of recipes that fit her choices. [Emma’s story]
 
 Use case:
-Input keywords/choose filters for the recepies -> 
+Input keywords/choose filters for the recepies -> top 5 results based on the keywords and filters.
+
+Diet Type:
+- Task: Implement the function of filtering food types based on ingredient keywords
+- Interactor: The Recipe Search Interactor that handles API requests.
+- Controller: RecipeSearchController to manage user input (ingredients, diet type).
+- Presenter: RecipeSearchPresenter to display 5 results.
+
+- User Input Data:
+  - Ingredient Keywords(ingredient they want to use, e.g. "chicken", "potato").
+  - Diet Type:
+    - Can be selected by "Low fat", "Low Carb" or "Balance".
+    - "Low fat" and "Low Carb" can be selected at the same time.
