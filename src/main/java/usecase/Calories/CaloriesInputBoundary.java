@@ -1,4 +1,4 @@
 package usecase.Calories;
 
-public class CaloriesInputBoundary {
+public interface CaloriesInputBoundary {
 }
