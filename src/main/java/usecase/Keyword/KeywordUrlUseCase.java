@@ -1,4 +1,4 @@
-package usecase.KeyWordOnly;
+package usecase.KeyWord;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
