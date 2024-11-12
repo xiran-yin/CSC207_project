@@ -1,4 +1,7 @@
 package usecase.DietLevel;
 
-public class DietLevelInteractor {
+public class DietLevelInteractor implements DietLevelInputBoundary{
+    private final DietLevelUserDataAccessInterface dietLevelUserDataAccessInterface;
+    private final DietLevelOutputBoundary inputBoundary;
+    private final
 }
