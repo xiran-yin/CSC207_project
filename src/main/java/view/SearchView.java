@@ -17,6 +17,7 @@ public class SearchView extends JPanel {
     private JTextField maxCaloriesField;
     private JButton searchButton;
     private JPanel recipePanel;
+    private JButton randomButton;
     private final JButton backButton;
 
     public SearchView(KeywordInputBoundary inputBoundary) {
@@ -31,9 +32,11 @@ public class SearchView extends JPanel {
         keywordField = new JTextField();
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
+        randomButton = new JButton("Random");
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 10, 0)); // Holds Go and Back buttons
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
+        buttonPanel.add(randomButton);
         searchBarPanel.add(keywordField, BorderLayout.CENTER);
         searchBarPanel.add(buttonPanel, BorderLayout.EAST);
 
