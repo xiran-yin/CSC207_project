@@ -1,15 +1,28 @@
-public class Diet {
-    private final boolean lowFat;
-    private final boolean lowCarb;
-    private final boolean balanced;
+package entity;
 
-    public Diet(boolean lowFat, boolean lowCarb, boolean balanced) {
-        this.lowFat = lowFat;
-        this.lowCarb = lowCarb;
-        this.balanced = balanced;
+import java.util.Collections;
+import java.util.Set;
+
+public class Diet {
+    public enum DietLabels {
+        LOW_FAT, LOW_CARB, BALANCED, HIGH_FIBER, LOW_SODIUM, HIGH_PROTEIN
     }
 
-    public boolean isLowFat() { return lowFat; }
-    public boolean isLowCarb() { return lowCarb; }
-    public boolean isBalanced() { return balanced; }
+    public static final Set<DietLabels> POSSIBLE_DIET_LABELS =
+            Collections.unmodifiableSet(Set.of(DietLabels.values()));
+
+    private final String[] dietLabels;
+
+    public Diet(String[] dietLabels) {
+        this.dietLabels = dietLabels;
+    }
+
+    public String[] getDietLabels() {
+        return dietLabels;
+    }
+
+    @Override
+    public String toString() {
+        return String.join(", ", dietLabels);
+    }
 }

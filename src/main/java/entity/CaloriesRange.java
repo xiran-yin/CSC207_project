@@ -1,3 +1,5 @@
+package entity;
+
 public class CaloriesRange {
     private final int minCalories;
     private final int maxCalories;
