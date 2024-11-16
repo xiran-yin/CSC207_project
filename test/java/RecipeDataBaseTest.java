@@ -14,10 +14,10 @@ public class RecipeDataBaseTest {
     public void testGetAllRecipes() throws Exception {
         // Arrange
         RecipeDataBase recipeDataBase = new getRecipeDataBase(); // Replace with your implementation
-        String keyword = "fish";
+        String keyword = "chicken";
 
         // Act
-        List<Recipe> recipes = recipeDataBase.getAllRecipes(keyword, null, null, 0, 0);
+        List<Recipe> recipes = recipeDataBase.getAllRecipes(keyword, null, null, 100, 200);
 
         // Assert
         assertNotNull(recipes);

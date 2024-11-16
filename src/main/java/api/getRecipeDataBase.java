@@ -62,7 +62,7 @@ public class getRecipeDataBase implements RecipeDataBase {
             return null;
         }
         List<Recipe> recipes = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             JSONObject recipeObject = hits. getJSONObject(i).getJSONObject( "recipe");
             String label = recipeObject.getString( "label");
             double calories = getCalories(recipeObject);
