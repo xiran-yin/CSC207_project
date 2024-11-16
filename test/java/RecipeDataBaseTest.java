@@ -15,9 +15,11 @@ public class RecipeDataBaseTest {
         // Arrange
         RecipeDataBase recipeDataBase = new getRecipeDataBase(); // Replace with your implementation
         String keyword = "chicken";
+        String diet = "low-carb";
+        String cuisine = "japanese";
 
         // Act
-        List<Recipe> recipes = recipeDataBase.getAllRecipes(keyword, null, null, 100, 200);
+        List<Recipe> recipes = recipeDataBase.getAllRecipes(keyword, diet, cuisine, 0, 300);
 
         // Assert
         assertNotNull(recipes);

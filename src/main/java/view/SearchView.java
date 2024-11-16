@@ -20,8 +20,9 @@ public class SearchView extends JPanel {
     private JButton randomButton;
     private final JButton backButton;
 
-    public SearchView(KeywordInputBoundary inputBoundary) {
+    public SearchView(KeywordInputBoundary inputBoundary, RecipeChoiceView recipePanel) {
         this.inputBoundary = inputBoundary;
+        this.recipePanel = recipePanel;
 
         setLayout(new BorderLayout());
 
@@ -76,8 +77,8 @@ public class SearchView extends JPanel {
             System.out.println("Back button pressed");
             // Clear the recipe panel and reset the view
             recipePanel.removeAll();
-            revalidate();
-            repaint();
+            recipePanel.revalidate();
+            recipePanel.repaint();
         }
         );
 

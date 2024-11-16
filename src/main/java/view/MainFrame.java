@@ -14,8 +14,8 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout());
 
         // Create Panels
-        SearchView searchView = new SearchView(inputBoundary);
         RecipeChoiceView recipePanel = (RecipeChoiceView) outputBoundary;
+        SearchView searchView = new SearchView(inputBoundary,recipePanel);
 
         // Add Panels
         add(searchView, BorderLayout.NORTH);
