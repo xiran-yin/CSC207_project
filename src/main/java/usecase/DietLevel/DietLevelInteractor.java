@@ -16,10 +16,10 @@ public class DietLevelInteractor implements DietLevelInputBoundary{
     }
 
     @Override
-    public void searchCuisineRecipe(DietLevelInputData dietLevelInputData) {
+    public void searchDietLevelRecipe(DietLevelInputData dietLevelInputData) {
         try {
             List<Recipe> recipes = recipeDataBase.getAllRecipes(
-                    dietLevelInputData.getKeyword(), null, dietLevelInputData.getDietLevel(), 0, 0
+                    dietLevelInputData.getKeyword(), dietLevelInputData.getDietLevel(), null, 0, 0
             );
             DietLevelOutputData dietLevelOutputData = new DietLevelOutputData(recipes);
             dietLevelOutputBoundary.presentRecipesDiet(dietLevelOutputData);

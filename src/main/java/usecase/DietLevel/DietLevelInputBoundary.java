@@ -2,6 +2,6 @@ package usecase.DietLevel;
 
 public interface DietLevelInputBoundary {
 
-    void searchCuisineRecipe(DietLevelInputData dietLevelInputData);
+    void searchDietLevelRecipe(DietLevelInputData dietLevelInputData);
 
 }

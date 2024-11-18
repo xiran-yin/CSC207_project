@@ -29,10 +29,10 @@ public class SearchView extends JPanel {
     private final JButton backButton;
 
     // List of cuisines for the combo box
-    private static final String[] CUISINES = {"American", "Asian", "British", "Caribbean", "Central Europe", "Chinese",
+    private static final String[] CUISINES = {"","American", "Asian", "British", "Caribbean", "Central Europe", "Chinese",
             "Eastern Europe", "French", "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
             "Middle Eastern", "Nordic", "South American", "South East Asian"};
-    private static final String[] DIET = {"LOW_FAT", "LOW_CARB", "BALANCED", "HIGH_FIBER", "LOW_SODIUM", "HIGH_PROTEIN"};
+    private static final String[] DIET = {"","low-fat", "low-carb", "balanced", "high-fiber", "low-sodium", "high-protein"};
 
     public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary, DietLevelInputBoundary dietInputBoundary, RecipeChoiceView recipePanel) {
         this.keywordInputBoundary = keywordInputBoundary;
@@ -91,11 +91,11 @@ public class SearchView extends JPanel {
             if (!keyword.isEmpty()) {
                 if (!cuisine.isEmpty()) {
                     cuisineInputBoundary.searchCuisineRecipe(new CuisineTypeInputData(keyword, cuisine));
-                } else {
-                    keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));}
-                if (!diet.isEmpty()) {
-                    dietInputBoundary.searchCuisineRecipe(new DietLevelInputData(keyword, diet));
-                } else {
+                }
+                else if (!diet.isEmpty()) {
+                    dietInputBoundary.searchDietLevelRecipe(new DietLevelInputData(keyword, diet));
+                }
+                else {
                     keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));
                 }
             } else {
