@@ -2,6 +2,9 @@ package view;
 
 import usecase.CuisineType.CuisineTypeInputBoundary;
 import usecase.CuisineType.CuisineTypeInputData;
+import usecase.DietLevel.DietLevelInputBoundary;
+import usecase.DietLevel.DietLevelInputData;
+import usecase.DietLevel.DietLevelOutputBoundary;
 import usecase.Keyword.KeywordInputBoundary;
 import usecase.Keyword.KeywordInputData;
 
@@ -15,7 +18,9 @@ public class SearchView extends JPanel {
     private JTextField keywordField;
     private JTextField dietField;
     private final CuisineTypeInputBoundary cuisineInputBounary;
+    private final DietLevelInputBoundary dietInputBoundary;
     private JComboBox<String> cuisineComboBox;
+    private JComboBox<String> dietComboBox;
     private JTextField minCaloriesField;
     private JTextField maxCaloriesField;
     private JButton searchButton;
@@ -27,10 +32,12 @@ public class SearchView extends JPanel {
     private static final String[] CUISINES = {"American", "Asian", "British", "Caribbean", "Central Europe", "Chinese",
             "Eastern Europe", "French", "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
             "Middle Eastern", "Nordic", "South American", "South East Asian"};
+    private static final String[] DIET = {"LOW_FAT", "LOW_CARB", "BALANCED", "HIGH_FIBER", "LOW_SODIUM", "HIGH_PROTEIN"};
 
-    public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary, RecipeChoiceView recipePanel) {
+    public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary, DietLevelInputBoundary dietInputBoundary, RecipeChoiceView recipePanel) {
         this.keywordInputBoundary = keywordInputBoundary;
         this.cuisineInputBounary = cuisineInputBoundary;
+        this.dietInputBoundary = dietInputBoundary;
         this.recipePanel = recipePanel;
 
         setLayout(new BorderLayout());
@@ -52,8 +59,8 @@ public class SearchView extends JPanel {
 
         // Filter Panel
         JPanel filterPanel = new JPanel(new GridLayout(1, 4, 10, 10));
-        dietField = new JTextField();
-        dietField.setBorder(BorderFactory.createTitledBorder("Diet"));
+        dietComboBox = new JComboBox<>(DIET);
+        dietComboBox.setBorder(BorderFactory.createTitledBorder("Diet"));
         cuisineComboBox = new JComboBox<>(CUISINES);
         cuisineComboBox.setBorder(BorderFactory.createTitledBorder("Cuisine"));
         minCaloriesField = new JTextField();
@@ -61,7 +68,7 @@ public class SearchView extends JPanel {
         maxCaloriesField = new JTextField();
         maxCaloriesField.setBorder(BorderFactory.createTitledBorder("Max Calories"));
 
-        filterPanel.add(dietField);
+        filterPanel.add(dietComboBox);
         filterPanel.add(cuisineComboBox);
         filterPanel.add(minCaloriesField);
         filterPanel.add(maxCaloriesField);
@@ -77,6 +84,7 @@ public class SearchView extends JPanel {
         searchButton.addActionListener((ActionEvent e) -> {
             String keyword = keywordField.getText();
             String cuisine = (String) cuisineComboBox.getSelectedItem();//Get selected cuisine from combo box
+            String diet = (String) dietComboBox.getSelectedItem();
 
 
             //Only search if keyword typed in
@@ -85,6 +93,11 @@ public class SearchView extends JPanel {
                     cuisineInputBoundary.searchCuisineRecipe(new CuisineTypeInputData(keyword, cuisine));
                 } else {
                     keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));}
+                if (!diet.isEmpty()) {
+                    dietInputBoundary.searchCuisineRecipe(new DietLevelInputData(keyword, diet));
+                } else {
+                    keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));
+                }
             } else {
                 JOptionPane.showMessageDialog(this, "Please enter a keyword to search or click random");
             }

@@ -2,6 +2,7 @@ package app;
 
 import api.RecipeDataBase;
 import api.getRecipeDataBase;
+import usecase.DietLevel.DietLevelInteractor;
 import usecase.Keyword.KeywordInteractor;
 import usecase.CuisineType.CuisineTypeInteractor;
 import view.RecipeChoiceView;
@@ -15,8 +16,9 @@ public class Main {
 
         KeywordInteractor keywordInteractor = new KeywordInteractor(recipeDataBase, recipePanel);
         CuisineTypeInteractor cuisineInteractor = new CuisineTypeInteractor(recipeDataBase, recipePanel);
+        DietLevelInteractor dietLevelInteractor = new DietLevelInteractor(recipeDataBase, recipePanel);
 
         // Launch Main Frame
-        new MainFrame(keywordInteractor, cuisineInteractor, recipePanel);
+        new MainFrame(keywordInteractor, cuisineInteractor, dietLevelInteractor, recipePanel);
     }
 }

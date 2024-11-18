@@ -2,6 +2,10 @@ package view;
 
 import entity.Recipe;
 import usecase.CuisineType.CuisineTypeOutputBoundary;
+import usecase.DietLevel.DietLevelInputBoundary;
+import usecase.DietLevel.DietLevelInputData;
+import usecase.DietLevel.DietLevelOutputBoundary;
+import usecase.DietLevel.DietLevelOutputData;
 import usecase.Keyword.KeywordOutputBoundary;
 import usecase.Keyword.KeywordOutputData;
 import usecase.CuisineType.CuisineTypeOutputData;
@@ -11,10 +15,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary {
+public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary {
 
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
     private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
+    private List<Recipe> dietRecipes; // Store recipes from diet search
 
     public RecipeChoiceView() {
         setLayout(new GridLayout(0, 3, 10, 10)); // 3 columns, variable rows
@@ -30,6 +35,11 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         displayRecipes();
     }
 
+    public void presentRecipesDiet(DietLevelOutputData dietOutputData) {
+        this.dietRecipes = dietOutputData.getRecipes();
+        displayRecipes();
+    }
+
     public void displayRecipes() {
         removeAll(); // Clear previous recipes
 
@@ -41,6 +51,10 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
 
         if (cuisineRecipes != null) {
             allRecipes.addAll(cuisineRecipes); // Add cuisine search results
+        }
+
+        if (dietRecipes != null) {
+            allRecipes.addAll(dietRecipes);
         }
 
         if (allRecipes.isEmpty()) {
@@ -77,8 +91,4 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         revalidate(); // Update UI layout
         repaint(); // Redraw the panel
     }
-
-
-
-
 }
