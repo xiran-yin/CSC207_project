@@ -1,4 +1,4 @@
-package usecase.KeyWord;
+package usecase.Keyword;
 
 import api.RecipeDataBase;
 import entity.Recipe;
