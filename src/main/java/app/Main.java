@@ -3,6 +3,7 @@ package app;
 import api.RecipeDataBase;
 import api.getRecipeDataBase;
 import usecase.Keyword.KeywordInteractor;
+import usecase.CuisineType.CuisineTypeInteractor;
 import view.RecipeChoiceView;
 import view.MainFrame;
 
@@ -11,9 +12,11 @@ public class Main {
         // Initialize Dependencies
         RecipeDataBase recipeDataBase = new getRecipeDataBase();
         RecipeChoiceView recipePanel = new RecipeChoiceView();
-        KeywordInteractor interactor = new KeywordInteractor(recipeDataBase, recipePanel);
+
+        KeywordInteractor keywordInteractor = new KeywordInteractor(recipeDataBase, recipePanel);
+        CuisineTypeInteractor cuisineInteractor = new CuisineTypeInteractor(recipeDataBase, recipePanel);
 
         // Launch Main Frame
-        new MainFrame(interactor, recipePanel);
+        new MainFrame(keywordInteractor, cuisineInteractor, recipePanel);
     }
 }

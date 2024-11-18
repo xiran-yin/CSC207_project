@@ -22,10 +22,10 @@ public class KeywordInteractor implements KeywordInputBoundary{
                     keywordInputData.getKeyword(), null, null, 0, 0
             );
             KeywordOutputData keywordOutputData = new KeywordOutputData(recipes);
-            keywordOutputBoundary.presentRecipes(keywordOutputData);
+            keywordOutputBoundary.presentRecipesKeyword(keywordOutputData);
         } catch (Exception e) {
             e.printStackTrace();
-            keywordOutputBoundary.presentRecipes(new KeywordOutputData(Collections.emptyList()));
+            keywordOutputBoundary.presentRecipesKeyword(new KeywordOutputData(Collections.emptyList()));
         }
 
     }
