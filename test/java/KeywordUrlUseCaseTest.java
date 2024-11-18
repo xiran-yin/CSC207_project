@@ -1,13 +1,13 @@
 package myproject;
 
 import org.junit.jupiter.api.Test;
-import usecase.KeyWordOnly.KeywordUrlUseCase;
+import usecase.KeyWord.KeywordUrlUseCase;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static usecase.KeyWordOnly.KeywordUrlUseCase.GetKeywordFoods;
+import static usecase.KeyWord.KeywordUrlUseCase.GetKeywordFoods;
 
 public class KeywordUrlUseCaseTest {
 

@@ -24,7 +24,7 @@ public class SearchView extends JPanel {
     private final JButton backButton;
 
     // List of cuisines for the combo box
-    private static final String[] CUISINES = {"American", "Asian", "British", "Caribbean", "Central Europe", "Chinese",
+    private static final String[] CUISINES = {"", "American", "Asian", "British", "Caribbean", "Central Europe", "Chinese",
             "Eastern Europe", "French", "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
             "Middle Eastern", "Nordic", "South American", "South East Asian"};
 
