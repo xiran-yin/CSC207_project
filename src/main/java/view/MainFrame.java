@@ -19,8 +19,8 @@ public class MainFrame extends JFrame {
 
         // Create Panels
         RecipeChoiceView recipePanel = (RecipeChoiceView) keywordOutputBoundary;
-        SearchView searchView = new SearchView(keywordInputBoundary, cuisineInputBoundary, dietLevelInputBoundary,
-                recipePanel);
+        SearchView searchView = new SearchView(keywordInputBoundary, cuisineInputBoundary,
+                dietLevelInputBoundary, recipePanel);
 
         // Add Panels
         add(searchView, BorderLayout.NORTH);

@@ -16,9 +16,9 @@ public class Main {
 
         KeywordInteractor keywordInteractor = new KeywordInteractor(recipeDataBase, recipePanel);
         CuisineTypeInteractor cuisineInteractor = new CuisineTypeInteractor(recipeDataBase, recipePanel);
-        DietLevelInteractor dietLevelInteractor = new DietLevelInteractor(recipeDataBase, recipePanel);
+        DietLevelInteractor dietInteractor = new DietLevelInteractor(recipeDataBase, recipePanel);
 
         // Launch Main Frame
-        new MainFrame(keywordInteractor, cuisineInteractor, dietLevelInteractor, recipePanel);
+        new MainFrame(keywordInteractor, cuisineInteractor, dietInteractor, recipePanel);
     }
 }

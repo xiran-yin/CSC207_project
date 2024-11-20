@@ -34,7 +34,8 @@ public class SearchView extends JPanel {
             "Middle Eastern", "Nordic", "South American", "South East Asian"};
     private static final String[] DIET = {"","low-fat", "low-carb", "balanced", "high-fiber", "low-sodium", "high-protein"};
 
-    public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary, DietLevelInputBoundary dietInputBoundary, RecipeChoiceView recipePanel) {
+    public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary,
+                      DietLevelInputBoundary dietInputBoundary, RecipeChoiceView recipePanel) {
         this.keywordInputBoundary = keywordInputBoundary;
         this.cuisineInputBounary = cuisineInputBoundary;
         this.dietInputBoundary = dietInputBoundary;
@@ -82,24 +83,50 @@ public class SearchView extends JPanel {
 
         // Action listener for the search button (GO)
         searchButton.addActionListener((ActionEvent e) -> {
-            String keyword = keywordField.getText();
-            String cuisine = (String) cuisineComboBox.getSelectedItem();//Get selected cuisine from combo box
-            String diet = (String) dietComboBox.getSelectedItem();
+            System.out.println("Go button pressed");
 
+            if (recipePanel.getComponentCount() != 0) {
+                recipePanel.removeAll();
+                String keyword = keywordField.getText();
+                String cuisine = (String) cuisineComboBox.getSelectedItem();//Get selected cuisine from combo box
+                String diet = (String) dietComboBox.getSelectedItem();
 
-            //Only search if keyword typed in
-            if (!keyword.isEmpty()) {
-                if (!cuisine.isEmpty()) {
-                    cuisineInputBoundary.searchCuisineRecipe(new CuisineTypeInputData(keyword, cuisine));
+                //Only search if keyword typed in
+                if (!keyword.isEmpty()) {
+                    if (!cuisine.isEmpty()) {
+                        cuisineInputBoundary.searchCuisineRecipe(new CuisineTypeInputData(keyword, cuisine));
+                    }
+                    else if (!diet.isEmpty()) {
+                        dietInputBoundary.searchDietLevelRecipe(new DietLevelInputData(keyword, diet));
+                    }
+                    else {
+                        keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please enter a keyword to search or click random");
                 }
-                else if (!diet.isEmpty()) {
-                    dietInputBoundary.searchDietLevelRecipe(new DietLevelInputData(keyword, diet));
+                recipePanel.revalidate();
+                recipePanel.repaint();
+            }
+            else{
+                String keyword = keywordField.getText();
+                String cuisine = (String) cuisineComboBox.getSelectedItem();//Get selected cuisine from combo box
+                String diet = (String) dietComboBox.getSelectedItem();
+
+                //Only search if keyword typed in
+                if (!keyword.isEmpty()) {
+                    if (!cuisine.isEmpty()) {
+                        cuisineInputBoundary.searchCuisineRecipe(new CuisineTypeInputData(keyword, cuisine));
+                    }
+                    else if (!diet.isEmpty()) {
+                        dietInputBoundary.searchDietLevelRecipe(new DietLevelInputData(keyword, diet));
+                    }
+                    else {
+                        keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Please enter a keyword to search or click random");
                 }
-                else {
-                    keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Please enter a keyword to search or click random");
             }
         });
 
