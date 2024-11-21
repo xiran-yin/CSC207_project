@@ -1,5 +1,5 @@
 package usecase.Random;
 
 public interface RandomInputBoundary {
-    void searchKeywordRecipe(RandomInputData randomInputData);
+    void searchRandomRecipe(RandomInputData randomInputData);
 }

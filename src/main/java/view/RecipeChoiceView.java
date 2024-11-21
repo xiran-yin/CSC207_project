@@ -5,16 +5,19 @@ import usecase.CuisineType.CuisineTypeOutputBoundary;
 import usecase.Keyword.KeywordOutputBoundary;
 import usecase.Keyword.KeywordOutputData;
 import usecase.CuisineType.CuisineTypeOutputData;
+import usecase.Random.RandomOutputBoundary;
+import usecase.Random.RandomOutputData;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary {
+public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, RandomOutputBoundary {
 
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
-    private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
+    private List<Recipe> cuisineRecipes;
+    private List<Recipe> randomRecipes;// Store recipes from cuisine search
 
     public RecipeChoiceView() {
         setLayout(new GridLayout(0, 3, 10, 10)); // 3 columns, variable rows
@@ -30,6 +33,10 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         displayRecipes();
     }
 
+    public void presentRecipes(RandomOutputData randomOutputData) {
+        this.randomRecipes = randomOutputData.getRecipes();
+        displayRecipes();
+    }
     public void displayRecipes() {
         removeAll(); // Clear previous recipes
 
@@ -41,6 +48,10 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
 
         if (cuisineRecipes != null) {
             allRecipes.addAll(cuisineRecipes); // Add cuisine search results
+        }
+
+        if (randomRecipes != null) {
+            allRecipes.addAll(randomRecipes);
         }
 
         if (allRecipes.isEmpty()) {
