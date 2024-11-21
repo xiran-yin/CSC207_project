@@ -7,9 +7,7 @@ import view.MainFrame;
 import view.RecipeChoiceView;
 
 import javax.swing.*;
-import java.awt.*;
-
-public class KeywordSearchView extends JPanel {
+import java.awt.*;public class KeywordSearchView extends JPanel {
     private final KeywordInputBoundary keywordInputBoundary;
     private JPanel recipePanel;
     private JTextField keywordField;
@@ -19,7 +17,7 @@ public class KeywordSearchView extends JPanel {
     public KeywordSearchView(MainFrame mainFrame, KeywordInputBoundary keywordInputBoundary, RecipeChoiceView recipePanel) {
         this.keywordInputBoundary = keywordInputBoundary;
         this.recipePanel = recipePanel;
-        
+
         setLayout(new BorderLayout());
 
         // Search bar setup
@@ -48,15 +46,13 @@ public class KeywordSearchView extends JPanel {
                 try {
                     keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));
                     RecipeChoiceView recipeChoiceView = (RecipeChoiceView) recipePanel;
-                    // Switch to the RecipeChoiceView card
                     mainFrame.showView("RecipeChoiceView");
-//                    mainFrame.showView("RecipeChoiceView");
-//                    add(new JScrollPane(recipePanel), BorderLayout.CENTER);
-//                    revalidate(); // Refresh the panel
-//                    repaint();
+
                 } catch (IllegalArgumentException ex) {
                     JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
-                }
+
+
+                                    }
             } else {
                 JOptionPane.showMessageDialog(this, "Please enter a keyword.");
             }

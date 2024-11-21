@@ -2,6 +2,8 @@ package view;
 
 import entity.Recipe;
 import usecase.CuisineType.CuisineTypeOutputBoundary;
+import usecase.DietLevel.DietLevelOutputBoundary;
+import usecase.DietLevel.DietLevelOutputData;
 import usecase.Keyword.KeywordOutputBoundary;
 import usecase.Keyword.KeywordOutputData;
 import usecase.CuisineType.CuisineTypeOutputData;
@@ -11,7 +13,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary {
+public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary {
 
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
     private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
@@ -36,6 +38,8 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
                 mainFrame.showView("KeywordSearchView");
             } else if ("CuisineSearchView".equals(previousView)) {
                 mainFrame.showView("CuisineSearchView");
+            } else if ("DietSearchView".equals(previousView)) {
+                mainFrame.showView("DietSearchView");
             }
             keywordRecipes = null;
             cuisineRecipes = null;
@@ -57,6 +61,13 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         this.cuisineRecipes = cuisineOutputData.getRecipes();
         this.previousView = "CuisineSearchView"; // Set the previous view
         displayRecipes();
+    }
+
+    public void presentRecipesDiet(DietLevelOutputData dietLevelOutputData) {
+        this.cuisineRecipes = dietLevelOutputData.getRecipes();
+        this.previousView = "DietSearchView"; // Set the previous view
+        displayRecipes();
+
     }
     public void updateRecipes(List<Recipe> recipes) {
         keywordRecipes = recipes;
@@ -159,6 +170,5 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
     public void setMainFrame(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
     }
-
 
 }

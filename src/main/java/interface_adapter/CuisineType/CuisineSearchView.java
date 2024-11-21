@@ -58,14 +58,6 @@ public class CuisineSearchView extends JPanel{
         // Add combined panel to the layout
         add(combinedPanel, BorderLayout.NORTH);
 
-
-
-
-
-        // Add RecipeChoiceView below the search bar
-        JScrollPane scrollPane = new JScrollPane(recipePanel);
-        add(scrollPane, BorderLayout.CENTER);
-
         // Search button action
         searchButton.addActionListener(e -> {
             String keyword = keywordField.getText().trim();

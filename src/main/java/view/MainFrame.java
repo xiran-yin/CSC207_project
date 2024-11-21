@@ -1,8 +1,10 @@
 package view;
 
 import interface_adapter.CuisineType.CuisineSearchView;
+import interface_adapter.DietLevel.DietSearchView;
 import interface_adapter.Keyword.KeywordSearchView;
 import usecase.CuisineType.CuisineTypeInputBoundary;
+import usecase.DietLevel.DietLevelInputBoundary;
 import usecase.Keyword.KeywordInputBoundary;
 import usecase.Keyword.KeywordOutputBoundary;
 
@@ -33,6 +35,7 @@ public class MainFrame extends JFrame {
 
     public MainFrame(KeywordInputBoundary keywordInputBoundary,
                      CuisineTypeInputBoundary cuisineInputBoundary,
+                     DietLevelInputBoundary dietLevelInputBoundary,
                      KeywordOutputBoundary keywordOutputBoundary) {
         setTitle("Recipe Finder");
         setSize(800, 600);
@@ -48,12 +51,14 @@ public class MainFrame extends JFrame {
         RecipeChoiceView recipePanel = (RecipeChoiceView) keywordOutputBoundary;
         KeywordSearchView keywordSearchView = new KeywordSearchView(this, keywordInputBoundary,recipePanel);
         CuisineSearchView cuisineSearchView = new CuisineSearchView(this, cuisineInputBoundary, recipePanel);
+        DietSearchView dietSearchView = new DietSearchView(this, dietLevelInputBoundary, recipePanel);
 
         // Add views to the main panel
         mainPanel.add(homeView, "HomeView");
         mainPanel.add(keywordSearchView, "KeywordSearchView");
         mainPanel.add(cuisineSearchView, "CuisineSearchView");
         mainPanel.add(recipePanel, "RecipeChoiceView");
+        mainPanel.add(dietSearchView, "DietSearchView");
 
         // Add main panel to the frame
         add(mainPanel, BorderLayout.CENTER);
