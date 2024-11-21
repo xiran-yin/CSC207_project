@@ -1,15 +1,15 @@
 package usecase.DietLevel;
 
+import entity.Recipe;
+
+import java.util.List;
+
 public class DietLevelOutputData {
-
-    private final String keyword;
-    private final boolean useCaseFailed;
-
-    public DietLevelOutputData(String keyword, boolean useCaseFailed) {
-        this.keyword = keyword;
-        this.useCaseFailed = useCaseFailed;
+    private final List<Recipe> recipes;
+    public DietLevelOutputData(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
-
-    public String getKeyword() { return keyword; }
-    public boolean isUseCaseFailed() { return useCaseFailed; }
+    public List<Recipe> getRecipes() {
+        return recipes;
+    }
 }
