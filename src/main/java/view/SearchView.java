@@ -4,6 +4,8 @@ import usecase.CuisineType.CuisineTypeInputBoundary;
 import usecase.CuisineType.CuisineTypeInputData;
 import usecase.Keyword.KeywordInputBoundary;
 import usecase.Keyword.KeywordInputData;
+import usecase.Random.RandomInputBoundary;
+import usecase.Random.RandomInputData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +17,7 @@ public class SearchView extends JPanel {
     private JTextField keywordField;
     private JTextField dietField;
     private final CuisineTypeInputBoundary cuisineInputBounary;
+    private final RandomInputBoundary randomInputBoundary;
     private JComboBox<String> cuisineComboBox;
     private JTextField minCaloriesField;
     private JTextField maxCaloriesField;
@@ -28,9 +31,10 @@ public class SearchView extends JPanel {
             "Eastern Europe", "French", "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
             "Middle Eastern", "Nordic", "South American", "South East Asian"};
 
-    public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary, RecipeChoiceView recipePanel) {
+    public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary, RandomInputBoundary randomInputBoundary, RecipeChoiceView recipePanel) {
         this.keywordInputBoundary = keywordInputBoundary;
         this.cuisineInputBounary = cuisineInputBoundary;
+        this.randomInputBoundary = randomInputBoundary;
         this.recipePanel = recipePanel;
 
         setLayout(new BorderLayout());
@@ -96,6 +100,11 @@ public class SearchView extends JPanel {
             recipePanel.revalidate();
             recipePanel.repaint();
         }
+        );
+
+        randomButton.addActionListener((ActionEvent e) -> {
+                    randomInputBoundary.searchRandomRecipe(new RandomInputData());
+                }
         );
 
     }
