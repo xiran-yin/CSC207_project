@@ -17,13 +17,13 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
 
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
     private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
+    private List<Recipe> dietRecipes;
     private MainFrame mainFrame;         // Reference to MainFrame for navigation
     private JButton backButton;
     private String previousView;
 
 
     public RecipeChoiceView(MainFrame mainFrame) {
-//        setLayout(new GridLayout(0, 3, 10, 10)); // 3 columns, variable rows
         this.mainFrame = mainFrame;
         initializeUI();}
 
@@ -64,37 +64,14 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
     }
 
     public void presentRecipesDiet(DietLevelOutputData dietLevelOutputData) {
-        this.cuisineRecipes = dietLevelOutputData.getRecipes();
+        this.dietRecipes = dietLevelOutputData.getRecipes();
         this.previousView = "DietSearchView"; // Set the previous view
         displayRecipes();
 
     }
-    public void updateRecipes(List<Recipe> recipes) {
-        keywordRecipes = recipes;
-        displayRecipes();
-    }
 
     public void displayRecipes() {
 
-//        removeAll(); // Clear existing components
-//        add(backButton, BorderLayout.NORTH); // Ensure the back button is always present
-//        setLayout(new GridLayout(0, 3, 10, 10));
-//
-//        if (keywordRecipes != null && !keywordRecipes.isEmpty()) {
-//            for (Recipe recipe : keywordRecipes) {
-//                add(createRecipeCard(recipe), BorderLayout.CENTER);
-//            }
-//        } else if (cuisineRecipes != null && !cuisineRecipes.isEmpty()) {
-//            JPanel recipePanel = new JPanel(new GridLayout(0, 3, 10, 10));
-//            for (Recipe recipe : cuisineRecipes) {
-//                add(createRecipeCard(recipe), BorderLayout.CENTER);
-//            }
-//        } else {
-//            JOptionPane.showMessageDialog(this, "No recipes found.");
-//        }
-//        revalidate();
-//        repaint();
-//    }
         removeAll();
         JPanel backButtonPanel = new JPanel();
         backButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -107,6 +84,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         List<Recipe> allRecipes = new ArrayList<>();
         if (keywordRecipes != null) {allRecipes.addAll(keywordRecipes); }
         if (cuisineRecipes != null) {allRecipes.addAll(cuisineRecipes); }
+        if (dietRecipes != null) {allRecipes.addAll(dietRecipes); }
         if (allRecipes.isEmpty()) {
             System.out.println("No recipes to display.");
             JOptionPane.showMessageDialog(this, "No recipes found.");
@@ -120,14 +98,21 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
                 // Recipe Label
                 JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
                 recipeCard.add(recipeLabel, BorderLayout.CENTER);
-                // Ingredient Button
+
+
                 JButton ingredientButton = new JButton("Ingredient");
                 ingredientButton.addActionListener(e -> {
                     String[] ingredients = recipe.getIngredients();
                     String ingredientList = String.join("\n", ingredients);
+                    String dietInfo = recipe.getDiet() != null ? "Diet: " + recipe.getDiet().toString() : "Diet: Not available";
+                    String cuisineInfo = recipe.getCuisine() != null ? "Cuisine: " + recipe.getCuisine().toString() : "Cuisine: Not available";
+
+                    String message = cuisineInfo + "\n\n" + dietInfo + "\n\n" + ingredientList;
+
+
                     JOptionPane.showMessageDialog(
                             this,
-                            ingredientList.isEmpty() ? "No ingredients available" : ingredientList,
+                            ingredientList.isEmpty() ? "No ingredients available" : message,
                             "Ingredients for " + recipe.getLabel(),
                             JOptionPane.INFORMATION_MESSAGE
                     );
@@ -140,31 +125,6 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
 
         revalidate(); // Update UI layout
         repaint(); // Redraw the panel
-    }
-
-    private JPanel createRecipeCard(Recipe recipe) {
-        JPanel recipeCard = new JPanel(new BorderLayout());
-        recipeCard.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
-        // Recipe Label
-        JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
-        recipeCard.add(recipeLabel, BorderLayout.CENTER);
-
-        // Ingredient Button
-        JButton ingredientButton = new JButton("Ingredient");
-        ingredientButton.addActionListener(e -> {
-            String[] ingredients = recipe.getIngredients();
-            String ingredientList = String.join("\n", ingredients);
-            JOptionPane.showMessageDialog(
-                    this,
-                    ingredientList.isEmpty() ? "No ingredients available" : ingredientList,
-                    "Ingredients for " + recipe.getLabel(),
-                    JOptionPane.INFORMATION_MESSAGE
-            );
-        });
-        recipeCard.add(ingredientButton, BorderLayout.SOUTH);
-
-        return recipeCard;
     }
 
     public void setMainFrame(MainFrame mainFrame) {

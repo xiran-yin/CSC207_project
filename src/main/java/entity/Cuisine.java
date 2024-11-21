@@ -41,6 +41,6 @@ public class Cuisine {
 
     @Override
     public String toString() {
-        return cuisineType;
+        return cuisineType.substring(0, 1).toUpperCase() + cuisineType.substring(1).toLowerCase();
     }
 }
