@@ -18,9 +18,11 @@ public class KeywordInteractor implements KeywordInputBoundary{
     @Override
     public void searchKeywordRecipe(KeywordInputData keywordInputData) {
         try {
+            System.out.println("Fetching recipes for keyword: " + keywordInputData.getKeyword());
             List<Recipe> recipes = recipeDataBase.getAllRecipes(
                     keywordInputData.getKeyword(), null, null, 0, 0
             );
+            System.out.println("Recipes retrieved: " + recipes);
             KeywordOutputData keywordOutputData = new KeywordOutputData(recipes);
             keywordOutputBoundary.presentRecipesKeyword(keywordOutputData);
         } catch (Exception e) {
