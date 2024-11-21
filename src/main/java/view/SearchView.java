@@ -83,7 +83,6 @@ public class SearchView extends JPanel {
             if (!keyword.isEmpty()) {
                 if (!cuisine.isEmpty()) {
                     cuisineInputBoundary.searchCuisineRecipe(new CuisineTypeInputData(keyword, cuisine));
-                } else {
                     keywordInputBoundary.searchKeywordRecipe(new KeywordInputData(keyword));}
             } else {
                 JOptionPane.showMessageDialog(this, "Please enter a keyword to search or click random");
