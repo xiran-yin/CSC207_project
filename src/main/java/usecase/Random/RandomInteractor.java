@@ -16,7 +16,7 @@ public class RandomInteractor implements RandomInputBoundary {
     }
 
     @Override
-    public void searchKeywordRecipe(RandomInputData randomInputData) {
+    public void searchRandomRecipe(RandomInputData randomInputData) {
         try {
             List<Recipe> recipes = recipeDataBase.getAllRecipes(
                     randomInputData.getKeyword(), null, null, 0, 0

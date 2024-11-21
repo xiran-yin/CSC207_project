@@ -4,6 +4,7 @@ import api.RecipeDataBase;
 import api.getRecipeDataBase;
 import usecase.Keyword.KeywordInteractor;
 import usecase.CuisineType.CuisineTypeInteractor;
+import usecase.Random.RandomInteractor;
 import view.RecipeChoiceView;
 import view.MainFrame;
 
@@ -15,8 +16,9 @@ public class Main {
 
         KeywordInteractor keywordInteractor = new KeywordInteractor(recipeDataBase, recipePanel);
         CuisineTypeInteractor cuisineInteractor = new CuisineTypeInteractor(recipeDataBase, recipePanel);
+        RandomInteractor randomInteractor = new RandomInteractor(recipeDataBase, recipePanel);
 
         // Launch Main Frame
-        new MainFrame(keywordInteractor, cuisineInteractor, recipePanel);
+        new MainFrame(keywordInteractor, cuisineInteractor, randomInteractor, recipePanel);
     }
 }
