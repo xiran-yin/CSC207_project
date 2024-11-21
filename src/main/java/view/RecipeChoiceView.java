@@ -43,6 +43,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
             }
             keywordRecipes = null;
             cuisineRecipes = null;
+            dietRecipes = null;
         });
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);

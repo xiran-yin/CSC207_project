@@ -41,19 +41,19 @@ public class DietSearchView extends JPanel {
         searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding around search panel
 
         // Cuisine Panel
-        JPanel cuisinePanel = new JPanel(new BorderLayout());
+        JPanel dietPanel = new JPanel(new BorderLayout());
         dietComboBox = new JComboBox<>(DIET);
         dietComboBox.setPreferredSize(new Dimension(200, 40));
         dietComboBox.setFont(new Font("Arial", Font.PLAIN, 16));
         dietComboBox.setBorder(BorderFactory.createTitledBorder("Select Diet Label"));
-        cuisinePanel.add(dietComboBox, BorderLayout.CENTER);
-        cuisinePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding around cuisine panel
+        dietPanel.add(dietComboBox, BorderLayout.CENTER);
+        dietPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding around cuisine panel
 
         // Combine searchBarPanel and filterPanel into a single panel
         JPanel combinedPanel = new JPanel();
         combinedPanel.setLayout(new BoxLayout(combinedPanel, BoxLayout.Y_AXIS));
         combinedPanel.add(searchPanel);
-        combinedPanel.add(cuisinePanel);
+        combinedPanel.add(dietPanel);
 
         // Add combined panel to the layout
         add(combinedPanel, BorderLayout.NORTH);
