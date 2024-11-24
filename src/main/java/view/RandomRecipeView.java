@@ -13,14 +13,14 @@ public class RandomRecipeView extends JPanel{
 
     public RandomRecipeView(MainFrame mainFrame, RandomInputBoundary randomInputBoundary, JPanel cardPanel) {
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
-        JButton searchButton = new JButton("Random");
+        JButton searchButton = new JButton("Randomly Search");
         JButton backButton = new JButton("Back");
 
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 10, 0));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
 
-        searchPanel.add(buttonPanel, BorderLayout.EAST);
+        searchPanel.add(buttonPanel, BorderLayout.CENTER);
         searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding around search panel
 
         JPanel combinedPanel = new JPanel();
