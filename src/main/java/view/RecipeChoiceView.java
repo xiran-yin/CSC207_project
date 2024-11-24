@@ -9,22 +9,23 @@ import usecase.DietLevel.DietLevelOutputData;
 import usecase.Keyword.KeywordOutputBoundary;
 import usecase.Keyword.KeywordOutputData;
 import usecase.CuisineType.CuisineTypeOutputData;
+import usecase.Random.RandomOutputBoundary;
+import usecase.Random.RandomOutputData;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary, CaloriesOutputBoundary {
-
+public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary, CaloriesOutputBoundary, RandomOutputBoundary {
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
     private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
     private List<Recipe> dietRecipes;
     private List<Recipe> caloriesRecipes;
+    private List<Recipe> randomRecipes;
     private MainFrame mainFrame;         // Reference to MainFrame for navigation
     private JButton backButton;
     private String previousView;
-
 
     public RecipeChoiceView(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -45,11 +46,14 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
                 mainFrame.showView("DietSearchView");
             }else if ("CalorieSearchView".equals(previousView)) {
                 mainFrame.showView("CalorieSearchView");
+            }else if ("RandomRecipeView".equals(previousView)) {
+                mainFrame.showView("RandomRecipeView");
             }
             keywordRecipes = null;
             cuisineRecipes = null;
             dietRecipes = null;
             caloriesRecipes = null;
+            randomRecipes = null;
         });
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);
@@ -60,7 +64,6 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         System.out.println("Presenting recipes in RecipeChoiceView");
         this.keywordRecipes = keywordOutputData.getRecipes();
         this.previousView = "KeywordSearchView"; // Set the previous view
-
         displayRecipes();
     }
 
@@ -78,9 +81,14 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
     }
 
     public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
-        System.out.println("Presenting recipes in RecipeChoiceView");
         this.caloriesRecipes = caloriesOutputData.getRecipes();
         this.previousView = "CalorieSearchView";
+        displayRecipes();
+    }
+
+    public void presentRecipes(RandomOutputData randomOutputData) {
+        this.randomRecipes = randomOutputData.getRecipes();
+        this.previousView = "RandomRecipeView";
         displayRecipes();
     }
 
@@ -100,6 +108,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         if (cuisineRecipes != null) {allRecipes.addAll(cuisineRecipes); }
         if (dietRecipes != null) {allRecipes.addAll(dietRecipes); }
         if (caloriesRecipes != null) {allRecipes.addAll(caloriesRecipes); }
+        if (randomRecipes != null) {allRecipes.addAll(randomRecipes); }
         if (allRecipes.isEmpty()) {
             System.out.println("No recipes to display.");
             JOptionPane.showMessageDialog(this, "No recipes found.");

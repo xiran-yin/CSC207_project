@@ -34,7 +34,7 @@ public class CalorieSearchView extends JPanel {
         searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding around search panel
 
         // Setup for the calories input panel
-        JPanel caloriePanel = new JPanel(new GridLayout(2, 1, 10, 10)); // GridLayout for min and max calories input
+        JPanel caloriePanel = new JPanel(new GridLayout(1, 2, 10, 10)); // GridLayout for min and max calories input
         minCaloriesField = new JTextField();
         minCaloriesField.setPreferredSize(new Dimension(100, 40));
         minCaloriesField.setFont(new Font("Arial", Font.PLAIN, 16));

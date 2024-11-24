@@ -9,6 +9,7 @@ import usecase.CuisineType.CuisineTypeInputBoundary;
 import usecase.DietLevel.DietLevelInputBoundary;
 import usecase.Keyword.KeywordInputBoundary;
 import usecase.Keyword.KeywordOutputBoundary;
+import usecase.Random.RandomInputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,8 @@ public class MainFrame extends JFrame {
                      CuisineTypeInputBoundary cuisineInputBoundary,
                      DietLevelInputBoundary dietLevelInputBoundary,
                      KeywordOutputBoundary keywordOutputBoundary,
-                     CaloriesInputBoundary caloriesInputBoundary) {
+                     CaloriesInputBoundary caloriesInputBoundary,
+                     RandomInputBoundary randomInputBoundary) {
         setTitle("Recipe Finder");
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,6 +40,7 @@ public class MainFrame extends JFrame {
         CuisineSearchView cuisineSearchView = new CuisineSearchView(this, cuisineInputBoundary, recipePanel);
         DietSearchView dietSearchView = new DietSearchView(this, dietLevelInputBoundary, recipePanel);
         CalorieSearchView calorieSearchView = new CalorieSearchView(this, caloriesInputBoundary, recipePanel);
+        RandomRecipeView randomRecipeView = new RandomRecipeView(this, randomInputBoundary, recipePanel);
 
         // Add views to the main panel
         mainPanel.add(homeView, "HomeView");
@@ -46,6 +49,7 @@ public class MainFrame extends JFrame {
         mainPanel.add(recipePanel, "RecipeChoiceView");
         mainPanel.add(dietSearchView, "DietSearchView");
         mainPanel.add(calorieSearchView, "CalorieSearchView");
+        mainPanel.add(randomRecipeView, "RandomRecipeView");
 
         // Add main panel to the frame
         add(mainPanel, BorderLayout.CENTER);
@@ -60,12 +64,4 @@ public class MainFrame extends JFrame {
     public void showView(String viewName) {
         cardLayout.show(mainPanel, viewName);
     }
-
-
-
-
-
-
-
-
 }
