@@ -1,6 +1,8 @@
 package view;
 
 import entity.Recipe;
+import usecase.Calories.CaloriesOutputBoundary;
+import usecase.Calories.CaloriesOutputData;
 import usecase.CuisineType.CuisineTypeOutputBoundary;
 import usecase.DietLevel.DietLevelOutputBoundary;
 import usecase.DietLevel.DietLevelOutputData;
@@ -13,11 +15,12 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary {
+public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary, CaloriesOutputBoundary {
 
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
     private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
     private List<Recipe> dietRecipes;
+    private List<Recipe> caloriesRecipes;
     private MainFrame mainFrame;         // Reference to MainFrame for navigation
     private JButton backButton;
     private String previousView;
@@ -40,10 +43,13 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
                 mainFrame.showView("CuisineSearchView");
             } else if ("DietSearchView".equals(previousView)) {
                 mainFrame.showView("DietSearchView");
+            }else if ("CaloriesSearchView".equals(previousView)) {
+                mainFrame.showView("CaloriesSearchView");
             }
             keywordRecipes = null;
             cuisineRecipes = null;
             dietRecipes = null;
+            caloriesRecipes = null;
         });
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);
@@ -71,6 +77,12 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
 
     }
 
+    public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
+        this.caloriesRecipes = caloriesOutputData.getRecipes();
+        this.previousView = "CaloriesSearchView";
+        displayRecipes();
+    }
+
     public void displayRecipes() {
 
         removeAll();
@@ -86,6 +98,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         if (keywordRecipes != null) {allRecipes.addAll(keywordRecipes); }
         if (cuisineRecipes != null) {allRecipes.addAll(cuisineRecipes); }
         if (dietRecipes != null) {allRecipes.addAll(dietRecipes); }
+        if (caloriesRecipes != null) {allRecipes.addAll(caloriesRecipes); }
         if (allRecipes.isEmpty()) {
             System.out.println("No recipes to display.");
             JOptionPane.showMessageDialog(this, "No recipes found.");
