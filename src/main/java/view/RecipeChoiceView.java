@@ -13,7 +13,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary {
+public class RecipeChoiceView extends JPanel implements CuisineTypeOutputBoundary, DietLevelOutputBoundary {
 
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
     private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
@@ -50,14 +50,6 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         add(buttonPanel, BorderLayout.NORTH);
     }
 
-    public void presentRecipesKeyword(KeywordOutputData keywordOutputData) {
-        System.out.println("Presenting recipes in RecipeChoiceView");
-        this.keywordRecipes = keywordOutputData.getRecipes();
-        this.previousView = "KeywordSearchView"; // Set the previous view
-
-        displayRecipes();
-    }
-
     public void presentRecipesCuisine(CuisineTypeOutputData cuisineOutputData) {
         this.cuisineRecipes = cuisineOutputData.getRecipes();
         this.previousView = "CuisineSearchView"; // Set the previous view
@@ -69,6 +61,11 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         this.previousView = "DietSearchView"; // Set the previous view
         displayRecipes();
 
+    }
+    public void setKeywordRecipes(List<Recipe> recipes) {
+        this.keywordRecipes = recipes;
+        this.previousView = "KeywordSearchView";
+        System.out.println("Keyword recipes set in RecipeChoiceView: " + keywordRecipes);// Store recipes in the class for rendering
     }
 
     public void displayRecipes() {
