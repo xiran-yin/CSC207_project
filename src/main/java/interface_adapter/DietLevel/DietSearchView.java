@@ -1,7 +1,5 @@
 package interface_adapter.DietLevel;
 
-import usecase.CuisineType.CuisineTypeInputBoundary;
-import usecase.CuisineType.CuisineTypeInputData;
 import usecase.DietLevel.DietLevelInputBoundary;
 import usecase.DietLevel.DietLevelInputData;
 import view.MainFrame;
