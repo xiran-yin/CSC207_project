@@ -43,8 +43,8 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
                 mainFrame.showView("CuisineSearchView");
             } else if ("DietSearchView".equals(previousView)) {
                 mainFrame.showView("DietSearchView");
-            }else if ("CaloriesSearchView".equals(previousView)) {
-                mainFrame.showView("CaloriesSearchView");
+            }else if ("CalorieSearchView".equals(previousView)) {
+                mainFrame.showView("CalorieSearchView");
             }
             keywordRecipes = null;
             cuisineRecipes = null;
@@ -78,8 +78,9 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
     }
 
     public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
+        System.out.println("Presenting recipes in RecipeChoiceView");
         this.caloriesRecipes = caloriesOutputData.getRecipes();
-        this.previousView = "CaloriesSearchView";
+        this.previousView = "CalorieSearchView";
         displayRecipes();
     }
 
