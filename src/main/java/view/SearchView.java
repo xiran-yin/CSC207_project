@@ -1,5 +1,6 @@
 package view;
 
+import usecase.Calories.CaloriesInputBoundary;
 import usecase.CuisineType.CuisineTypeInputBoundary;
 import usecase.CuisineType.CuisineTypeInputData;
 import usecase.Keyword.KeywordInputBoundary;
@@ -18,6 +19,7 @@ public class SearchView extends JPanel {
     private JTextField dietField;
     private final CuisineTypeInputBoundary cuisineInputBounary;
     private final RandomInputBoundary randomInputBoundary;
+    private final CaloriesInputBoundary caloriesInputBoundary;
     private JComboBox<String> cuisineComboBox;
     private JTextField minCaloriesField;
     private JTextField maxCaloriesField;
@@ -31,10 +33,12 @@ public class SearchView extends JPanel {
             "Eastern Europe", "French", "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
             "Middle Eastern", "Nordic", "South American", "South East Asian"};
 
-    public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary, RandomInputBoundary randomInputBoundary, RecipeChoiceView recipePanel) {
+    public SearchView(KeywordInputBoundary keywordInputBoundary, CuisineTypeInputBoundary cuisineInputBoundary,
+                      RandomInputBoundary randomInputBoundary, CaloriesInputBoundary caloriesInputBoundary, RecipeChoiceView recipePanel) {
         this.keywordInputBoundary = keywordInputBoundary;
         this.cuisineInputBounary = cuisineInputBoundary;
         this.randomInputBoundary = randomInputBoundary;
+        this.caloriesInputBoundary = caloriesInputBoundary;
         this.recipePanel = recipePanel;
 
         setLayout(new BorderLayout());

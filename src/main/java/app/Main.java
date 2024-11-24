@@ -2,6 +2,7 @@ package app;
 
 import api.RecipeDataBase;
 import api.getRecipeDataBase;
+import usecase.Calories.CaloriesInteractor;
 import usecase.CuisineType.CuisineTypeInputBoundary;
 import usecase.CuisineType.CuisineTypeOutputBoundary;
 import usecase.DietLevel.DietLevelInteractor;
@@ -10,6 +11,7 @@ import usecase.Keyword.KeywordInputBoundary;
 import usecase.Keyword.KeywordInteractor;
 import usecase.CuisineType.CuisineTypeInteractor;
 import usecase.Keyword.KeywordOutputBoundary;
+import usecase.Random.RandomInteractor;
 import view.RecipeChoiceView;
 import view.MainFrame;
 
@@ -27,10 +29,12 @@ public class Main {
         KeywordInteractor keywordInteractor = new KeywordInteractor(recipeDataBase, recipeChoiceView);
         CuisineTypeInteractor cuisineTypeInteractor = new CuisineTypeInteractor(recipeDataBase, recipeChoiceView);
         DietLevelInteractor dietLevelInteractor = new DietLevelInteractor(recipeDataBase,recipeChoiceView);
+        CaloriesInteractor caloriesInteractor = new CaloriesInteractor(recipeDataBase, recipeChoiceView);
+        RandomInteractor randomInteractor = new RandomInteractor(recipeDataBase, recipeChoiceView);
 
         // Create the MainFrame and assign it to RecipeChoiceView
         SwingUtilities.invokeLater(() -> {
-            MainFrame mainFrame = new MainFrame(keywordInteractor, cuisineTypeInteractor, dietLevelInteractor, recipeChoiceView);
+            MainFrame mainFrame = new MainFrame(keywordInteractor, cuisineTypeInteractor, dietLevelInteractor, recipeChoiceView, caloriesInteractor, randomInteractor);
             recipeChoiceView.setMainFrame(mainFrame); // Link the MainFrame to RecipeChoiceView
             mainFrame.setVisible(true);
         });
