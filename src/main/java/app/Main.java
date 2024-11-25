@@ -5,8 +5,6 @@ import api.getRecipeDataBase;
 import interface_adapter.Calories.CaloriesController;
 import interface_adapter.Random.RandomController;
 import usecase.Calories.CaloriesInteractor;
-import usecase.CuisineType.CuisineTypeInputBoundary;
-import usecase.CuisineType.CuisineTypeOutputBoundary;
 import interface_adapter.CuisineType.CuisineTypePresenter;
 import interface_adapter.Keyword.KeywordController;
 import interface_adapter.Keyword.KeywordPresenter;
@@ -14,6 +12,7 @@ import interface_adapter.CuisineType.CuisineTypeController;
 import usecase.DietLevel.DietLevelInteractor;
 import usecase.Keyword.KeywordInteractor;
 import usecase.CuisineType.CuisineTypeInteractor;
+import usecase.Random.RandomInteractor;
 import view.RecipeChoiceView;
 import view.MainFrame;
 
@@ -46,6 +45,4 @@ public class Main {
             mainFrame.setVisible(true);
         });
     }
-
-
 }

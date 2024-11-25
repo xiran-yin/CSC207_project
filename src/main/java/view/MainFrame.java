@@ -1,15 +1,14 @@
 package view;
 
 import interface_adapter.Calories.CalorieSearchView;
+import interface_adapter.Calories.CaloriesController;
 import interface_adapter.CuisineType.CuisineSearchView;
-import interface_adapter.DietLevel.DietSearchView;
+import interface_adapter.CuisineType.CuisineTypeController;
+import interface_adapter.Keyword.KeywordController;
 import interface_adapter.Keyword.KeywordSearchView;
-import usecase.Calories.CaloriesInputBoundary;
-import usecase.CuisineType.CuisineTypeInputBoundary;
+import interface_adapter.Random.RandomController;
 import usecase.DietLevel.DietLevelInputBoundary;
-import usecase.Keyword.KeywordInputBoundary;
 import usecase.Keyword.KeywordOutputBoundary;
-import usecase.Random.RandomInputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,10 +20,9 @@ public class MainFrame extends JFrame {
     public MainFrame(KeywordController keywordController,
                      CuisineTypeController cuisineTypeController,
                      DietLevelInputBoundary dietLevelInputBoundary,
-                     RecipeChoiceView recipeChoiceView) {
-                     KeywordOutputBoundary keywordOutputBoundary,
+                     RecipeChoiceView recipeChoiceView,
                      CaloriesController caloriesController,
-                     RandomController randomController) {
+                     RandomController randomController){
         setTitle("Recipe Finder");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,8 +40,8 @@ public class MainFrame extends JFrame {
         addView("KeywordSearchView", new KeywordSearchView(keywordController, this));
         addView("CuisineSearchView", new CuisineSearchView(cuisineTypeController, this));
         addView("RecipeChoiceView", recipeChoiceView);
-        addView("CalorieSearchView", new CalorieSearchView(caloriesController, this))
-        addView("RandomSearchView", new RandomSearchView(randomController, this))
+        addView("CalorieSearchView", new CalorieSearchView(this, caloriesController));
+        addView("RandomSearchView", new RandomSearchView(this, randomController));
 
         // Add main panel to the frame
         add(mainPanel, BorderLayout.CENTER);

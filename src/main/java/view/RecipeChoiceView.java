@@ -77,8 +77,8 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         this.dietRecipes = dietLevelOutputData.getRecipes();
         this.previousView = "DietSearchView"; // Set the previous view
         displayRecipes();
-
     }
+
     public void setKeywordRecipes(List<Recipe> recipes) {
         this.keywordRecipes = recipes;
         this.previousView = "KeywordSearchView";
@@ -89,6 +89,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         this.cuisineRecipes = recipes;
         this.previousView = "CuisineSearchView";
         System.out.println("Cuisine recipes set in recipeChoiceView: " + cuisineRecipes);
+    }
 
     public void presentRecipes(RandomOutputData randomOutputData) {
         this.randomRecipes = randomOutputData.getRecipes();
@@ -96,8 +97,13 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         displayRecipes();
     }
 
-    public void displayRecipes() {
+    public void presentRecipesCalories(CaloriesOutputData caloriesOutputData){
+        this.caloriesRecipes = caloriesOutputData.getRecipes();
+        this.previousView = "CalorieSearchView";
+        displayRecipes();
+    }
 
+    public void displayRecipes() {
         removeAll();
         JPanel backButtonPanel = new JPanel();
         backButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -155,8 +161,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         repaint(); // Redraw the panel
     }
 
-    public void setMainFrame(MainFrame mainFrame) {
-        this.mainFrame = mainFrame;
+    public void setMainFrame(MainFrame mainFrame){
+            this.mainFrame = mainFrame;
+        }
     }
-
-}
