@@ -1,6 +1,6 @@
 package app;
 
-import view.ViewManager;
+//import view.ViewManager;
 
 import javax.swing.*;
 import java.awt.*;
