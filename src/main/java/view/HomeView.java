@@ -22,7 +22,7 @@ public class HomeView extends JPanel {
         cuisineSearchButton.addActionListener(e -> mainFrame.showView("CuisineSearchView"));
         dietSearchButton.addActionListener(e -> mainFrame.showView("DietSearchView"));
         calorieSearchButton.addActionListener(e -> mainFrame.showView("CalorieSearchView"));
-        randomRecipeButton.addActionListener(e -> mainFrame.showView("RandomRecipeView"));
+        randomRecipeButton.addActionListener(e -> mainFrame.showView("RandomSearchView"));
 
 
         // Add buttons to the panel

@@ -1,17 +1,16 @@
 package view;
 
-import usecase.Random.RandomInputBoundary;
-import usecase.Random.RandomInputData;
+import interface_adapter.Random.RandomController;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class RandomRecipeView extends JPanel{
+public class RandomSearchView extends JPanel{
     private JPanel recipePanel;
     private JButton searchButton;
     private JButton backButton;
 
-    public RandomRecipeView(MainFrame mainFrame, RandomInputBoundary randomInputBoundary, JPanel cardPanel) {
+    public RandomSearchView(MainFrame mainFrame, RandomController randomController) {
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         JButton searchButton = new JButton("Randomly Search");
         JButton backButton = new JButton("Back");
@@ -31,7 +30,7 @@ public class RandomRecipeView extends JPanel{
         add(combinedPanel, BorderLayout.NORTH);
 
         searchButton.addActionListener(e ->  {
-            randomInputBoundary.searchRandomRecipe(new RandomInputData());
+            randomController.execute();
             RecipeChoiceView recipeChoiceView = (RecipeChoiceView) recipePanel;
             mainFrame.showView("RecipeChoiceView");
         });

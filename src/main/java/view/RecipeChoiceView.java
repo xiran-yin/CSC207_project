@@ -46,8 +46,8 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
                 mainFrame.showView("DietSearchView");
             }else if ("CalorieSearchView".equals(previousView)) {
                 mainFrame.showView("CalorieSearchView");
-            }else if ("RandomRecipeView".equals(previousView)) {
-                mainFrame.showView("RandomRecipeView");
+            }else if ("RandomSearchView".equals(previousView)) {
+                mainFrame.showView("RandomSearchView");
             }
             keywordRecipes = null;
             cuisineRecipes = null;
@@ -88,7 +88,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
 
     public void presentRecipes(RandomOutputData randomOutputData) {
         this.randomRecipes = randomOutputData.getRecipes();
-        this.previousView = "RandomRecipeView";
+        this.previousView = "RandomSearchView";
         displayRecipes();
     }
 

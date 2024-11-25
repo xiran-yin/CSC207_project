@@ -17,7 +17,7 @@ public class CalorieSearchView extends JPanel {
     private JButton searchButton;
     private JButton backButton;
 
-    public CalorieSearchView(MainFrame mainFrame, CaloriesInputBoundary caloriesInputBoundary, JPanel cardPanel) {
+    public CalorieSearchView(MainFrame mainFrame, CaloriesController caloriesController) {
         // Setup for the search bar
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         keywordField = new JTextField();
@@ -72,7 +72,7 @@ public class CalorieSearchView extends JPanel {
                     CaloriesRange caloriesRange = new CaloriesRange(minCal, maxCal);
 
                     if (!keyword.isEmpty()) {
-                        caloriesInputBoundary.searchCaloriesRecipes(new CaloriesInputData(keyword, caloriesRange));
+                        caloriesController.execute(keyword, caloriesRange);
                         RecipeChoiceView recipeChoiceView = (RecipeChoiceView) recipePanel;
                         // Switch to the RecipeChoiceView card
                         mainFrame.showView("RecipeChoiceView");

@@ -1,9 +1,11 @@
 package view;
 
 import interface_adapter.Calories.CalorieSearchView;
+import interface_adapter.Calories.CaloriesController;
 import interface_adapter.CuisineType.CuisineSearchView;
 import interface_adapter.DietLevel.DietSearchView;
 import interface_adapter.Keyword.KeywordSearchView;
+import interface_adapter.Random.RandomController;
 import usecase.Calories.CaloriesInputBoundary;
 import usecase.CuisineType.CuisineTypeInputBoundary;
 import usecase.DietLevel.DietLevelInputBoundary;
@@ -22,8 +24,8 @@ public class MainFrame extends JFrame {
                      CuisineTypeInputBoundary cuisineInputBoundary,
                      DietLevelInputBoundary dietLevelInputBoundary,
                      KeywordOutputBoundary keywordOutputBoundary,
-                     CaloriesInputBoundary caloriesInputBoundary,
-                     RandomInputBoundary randomInputBoundary) {
+                     CaloriesController caloriesController,
+                     RandomController randomController) {
         setTitle("Recipe Finder");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,8 +41,8 @@ public class MainFrame extends JFrame {
         KeywordSearchView keywordSearchView = new KeywordSearchView(this, keywordInputBoundary,recipePanel);
         CuisineSearchView cuisineSearchView = new CuisineSearchView(this, cuisineInputBoundary, recipePanel);
         DietSearchView dietSearchView = new DietSearchView(this, dietLevelInputBoundary, recipePanel);
-        CalorieSearchView calorieSearchView = new CalorieSearchView(this, caloriesInputBoundary, recipePanel);
-        RandomRecipeView randomRecipeView = new RandomRecipeView(this, randomInputBoundary, recipePanel);
+        CalorieSearchView calorieSearchView = new CalorieSearchView(this, caloriesController);
+        RandomSearchView randomSearchView = new RandomSearchView(this, randomController);
 
         // Add views to the main panel
         mainPanel.add(homeView, "HomeView");
@@ -49,7 +51,7 @@ public class MainFrame extends JFrame {
         mainPanel.add(recipePanel, "RecipeChoiceView");
         mainPanel.add(dietSearchView, "DietSearchView");
         mainPanel.add(calorieSearchView, "CalorieSearchView");
-        mainPanel.add(randomRecipeView, "RandomRecipeView");
+        mainPanel.add(randomSearchView, "RandomSearchView");
 
         // Add main panel to the frame
         add(mainPanel, BorderLayout.CENTER);
