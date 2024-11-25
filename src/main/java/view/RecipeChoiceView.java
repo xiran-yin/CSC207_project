@@ -91,6 +91,12 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         System.out.println("Cuisine recipes set in recipeChoiceView: " + cuisineRecipes);
     }
 
+    public void setDietRecipes(List<Recipe> recipes) {
+        this.dietRecipes = recipes;
+        this.previousView = "DietSearchView";
+        System.out.println("Diet recipes set in RecipeChoiceView: " + dietRecipes);
+    }
+
     public void presentRecipes(RandomOutputData randomOutputData) {
         this.randomRecipes = randomOutputData.getRecipes();
         this.previousView = "RandomSearchView";

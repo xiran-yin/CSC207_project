@@ -4,6 +4,7 @@ import api.RecipeDataBase;
 import api.getRecipeDataBase;
 import interface_adapter.Calories.CaloriesController;
 import interface_adapter.Calories.CaloriesPresenter;
+import interface_adapter.DietLevel.DietLevelController;
 import interface_adapter.Random.RandomController;
 import usecase.Calories.CaloriesInteractor;
 import interface_adapter.CuisineType.CuisineTypePresenter;
@@ -35,13 +36,14 @@ public class Main {
         CuisineTypeInteractor cuisineTypeInteractor = new CuisineTypeInteractor(recipeDataBase, cuisinePresenter);
         CuisineTypeController cuisineController = new CuisineTypeController(cuisineTypeInteractor);
 
-        DietLevelInteractor dietLevelInteractor = new DietLevelInteractor(recipeDataBase,recipeChoiceView);
+        DietLevelController dietLevelController = new DietLevelController(new DietLevelInteractor(recipeDataBase,recipeChoiceView));
         CaloriesController caloriesController = new CaloriesController(new CaloriesInteractor(recipeDataBase,recipeChoiceView));
         RandomController randomController = new RandomController(new RandomInteractor(recipeDataBase, recipeChoiceView));
 
         // Create the MainFrame and assign it to RecipeChoiceView
         SwingUtilities.invokeLater(() -> {
-            MainFrame mainFrame = new MainFrame(keywordController, cuisineController, dietLevelInteractor, recipeChoiceView, caloriesController, randomController);
+            MainFrame mainFrame = new MainFrame(keywordController, cuisineController,
+                    recipeChoiceView, caloriesController, randomController, dietLevelController);
             recipeChoiceView.setMainFrame(mainFrame); // Link the MainFrame to RecipeChoiceView
             mainFrame.setVisible(true);
         });
