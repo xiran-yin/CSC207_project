@@ -11,7 +11,7 @@ public class KeywordController {
         this.keywordUseCaseInteractor = keywordUseCaseInteractor;
     }
 
-    public void KeywordRecipes(String keyword) {
+    public void keywordRecipes(String keyword) {
         // Create input data for the use case
         KeywordInputData inputData = new KeywordInputData(keyword);
 

@@ -1,10 +1,6 @@
 package interface_adapter.Keyword;
 
-import usecase.Keyword.KeywordInputBoundary;
-import usecase.Keyword.KeywordInputData;
-import usecase.Keyword.KeywordOutputBoundary;
 import view.MainFrame;
-import view.RecipeChoiceView;
 
 import javax.swing.*;
 import java.awt.*;public class KeywordSearchView extends JPanel {
@@ -37,7 +33,7 @@ import java.awt.*;public class KeywordSearchView extends JPanel {
             String keyword = keywordField.getText().trim();
             if (!keyword.isEmpty()) {
                 try {
-                    controller.KeywordRecipes(keyword);
+                    controller.keywordRecipes(keyword);
                     mainFrame.showView("RecipeChoiceView");
 
                 } catch (IllegalArgumentException ex) {
