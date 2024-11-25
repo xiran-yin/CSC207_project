@@ -17,12 +17,13 @@ public class DietSearchView extends JPanel {
     private JButton searchButton;
     private JButton backButton;
     private JComboBox<String> dietComboBox;
+    private DietLevelController dietLevelController;
 
 
     private static final String[] DIET = {"","low-fat", "low-carb", "balanced", "high-fiber", "low-sodium", "high-protein"};
 
 
-    public DietSearchView(MainFrame mainFrame, DietLevelInputBoundary dietLevelInputBoundary, JPanel cardPanel) {
+    public DietSearchView(MainFrame mainFrame, DietLevelController dietLevelController, JPanel cardPanel) {
         setLayout(new BorderLayout());
 
         // Search bar setup
@@ -64,7 +65,8 @@ public class DietSearchView extends JPanel {
             String diet = (String) dietComboBox.getSelectedItem();
             if (!keyword.isEmpty()) {
                 try {
-                    dietLevelInputBoundary.searchDietLevelRecipe(new DietLevelInputData(keyword, diet));
+                    //dietLevelInputBoundary.searchDietLevelRecipe(new DietLevelInputData(keyword, diet));
+                    dietLevelController.searchDietLevelRecipe(keyword, diet);
                     RecipeChoiceView recipeChoiceView = (RecipeChoiceView) recipePanel;
                     // Switch to the RecipeChoiceView card
                     mainFrame.showView("RecipeChoiceView");

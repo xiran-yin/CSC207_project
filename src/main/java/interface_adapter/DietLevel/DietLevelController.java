@@ -10,7 +10,7 @@ public class DietLevelController {
         this.dietLevelInputBoundary = dietLevelInputBoundary;
     }
 
-    public void searchCuisineRecipe(String keyword, String dietlevel){
+    public void searchDietLevelRecipe(String keyword, String dietlevel){
         final DietLevelInputData dietLevelInputData = new DietLevelInputData(keyword, dietlevel);
         dietLevelInputBoundary.searchDietLevelRecipe(dietLevelInputData);
     }

@@ -2,6 +2,8 @@ package app;
 
 import api.RecipeDataBase;
 import api.getRecipeDataBase;
+import interface_adapter.DietLevel.DietLevelController;
+import interface_adapter.DietLevel.DietLevelPresenter;
 import usecase.CuisineType.CuisineTypeInputBoundary;
 import usecase.CuisineType.CuisineTypeOutputBoundary;
 import usecase.DietLevel.DietLevelInteractor;
@@ -27,10 +29,12 @@ public class Main {
         KeywordInteractor keywordInteractor = new KeywordInteractor(recipeDataBase, recipeChoiceView);
         CuisineTypeInteractor cuisineTypeInteractor = new CuisineTypeInteractor(recipeDataBase, recipeChoiceView);
         DietLevelInteractor dietLevelInteractor = new DietLevelInteractor(recipeDataBase,recipeChoiceView);
+        DietLevelController dietLevelController = new DietLevelController(dietLevelInteractor);
+        DietLevelPresenter dietLevelPresenter = new DietLevelPresenter(recipeChoiceView);
 
         // Create the MainFrame and assign it to RecipeChoiceView
         SwingUtilities.invokeLater(() -> {
-            MainFrame mainFrame = new MainFrame(keywordInteractor, cuisineTypeInteractor, dietLevelInteractor, recipeChoiceView);
+            MainFrame mainFrame = new MainFrame(keywordInteractor, cuisineTypeInteractor, dietLevelController, recipeChoiceView);
             recipeChoiceView.setMainFrame(mainFrame); // Link the MainFrame to RecipeChoiceView
             mainFrame.setVisible(true);
         });
