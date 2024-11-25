@@ -4,8 +4,6 @@ import entity.Recipe;
 import usecase.CuisineType.CuisineTypeOutputBoundary;
 import usecase.DietLevel.DietLevelOutputBoundary;
 import usecase.DietLevel.DietLevelOutputData;
-import usecase.Keyword.KeywordOutputBoundary;
-import usecase.Keyword.KeywordOutputData;
 import usecase.CuisineType.CuisineTypeOutputData;
 
 import javax.swing.*;
@@ -66,6 +64,12 @@ public class RecipeChoiceView extends JPanel implements CuisineTypeOutputBoundar
         this.keywordRecipes = recipes;
         this.previousView = "KeywordSearchView";
         System.out.println("Keyword recipes set in RecipeChoiceView: " + keywordRecipes);// Store recipes in the class for rendering
+    }
+
+    public void setCuisineRecipes(List<Recipe> recipes) {
+        this.cuisineRecipes = recipes;
+        this.previousView = "CuisineSearchView";
+        System.out.println("Cuisine recipes set in recipeChoiceView: " + cuisineRecipes);
     }
 
     public void displayRecipes() {

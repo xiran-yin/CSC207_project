@@ -1,17 +1,10 @@
 package view;
 
-import api.RecipeDataBase;
-import api.getRecipeDataBase;
 import interface_adapter.CuisineType.CuisineSearchView;
-import interface_adapter.DietLevel.DietSearchView;
+import interface_adapter.CuisineType.CuisineTypeController;
 import interface_adapter.Keyword.KeywordController;
-import interface_adapter.Keyword.KeywordPresenter;
 import interface_adapter.Keyword.KeywordSearchView;
-import usecase.CuisineType.CuisineTypeInputBoundary;
 import usecase.DietLevel.DietLevelInputBoundary;
-import usecase.Keyword.KeywordInputBoundary;
-import usecase.Keyword.KeywordInteractor;
-import usecase.Keyword.KeywordOutputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +14,7 @@ public class MainFrame extends JFrame {
     private CardLayout cardLayout;
 
     public MainFrame(KeywordController keywordController,
-                     CuisineTypeInputBoundary cuisineInputBoundary,
+                     CuisineTypeController cuisineTypeController,
                      DietLevelInputBoundary dietLevelInputBoundary,
                      RecipeChoiceView recipeChoiceView) {
         setTitle("Recipe Finder");
@@ -35,15 +28,12 @@ public class MainFrame extends JFrame {
 
         // Create and add views
         HomeView homeView = new HomeView(this); // Home view
-//        RecipeChoiceView recipePanel = (RecipeChoiceView) keywordOutputBoundary;
-//        CuisineSearchView cuisineSearchView = new CuisineSearchView(this, cuisineInputBoundary, recipePanel);
-//        DietSearchView dietSearchView = new DietSearchView(this, dietLevelInputBoundary, recipePanel);
 
         // Add views to the main panel
         mainPanel.add(homeView, "HomeView");
         addView("KeywordSearchView", new KeywordSearchView(keywordController, this));
-//        mainPanel.add(cuisineSearchView, "CuisineSearchView");
-        addView("RecipeChoiceView", recipeChoiceView);//        mainPanel.add(dietSearchView, "DietSearchView");
+        addView("CuisineSearchView", new CuisineSearchView(cuisineTypeController, this));
+        addView("RecipeChoiceView", recipeChoiceView);
 
         // Add main panel to the frame
         add(mainPanel, BorderLayout.CENTER);
