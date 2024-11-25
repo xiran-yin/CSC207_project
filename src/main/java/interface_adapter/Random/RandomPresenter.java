@@ -5,7 +5,6 @@ import usecase.Random.RandomOutputBoundary;
 import usecase.Random.RandomOutputData;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RandomPresenter implements RandomOutputBoundary {
     private final RandomViewModel randomViewModel;

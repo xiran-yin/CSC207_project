@@ -8,7 +8,6 @@ import interface_adapter.Keyword.KeywordController;
 import interface_adapter.Keyword.KeywordSearchView;
 import interface_adapter.Random.RandomController;
 import usecase.DietLevel.DietLevelInputBoundary;
-import usecase.Keyword.KeywordOutputBoundary;
 
 import javax.swing.*;
 import java.awt.*;
