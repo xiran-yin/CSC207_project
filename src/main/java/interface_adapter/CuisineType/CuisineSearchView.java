@@ -1,11 +1,6 @@
 package interface_adapter.CuisineType;
 
-import usecase.CuisineType.CuisineTypeInputBoundary;
-import usecase.CuisineType.CuisineTypeInputData;
-import usecase.Keyword.KeywordInputBoundary;
-import usecase.Keyword.KeywordInputData;
 import view.MainFrame;
-import view.RecipeChoiceView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +17,7 @@ public class CuisineSearchView extends JPanel{
             "Eastern Europe", "French", "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
             "Middle Eastern", "Nordic", "South American", "South East Asian"};
 
-    public CuisineSearchView(MainFrame mainFrame, CuisineTypeInputBoundary cuisineTypeInputBoundary, JPanel cardPanel) {
+    public CuisineSearchView(CuisineTypeController cuisineController, MainFrame mainFrame) {
         setLayout(new BorderLayout());
 
         // Search bar setup
@@ -64,9 +59,7 @@ public class CuisineSearchView extends JPanel{
             String cuisine = (String) cuisineComboBox.getSelectedItem();
             if (!keyword.isEmpty()) {
                 try {
-                    cuisineTypeInputBoundary.searchCuisineRecipe(new CuisineTypeInputData(keyword, cuisine));
-                    RecipeChoiceView recipeChoiceView = (RecipeChoiceView) recipePanel;
-                    // Switch to the RecipeChoiceView card
+                    cuisineController.cuisineRecipes(keyword, cuisine);
                     mainFrame.showView("RecipeChoiceView");
                 } catch (IllegalArgumentException ex) {
                     JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");

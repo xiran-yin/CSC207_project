@@ -1,31 +1,25 @@
 package view;
 
 import entity.Recipe;
-import usecase.Calories.CaloriesOutputBoundary;
-import usecase.Calories.CaloriesOutputData;
 import usecase.CuisineType.CuisineTypeOutputBoundary;
 import usecase.DietLevel.DietLevelOutputBoundary;
 import usecase.DietLevel.DietLevelOutputData;
-import usecase.Keyword.KeywordOutputBoundary;
-import usecase.Keyword.KeywordOutputData;
 import usecase.CuisineType.CuisineTypeOutputData;
-import usecase.Random.RandomOutputBoundary;
-import usecase.Random.RandomOutputData;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary, CaloriesOutputBoundary, RandomOutputBoundary {
+public class RecipeChoiceView extends JPanel implements CuisineTypeOutputBoundary, DietLevelOutputBoundary {
+
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
     private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
     private List<Recipe> dietRecipes;
-    private List<Recipe> caloriesRecipes;
-    private List<Recipe> randomRecipes;
     private MainFrame mainFrame;         // Reference to MainFrame for navigation
     private JButton backButton;
     private String previousView;
+
 
     public RecipeChoiceView(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -44,27 +38,14 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
                 mainFrame.showView("CuisineSearchView");
             } else if ("DietSearchView".equals(previousView)) {
                 mainFrame.showView("DietSearchView");
-            }else if ("CalorieSearchView".equals(previousView)) {
-                mainFrame.showView("CalorieSearchView");
-            }else if ("RandomRecipeView".equals(previousView)) {
-                mainFrame.showView("RandomRecipeView");
             }
             keywordRecipes = null;
             cuisineRecipes = null;
             dietRecipes = null;
-            caloriesRecipes = null;
-            randomRecipes = null;
         });
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);
         add(buttonPanel, BorderLayout.NORTH);
-    }
-
-    public void presentRecipesKeyword(KeywordOutputData keywordOutputData) {
-        System.out.println("Presenting recipes in RecipeChoiceView");
-        this.keywordRecipes = keywordOutputData.getRecipes();
-        this.previousView = "KeywordSearchView"; // Set the previous view
-        displayRecipes();
     }
 
     public void presentRecipesCuisine(CuisineTypeOutputData cuisineOutputData) {
@@ -79,17 +60,16 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         displayRecipes();
 
     }
-
-    public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
-        this.caloriesRecipes = caloriesOutputData.getRecipes();
-        this.previousView = "CalorieSearchView";
-        displayRecipes();
+    public void setKeywordRecipes(List<Recipe> recipes) {
+        this.keywordRecipes = recipes;
+        this.previousView = "KeywordSearchView";
+        System.out.println("Keyword recipes set in RecipeChoiceView: " + keywordRecipes);// Store recipes in the class for rendering
     }
 
-    public void presentRecipes(RandomOutputData randomOutputData) {
-        this.randomRecipes = randomOutputData.getRecipes();
-        this.previousView = "RandomRecipeView";
-        displayRecipes();
+    public void setCuisineRecipes(List<Recipe> recipes) {
+        this.cuisineRecipes = recipes;
+        this.previousView = "CuisineSearchView";
+        System.out.println("Cuisine recipes set in recipeChoiceView: " + cuisineRecipes);
     }
 
     public void displayRecipes() {
@@ -107,8 +87,6 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         if (keywordRecipes != null) {allRecipes.addAll(keywordRecipes); }
         if (cuisineRecipes != null) {allRecipes.addAll(cuisineRecipes); }
         if (dietRecipes != null) {allRecipes.addAll(dietRecipes); }
-        if (caloriesRecipes != null) {allRecipes.addAll(caloriesRecipes); }
-        if (randomRecipes != null) {allRecipes.addAll(randomRecipes); }
         if (allRecipes.isEmpty()) {
             System.out.println("No recipes to display.");
             JOptionPane.showMessageDialog(this, "No recipes found.");
