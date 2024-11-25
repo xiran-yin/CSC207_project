@@ -8,16 +8,16 @@ import view.RecipeChoiceView;
 import java.util.List;
 
 public class KeywordPresenter implements KeywordOutputBoundary {
-    private final RecipeChoiceView recipeChoiceView;
+    private final KeywordViewModel keywordViewModel;
 
-    public KeywordPresenter(RecipeChoiceView recipeChoiceView) {
-        this.recipeChoiceView = recipeChoiceView;
+    public KeywordPresenter(KeywordViewModel keywordViewModel) {
+        this.keywordViewModel = keywordViewModel;
     }
     @Override
     public void presentRecipesKeyword(KeywordOutputData keywordOutputData) {
         List<Recipe> recipes = keywordOutputData.getRecipes();
-        recipeChoiceView.setKeywordRecipes(recipes);
-        recipeChoiceView.displayRecipes();
+        keywordViewModel.setRecipeNames(recipes);
+        keywordViewModel.setLoading(false);
 
     }
 }

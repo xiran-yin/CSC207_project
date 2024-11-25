@@ -9,16 +9,16 @@ import java.util.List;
 
 public class DietLevelPresenter implements DietLevelOutputBoundary {
 
-    private final RecipeChoiceView recipeChoiceView;
+    private final DietViewModel dietViewModel;
 
-    public DietLevelPresenter(RecipeChoiceView recipeChoiceView) {
-        this.recipeChoiceView = recipeChoiceView;
+    public DietLevelPresenter(DietViewModel dietViewModel) {
+        this.dietViewModel = dietViewModel;
     }
 
     @Override
     public void presentRecipesDiet(DietLevelOutputData dietLevelOutputData){
         List<Recipe> recipe = dietLevelOutputData.getRecipes();
-        recipeChoiceView.setDietRecipes(recipe);
-        recipeChoiceView.displayRecipes();
+        dietViewModel.setRecipeNames(recipe);
+        dietViewModel.setLoading(false);
     }
 }

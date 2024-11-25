@@ -28,15 +28,10 @@ public class Main {
         // Create a temporary placeholder for RecipeChoiceView
         RecipeChoiceView recipeChoiceView = new RecipeChoiceView(null);
 
-        KeywordPresenter keywordPresenter = new KeywordPresenter(recipeChoiceView);
-        KeywordInteractor keywordInteractor = new KeywordInteractor(recipeDataBase, keywordPresenter);
-        KeywordController keywordController = new KeywordController(keywordInteractor);
-
-        CuisineTypePresenter cuisinePresenter = new CuisineTypePresenter(recipeChoiceView);
-        CuisineTypeInteractor cuisineTypeInteractor = new CuisineTypeInteractor(recipeDataBase, cuisinePresenter);
-        CuisineTypeController cuisineController = new CuisineTypeController(cuisineTypeInteractor);
-
+        KeywordController keywordController = new KeywordController(new KeywordInteractor(recipeDataBase, recipeChoiceView));
         DietLevelController dietLevelController = new DietLevelController(new DietLevelInteractor(recipeDataBase,recipeChoiceView));
+        CuisineTypeController cuisineController = new CuisineTypeController(new CuisineTypeInteractor(recipeDataBase, recipeChoiceView));
+
         CaloriesController caloriesController = new CaloriesController(new CaloriesInteractor(recipeDataBase,recipeChoiceView));
         RandomController randomController = new RandomController(new RandomInteractor(recipeDataBase, recipeChoiceView));
 

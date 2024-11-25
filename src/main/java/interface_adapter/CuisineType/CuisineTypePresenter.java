@@ -8,16 +8,16 @@ import view.RecipeChoiceView;
 import java.util.List;
 
 public class CuisineTypePresenter implements CuisineTypeOutputBoundary {
-    private final RecipeChoiceView recipeChoiceView;
+    private final CuisineViewModel cuisineViewModel;
 
-    public CuisineTypePresenter(RecipeChoiceView recipeChoiceView) {
-        this.recipeChoiceView = recipeChoiceView;
+    public CuisineTypePresenter(CuisineViewModel cuisineViewModel) {
+        this.cuisineViewModel = cuisineViewModel;
     }
 
     @Override
     public void presentRecipesCuisine(CuisineTypeOutputData cuisineTypeOutputData) {
         List<Recipe> recipes = cuisineTypeOutputData.getRecipes();
-        recipeChoiceView.setCuisineRecipes(recipes);
-        recipeChoiceView.displayRecipes();
+        cuisineViewModel.setRecipeNames(recipes);
+        cuisineViewModel.setLoading(false);
     }
 }
