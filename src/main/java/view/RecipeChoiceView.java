@@ -77,7 +77,11 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         this.dietRecipes = dietLevelOutputData.getRecipes();
         this.previousView = "DietSearchView"; // Set the previous view
         displayRecipes();
+    }
 
+    public void setDietRecipes(List<Recipe> dietRecipes) {
+        this.dietRecipes = dietRecipes;
+        this.previousView = "DietSearchView";
     }
 
     public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
