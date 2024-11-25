@@ -23,7 +23,6 @@ public class MainFrame extends JFrame {
 
     public MainFrame(KeywordInputBoundary keywordInputBoundary,
                      CuisineTypeInputBoundary cuisineInputBoundary,
-                     DietLevelInputBoundary dietLevelInputBoundary,
                      KeywordOutputBoundary keywordOutputBoundary,
                      CaloriesController caloriesController,
                      RandomController randomController,
