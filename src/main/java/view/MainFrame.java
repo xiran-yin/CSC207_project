@@ -3,6 +3,7 @@ package view;
 import interface_adapter.Calories.CalorieSearchView;
 import interface_adapter.Calories.CaloriesController;
 import interface_adapter.CuisineType.CuisineSearchView;
+import interface_adapter.DietLevel.DietLevelController;
 import interface_adapter.DietLevel.DietSearchView;
 import interface_adapter.Keyword.KeywordSearchView;
 import interface_adapter.Random.RandomController;
@@ -25,7 +26,8 @@ public class MainFrame extends JFrame {
                      DietLevelInputBoundary dietLevelInputBoundary,
                      KeywordOutputBoundary keywordOutputBoundary,
                      CaloriesController caloriesController,
-                     RandomController randomController) {
+                     RandomController randomController,
+                     DietLevelController dietLevelController) {
         setTitle("Recipe Finder");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,7 +42,7 @@ public class MainFrame extends JFrame {
         RecipeChoiceView recipePanel = (RecipeChoiceView) keywordOutputBoundary;
         KeywordSearchView keywordSearchView = new KeywordSearchView(this, keywordInputBoundary,recipePanel);
         CuisineSearchView cuisineSearchView = new CuisineSearchView(this, cuisineInputBoundary, recipePanel);
-        DietSearchView dietSearchView = new DietSearchView(this, dietLevelInputBoundary, recipePanel);
+        DietSearchView dietSearchView = new DietSearchView(this, dietLevelController);
         CalorieSearchView calorieSearchView = new CalorieSearchView(this, caloriesController);
         RandomSearchView randomSearchView = new RandomSearchView(this, randomController);
 

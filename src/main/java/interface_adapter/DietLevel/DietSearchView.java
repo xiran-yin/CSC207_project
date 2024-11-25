@@ -21,7 +21,7 @@ public class DietSearchView extends JPanel {
     private static final String[] DIET = {"","low-fat", "low-carb", "balanced", "high-fiber", "low-sodium", "high-protein"};
 
 
-    public DietSearchView(MainFrame mainFrame, DietLevelController dietLevelController, JPanel cardPanel) {
+    public DietSearchView(MainFrame mainFrame, DietLevelController dietLevelController) {
         setLayout(new BorderLayout());
 
         // Search bar setup
