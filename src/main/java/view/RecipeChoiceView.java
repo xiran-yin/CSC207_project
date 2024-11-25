@@ -58,7 +58,11 @@ public class RecipeChoiceView extends JPanel implements CuisineTypeOutputBoundar
         this.dietRecipes = dietLevelOutputData.getRecipes();
         this.previousView = "DietSearchView"; // Set the previous view
         displayRecipes();
+    }
 
+    public void setDietRecipes(List<Recipe> dietRecipes) {
+        this.dietRecipes = dietRecipes;
+        this.previousView = "DietSearchView";
     }
     public void setKeywordRecipes(List<Recipe> recipes) {
         this.keywordRecipes = recipes;
