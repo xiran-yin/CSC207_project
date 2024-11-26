@@ -13,14 +13,16 @@ public class RandomSearchView extends JPanel{
     public RandomSearchView(MainFrame mainFrame, RandomController randomController) {
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         JButton searchButton = new JButton("Randomly Search");
+        searchButton.setPreferredSize(new Dimension(100, 50));
         JButton backButton = new JButton("Back");
+        backButton.setPreferredSize(new Dimension(100, 50));
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 10, 0));
+        JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
 
         searchPanel.add(buttonPanel, BorderLayout.CENTER);
-        searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding around search panel
+        searchPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10)); // Padding around search panel
 
         JPanel combinedPanel = new JPanel();
         combinedPanel.setLayout(new BoxLayout(combinedPanel, BoxLayout.Y_AXIS));
