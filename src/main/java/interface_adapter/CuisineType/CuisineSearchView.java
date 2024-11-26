@@ -38,7 +38,7 @@ public class CuisineSearchView extends JPanel{
         // Cuisine Panel
         JPanel cuisinePanel = new JPanel(new BorderLayout());
         cuisineComboBox = new JComboBox<>(CUISINES);
-        cuisineComboBox.setPreferredSize(new Dimension(200, 40));
+        cuisineComboBox.setPreferredSize(new Dimension(200, 80));
         cuisineComboBox.setFont(new Font("Arial", Font.PLAIN, 16));
         cuisineComboBox.setBorder(BorderFactory.createTitledBorder("Select Cuisine"));
         cuisinePanel.add(cuisineComboBox, BorderLayout.CENTER);
