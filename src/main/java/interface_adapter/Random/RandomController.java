@@ -15,7 +15,6 @@ public class RandomController {
      */
     public void execute() {
         final RandomInputData randomInputData = new RandomInputData();
-
         randomInteractor.searchRandomRecipe(randomInputData);
     }
 }

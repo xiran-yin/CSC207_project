@@ -31,12 +31,19 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         this.mainFrame = mainFrame;
         initializeUI();}
 
+
     private void initializeUI() {
 
         setLayout(new BorderLayout());
+        setBackground(new Color(255, 255, 238));
 
         // Back Button
         backButton = new JButton("Back");
+        backButton.setOpaque(true);
+        backButton.setBackground(new Color(190,232,95));
+        backButton.setBorderPainted(false);
+        backButton.setForeground(Color.WHITE);
+        backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
         backButton.addActionListener(e -> {
             if ("KeywordSearchView".equals(previousView)) {
                 mainFrame.showView("KeywordSearchView");
