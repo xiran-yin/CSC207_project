@@ -28,6 +28,9 @@ public class RandomInputData {
                 "Water", "Tea", "Coffee", "Juice", "Milkshake", "Soda", "Soy Sauce", "Vinegar", "Mustard",
                 "Mayonnaise", "Ketchup", "Chocolate", "Bread", "Tofu", "Pickles"
         };
+
+        String[] dietLabels = {"low-carb", "low-fat", "balanced", "high-fiber", "low-sodium", "high-protein"};
+        String[] randomDiet = {dietLabels[random.nextInt(dietLabels.length)]};
         this.keyword = keywords[random.nextInt(keywords.length)];
 
         // Randomly decide whether to apply a filter and which one
@@ -35,8 +38,9 @@ public class RandomInputData {
         String selectedFilter = filters[random.nextInt(filters.length)];
 
         if ("Diet".equals(selectedFilter)) {
-            Diet.DietLabels[] dietLabels = Diet.DietLabels.values();
-            this.dietLevel = new Diet(new String[]{dietLabels[random.nextInt(dietLabels.length)].name()});
+//            Diet.DietLabels[] dietLabels = Diet.DietLabels.values();
+//            new String[]{dietLabels[random.nextInt(dietLabels.length)].name()}
+            this.dietLevel = new Diet(randomDiet);
             this.cuisineType = null;
             this.caloriesRange = null;
             this.filter = "Diet";
