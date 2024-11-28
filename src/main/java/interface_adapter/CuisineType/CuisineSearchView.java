@@ -23,22 +23,22 @@ public class CuisineSearchView extends JPanel{
         // Search bar setup
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         keywordField = new JTextField();
-        keywordField.setPreferredSize(new Dimension(400, 30));
+        keywordField.setPreferredSize(new Dimension(250, 30));
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 10, 0));
+        JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
 
         searchPanel.add(keywordField, BorderLayout.CENTER);
         searchPanel.add(buttonPanel, BorderLayout.EAST);
-        searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Padding around search panel
+        searchPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10)); // Padding around search panel
 
         // Cuisine Panel
         JPanel cuisinePanel = new JPanel(new BorderLayout());
         cuisineComboBox = new JComboBox<>(CUISINES);
-        cuisineComboBox.setPreferredSize(new Dimension(200, 40));
+        cuisineComboBox.setPreferredSize(new Dimension(200, 80));
         cuisineComboBox.setFont(new Font("Arial", Font.PLAIN, 16));
         cuisineComboBox.setBorder(BorderFactory.createTitledBorder("Select Cuisine"));
         cuisinePanel.add(cuisineComboBox, BorderLayout.CENTER);

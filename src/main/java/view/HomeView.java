@@ -10,6 +10,7 @@ public class HomeView extends JPanel {
         this.mainFrame = mainFrame;
 //        setLayout(new GridLayout(5, 1, 10, 10)); // 5 buttons in a vertical layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setBackground(Color.WHITE);
 
         JButton randomRecipeButton = createStyledButton("Random Recipe");
         JButton keywordSearchButton = createStyledButton("Search by Keyword");
@@ -50,8 +51,16 @@ public class HomeView extends JPanel {
 
         // Style the button
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setPreferredSize(new Dimension(200, 40)); // Button size
-        button.setMaximumSize(new Dimension(200, 40)); // Prevents resizing
+        button.setBackground(Color.PINK);
+        button.setPreferredSize(new Dimension(400, 65)); // Button size
+        button.setMaximumSize(new Dimension(400, 65)); // Prevents resizing
+
+        // Set background and word color
+        button.setOpaque(true);
+        button.setBackground(new Color(102,204,0));
+        button.setBorderPainted(false);
+        button.setForeground(Color.WHITE);
+        button.setFont(new Font("Arial", Font.BOLD, 20));
 
         // Add action listener to navigate to views
         return button;

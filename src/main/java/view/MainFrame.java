@@ -29,9 +29,13 @@ public class MainFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
+
         // Initialize CardLayout and Main Panel
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
+
+        // Set the background color.
+        setBackground(new Color(102,204,0));
 
         // Create and add views
         HomeView homeView = new HomeView(this); // Home view

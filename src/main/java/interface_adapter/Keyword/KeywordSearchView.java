@@ -18,13 +18,14 @@ import java.awt.*;public class KeywordSearchView extends JPanel {
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2, 10, 0));
+        JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
 
         JPanel searchBarPanel = new JPanel(new BorderLayout());
         searchBarPanel.add(keywordField, BorderLayout.CENTER);
         searchBarPanel.add(buttonPanel, BorderLayout.EAST);
+        searchBarPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
 
         add(searchBarPanel, BorderLayout.NORTH);
 
