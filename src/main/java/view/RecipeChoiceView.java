@@ -1,16 +1,17 @@
 package view;
 
+import app.MainFrame;
 import entity.Recipe;
-import usecase.Calories.CaloriesOutputBoundary;
-import usecase.Calories.CaloriesOutputData;
-import usecase.CuisineType.CuisineTypeOutputBoundary;
-import usecase.DietLevel.DietLevelOutputBoundary;
-import usecase.DietLevel.DietLevelOutputData;
-import usecase.Keyword.KeywordOutputBoundary;
-import usecase.Keyword.KeywordOutputData;
-import usecase.CuisineType.CuisineTypeOutputData;
-import usecase.Random.RandomOutputBoundary;
-import usecase.Random.RandomOutputData;
+import usecase.calories.CaloriesOutputBoundary;
+import usecase.calories.CaloriesOutputData;
+import usecase.cuisine_type.CuisineTypeOutputBoundary;
+import usecase.diet_level.DietLevelOutputBoundary;
+import usecase.diet_level.DietLevelOutputData;
+import usecase.keyword.KeywordOutputBoundary;
+import usecase.keyword.KeywordOutputData;
+import usecase.cuisine_type.CuisineTypeOutputData;
+import usecase.random.RandomOutputBoundary;
+import usecase.random.RandomOutputData;
 
 import javax.swing.*;
 import java.awt.*;

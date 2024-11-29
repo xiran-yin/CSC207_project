@@ -5,10 +5,10 @@ import entity.Cuisine;
 import entity.Recipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import usecase.Keyword.KeywordInputData;
-import usecase.Keyword.KeywordInteractor;
-import usecase.Keyword.KeywordOutputBoundary;
-import usecase.Keyword.KeywordOutputData;
+import usecase.keyword.KeywordInputData;
+import usecase.keyword.KeywordInteractor;
+import usecase.keyword.KeywordOutputBoundary;
+import usecase.keyword.KeywordOutputData;
 
 
 import java.io.IOException;
