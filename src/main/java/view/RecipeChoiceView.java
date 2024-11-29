@@ -35,12 +35,12 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
     private void initializeUI() {
 
         setLayout(new BorderLayout());
-        setBackground(new Color(255, 255, 238));
+        setBackground(new Color(249, 249, 232));
 
         // Back Button
         backButton = new JButton("Back");
         backButton.setOpaque(true);
-        backButton.setBackground(new Color(190,232,95));
+        backButton.setBackground(new Color(185,224,84));
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
@@ -64,6 +64,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         });
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);
+        buttonPanel.setBackground(new Color(249, 249, 232));
         add(buttonPanel, BorderLayout.NORTH);
     }
 
@@ -121,9 +122,11 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         JPanel backButtonPanel = new JPanel();
         backButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         backButtonPanel.add(backButton, BorderLayout.NORTH);
+        backButtonPanel.setBackground(new Color(249, 249, 232));
         add(backButtonPanel, BorderLayout.NORTH);
 
         JPanel recipesPanel = new JPanel();
+        recipesPanel.setBackground(new Color(249, 249, 232));
         recipesPanel.setLayout(new GridLayout(0, 3, 10, 10)); // 3 columns, dynamic rows
 
         List<Recipe> allRecipes = new ArrayList<>();
@@ -140,14 +143,19 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
             for (Recipe recipe : allRecipes) {
                 System.out.println("Displaying recipe: " + recipe);
                 JPanel recipeCard = new JPanel();
+
+                recipeCard.setBackground(new Color(249, 249, 232));
                 recipeCard.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
                 recipeCard.setLayout(new BorderLayout());
                 // Recipe Label
                 JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
                 recipeCard.add(recipeLabel, BorderLayout.CENTER);
 
+                recipeLabel.setBackground(new Color(185,224,84));
 
                 JButton ingredientButton = new JButton("Ingredient");
+                ingredientButton.setBackground(new Color(185,224,84));
                 ingredientButton.addActionListener(e -> {
                     String[] ingredients = recipe.getIngredients();
                     String ingredientList = String.join("\n", ingredients);

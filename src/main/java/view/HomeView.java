@@ -10,7 +10,8 @@ public class HomeView extends JPanel {
         this.mainFrame = mainFrame;
 //        setLayout(new GridLayout(5, 1, 10, 10)); // 5 buttons in a vertical layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBackground(new Color(255, 255, 238));
+//        setBackground(new Color(255, 245, 238));
+        setBackground(new Color(249, 249, 232));
 
         JButton randomRecipeButton = createStyledButton("Random Recipe");
         JButton keywordSearchButton = createStyledButton("Search by Keyword");
@@ -57,7 +58,8 @@ public class HomeView extends JPanel {
 
         // Set background and word color
         button.setOpaque(true);
-        button.setBackground(new Color(190,232,95));
+        button.setBackground(new Color(185,224,84));
+//        button.setBackground(new Color(247, 185, 195));
         button.setBorderPainted(false);
         button.setForeground(Color.WHITE);
         button.setFont(new Font("Comic Sans MS", Font.BOLD, 20));

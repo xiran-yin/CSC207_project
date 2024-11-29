@@ -18,42 +18,61 @@ public class CalorieSearchView extends JPanel {
     private JButton backButton;
 
     public CalorieSearchView(MainFrame mainFrame, CaloriesController caloriesController) {
-        // Setup for the search bar
+        setBackground(new Color(249, 249, 232));
+
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         keywordField = new JTextField();
         keywordField.setPreferredSize(new Dimension(250, 30));
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 
+        searchButton.setOpaque(true);
+        searchButton.setBackground(new Color(185,224,84));
+        searchButton.setBorderPainted(false);
+        searchButton.setForeground(Color.WHITE);
+        searchButton.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        searchButton.setPreferredSize(new Dimension(80, 30));
+
+        backButton.setOpaque(true);
+        backButton.setBackground(new Color(185,224,84));
+        backButton.setBorderPainted(false);
+        backButton.setForeground(Color.white);
+        backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        backButton.setPreferredSize(new Dimension(80, 30));
+
         JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
+        buttonPanel.setBackground(new Color(249, 249, 232));
 
         searchPanel.add(keywordField, BorderLayout.CENTER);
         searchPanel.add(buttonPanel, BorderLayout.EAST);
         searchPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10)); // Padding around search panel
+        searchPanel.setBackground(new Color(249, 249, 232));
 
         // Setup for the calories input panel
         JPanel caloriePanel = new JPanel(new GridLayout(1, 2, 10, 10)); // GridLayout for min and max calories input
         minCaloriesField = new JTextField();
         minCaloriesField.setPreferredSize(new Dimension(100, 40));
-        minCaloriesField.setFont(new Font("Arial", Font.PLAIN, 16));
+        minCaloriesField.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
         minCaloriesField.setBorder(BorderFactory.createTitledBorder("Minimum Calories"));
 
         maxCaloriesField = new JTextField();
         maxCaloriesField.setPreferredSize(new Dimension(100, 40));
-        maxCaloriesField.setFont(new Font("Arial", Font.PLAIN, 16));
+        maxCaloriesField.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
         maxCaloriesField.setBorder(BorderFactory.createTitledBorder("Maximum Calories"));
 
         // Add both fields to the caloriePanel
         caloriePanel.add(minCaloriesField);
         caloriePanel.add(maxCaloriesField);
+        caloriePanel.setBackground(new Color(249, 249, 232));
 
         // Combine searchPanel and caloriePanel into a single panel
         JPanel combinedPanel = new JPanel();
         combinedPanel.setLayout(new BoxLayout(combinedPanel, BoxLayout.Y_AXIS));
         combinedPanel.add(searchPanel);
         combinedPanel.add(caloriePanel);
+        caloriePanel.setBackground(new Color(249, 249, 232));
 
         // Add combined panel to the main layout
         setLayout(new BorderLayout());
