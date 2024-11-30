@@ -29,7 +29,7 @@ public class RandomInputData {
             "Butter", "Ghee", "Lard", "Almonds", "Peanuts", "Cashews", "Walnuts", "Chia Seeds", "Flaxseeds",
             "Sunflower Seeds", "Sesame Seeds", "Sugar", "Honey", "Maple Syrup", "Brown Sugar", "Molasses",
             "Water", "Tea", "Coffee", "Juice", "Milkshake", "Soda", "Soy Sauce", "Vinegar", "Mustard",
-            "Mayonnaise", "Ketchup", "Chocolate", "Bread", "Tofu", "Pickles"
+            "Mayonnaise", "Ketchup", "Chocolate", "Bread", "Tofu", "Pickles",
         };
 
         final String[] dietLabels = {"low-carb", "low-fat", "balanced", "high-fiber", "low-sodium", "high-protein"};

@@ -30,6 +30,13 @@ public class Diet {
 
     @Override
     public String toString() {
-        return String.join(", ", dietLabels);
+        final String result;
+        if (dietLabels == null || dietLabels.length == 0) {
+            result = null;
+        }
+        else {
+            result = String.join(", ", dietLabels);
+        }
+        return result;
     }
 }

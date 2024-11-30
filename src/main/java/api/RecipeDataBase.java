@@ -1,13 +1,11 @@
 package api;
-
+import java.io.IOException;
+import java.util.List;
 import entity.Cuisine;
 import entity.Diet;
 import entity.Recipe;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.List;
 
 public interface RecipeDataBase {
 
