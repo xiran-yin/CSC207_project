@@ -11,12 +11,12 @@ import entity.Recipe;
  * The Random Search Interactor.
  */
 public class RandomInteractor implements RandomInputBoundary {
+    private RandomOutputBoundary randomPresenter;
     private final RecipeDataBase recipeDataBase;
-    private final RandomOutputBoundary randomOutputBoundary;
 
-    public RandomInteractor(RecipeDataBase recipeDataBase, RandomOutputBoundary randomOutputBoundary) {
+    public RandomInteractor(RandomOutputBoundary randomOutputBoundary, RecipeDataBase recipeDataBase) {
+        this.randomPresenter = randomOutputBoundary;
         this.recipeDataBase = recipeDataBase;
-        this.randomOutputBoundary = randomOutputBoundary;
     }
 
     @Override
@@ -48,12 +48,11 @@ public class RandomInteractor implements RandomInputBoundary {
                     null, 0, 0);
             }
 
-            final RandomOutputData randomOutputData = new RandomOutputData(recipes);
-            randomOutputBoundary.presentRecipes(randomOutputData);
+            randomPresenter.presentRecipes(new RandomOutputData(recipes));
         }
         catch (IOException ex) {
             ex.printStackTrace();
-            randomOutputBoundary.presentRecipes(new RandomOutputData(Collections.emptyList()));
+            randomPresenter.presentRecipes(new RandomOutputData(Collections.emptyList()));
         }
     }
 }

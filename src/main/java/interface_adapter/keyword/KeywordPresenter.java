@@ -1,8 +1,5 @@
 package interface_adapter.keyword;
 
-import java.util.List;
-
-import entity.Recipe;
 import usecase.keyword.KeywordOutputBoundary;
 import usecase.keyword.KeywordOutputData;
 
@@ -18,9 +15,5 @@ public class KeywordPresenter implements KeywordOutputBoundary {
 
     @Override
     public void presentRecipesKeyword(KeywordOutputData keywordOutputData) {
-        final List<Recipe> recipes = keywordOutputData.getRecipes();
-        keywordViewModel.setRecipeNames(recipes);
-        keywordViewModel.setLoading(false);
-
     }
 }

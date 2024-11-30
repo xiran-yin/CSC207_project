@@ -12,11 +12,11 @@ import entity.Recipe;
  */
 public class KeywordInteractor implements KeywordInputBoundary {
     private final RecipeDataBase recipeDataBase;
-    private final KeywordOutputBoundary keywordOutputBoundary;
+    private final KeywordOutputBoundary keywordPresenter;
 
-    public KeywordInteractor(RecipeDataBase recipeDataBase, KeywordOutputBoundary keywordOutputBoundary) {
+    public KeywordInteractor(KeywordOutputBoundary keywordOutputBoundary, RecipeDataBase recipeDataBase) {
+        this.keywordPresenter = keywordOutputBoundary;
         this.recipeDataBase = recipeDataBase;
-        this.keywordOutputBoundary = keywordOutputBoundary;
     }
 
     @Override
@@ -27,12 +27,11 @@ public class KeywordInteractor implements KeywordInputBoundary {
                     keywordInputData.getKeyword(), null, null, 0, 0
             );
             System.out.println("Recipes retrieved: " + recipes);
-            final KeywordOutputData keywordOutputData = new KeywordOutputData(recipes);
-            keywordOutputBoundary.presentRecipesKeyword(keywordOutputData);
+            keywordPresenter.presentRecipesKeyword(new KeywordOutputData(recipes));
         }
         catch (IOException ex) {
             ex.printStackTrace();
-            keywordOutputBoundary.presentRecipesKeyword(new KeywordOutputData(Collections.emptyList()));
+            keywordPresenter.presentRecipesKeyword(new KeywordOutputData(Collections.emptyList()));
         }
 
     }

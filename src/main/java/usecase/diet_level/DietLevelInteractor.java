@@ -12,25 +12,26 @@ import entity.Recipe;
  */
 public class DietLevelInteractor implements DietLevelInputBoundary {
     private final RecipeDataBase recipeDataBase;
-    private final DietLevelOutputBoundary dietLevelOutputBoundary;
+    private final DietLevelOutputBoundary dietPresenter;
 
     public DietLevelInteractor(RecipeDataBase recipeDataBase, DietLevelOutputBoundary dietLevelOutputBoundary) {
         this.recipeDataBase = recipeDataBase;
-        this.dietLevelOutputBoundary = dietLevelOutputBoundary;
+        this.dietPresenter = dietLevelOutputBoundary;
     }
 
     @Override
     public void searchDietLevelRecipe(DietLevelInputData dietLevelInputData) {
         try {
             final List<Recipe> recipes = recipeDataBase.getAllRecipes(
-                    dietLevelInputData.getKeyword(), dietLevelInputData.getDietLevel(), null, 0, 0
+                    dietLevelInputData.getKeyword(),
+                    dietLevelInputData.getDietLevel(),
+                    null, 0, 0
             );
-            final DietLevelOutputData dietLevelOutputData = new DietLevelOutputData(recipes);
-            dietLevelOutputBoundary.presentRecipesDiet(dietLevelOutputData);
+            dietPresenter.presentRecipesDiet(new DietLevelOutputData(recipes));
         }
         catch (IOException ex) {
             ex.printStackTrace();
-            dietLevelOutputBoundary.presentRecipesDiet(new DietLevelOutputData(Collections.emptyList()));
+            dietPresenter.presentRecipesDiet(new DietLevelOutputData(Collections.emptyList()));
         }
 
     }

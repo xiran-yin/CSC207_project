@@ -32,16 +32,15 @@ public class Main {
         final RecipeChoiceView recipeChoiceView = new RecipeChoiceView(null);
 
         final KeywordController keywordController = new KeywordController(
-                new KeywordInteractor(recipeDataBase, recipeChoiceView));
+                new KeywordInteractor(recipeChoiceView, recipeDataBase));
         final DietLevelController dietLevelController = new DietLevelController(
                 new DietLevelInteractor(recipeDataBase, recipeChoiceView));
         final CuisineTypeController cuisineController = new CuisineTypeController(
                 new CuisineTypeInteractor(recipeDataBase, recipeChoiceView));
-
         final CaloriesController caloriesController = new CaloriesController(
                 new CaloriesInteractor(recipeDataBase, recipeChoiceView));
         final RandomController randomController = new RandomController(
-                new RandomInteractor(recipeDataBase, recipeChoiceView));
+                new RandomInteractor(recipeChoiceView, recipeDataBase));
 
         // Create the MainFrame and assign it to RecipeChoiceView
         SwingUtilities.invokeLater(() -> {

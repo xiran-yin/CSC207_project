@@ -21,7 +21,7 @@ public class HomeView extends JPanel {
     public HomeView(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBackground(Color.WHITE);
+        setBackground(new Color(249, 249, 232));
 
         final JButton randomRecipeButton = createStyledButton("Random Recipe");
         final JButton keywordSearchButton = createStyledButton("Search by Keyword");
@@ -32,10 +32,10 @@ public class HomeView extends JPanel {
         // Add buttons to the panel
         add(Box.createVerticalGlue());
 
-        add(randomRecipeButton);
+        add(keywordSearchButton);
         add(Box.createVerticalStrut(20));
 
-        add(keywordSearchButton);
+        add(calorieSearchButton);
         add(Box.createVerticalStrut(20));
 
         add(cuisineSearchButton);
@@ -44,7 +44,7 @@ public class HomeView extends JPanel {
         add(dietSearchButton);
         add(Box.createVerticalStrut(20));
 
-        add(calorieSearchButton);
+        add(randomRecipeButton);
         add(Box.createVerticalGlue());
 
         // Add action listeners to buttons
@@ -53,6 +53,7 @@ public class HomeView extends JPanel {
         dietSearchButton.addActionListener(evt -> mainFrame.showView("DietSearchView"));
         calorieSearchButton.addActionListener(evt -> mainFrame.showView("CalorieSearchView"));
         randomRecipeButton.addActionListener(evt -> mainFrame.showView("RandomSearchView"));
+
     }
 
     private JButton createStyledButton(String text) {
@@ -63,16 +64,14 @@ public class HomeView extends JPanel {
         button.setBackground(Color.PINK);
         button.setPreferredSize(new Dimension(400, 65));
         button.setMaximumSize(new Dimension(400, 65));
-        // Prevents resizing
 
         // Set background and word color
         button.setOpaque(true);
-        button.setBackground(new Color(102, 204, 0));
+        button.setBackground(new Color(185, 224, 84));
         button.setBorderPainted(false);
         button.setForeground(Color.WHITE);
-        button.setFont(new Font("Arial", Font.BOLD, 20));
+        button.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 
-        // Add action listener to navigate to views
         return button;
     }
 }

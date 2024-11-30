@@ -1,8 +1,5 @@
 package interface_adapter.diet_level;
 
-import java.util.List;
-
-import entity.Recipe;
 import usecase.diet_level.DietLevelOutputBoundary;
 import usecase.diet_level.DietLevelOutputData;
 
@@ -19,8 +16,5 @@ public class DietLevelPresenter implements DietLevelOutputBoundary {
 
     @Override
     public void presentRecipesDiet(DietLevelOutputData dietLevelOutputData) {
-        final List<Recipe> recipe = dietLevelOutputData.getRecipes();
-        dietViewModel.setRecipeNames(recipe);
-        dietViewModel.setLoading(false);
     }
 }

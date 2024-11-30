@@ -1,6 +1,9 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
@@ -23,15 +26,33 @@ public class KeywordSearchView extends JPanel {
     public KeywordSearchView(KeywordController controller, MainFrame mainFrame) {
 
         setLayout(new BorderLayout());
+        setBackground(new Color(249, 249, 232));
 
         // Search bar setup
         keywordField = new JTextField();
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
+        final String font = "Comic Sans MS";
+        keywordField.setFont(new Font(font, Font.PLAIN, 16));
+
+        searchButton.setOpaque(true);
+        searchButton.setBackground(new Color(185, 224, 84));
+        searchButton.setBorderPainted(false);
+        searchButton.setForeground(Color.WHITE);
+        searchButton.setFont(new Font(font, Font.BOLD, 16));
+        searchButton.setPreferredSize(new Dimension(80, 30));
+
+        backButton.setOpaque(true);
+        backButton.setBackground(new Color(185, 224, 84));
+        backButton.setBorderPainted(false);
+        backButton.setForeground(Color.white);
+        backButton.setFont(new Font(font, Font.BOLD, 16));
+        backButton.setPreferredSize(new Dimension(80, 30));
 
         final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
+        buttonPanel.setBackground(new Color(249, 249, 232));
 
         final JPanel searchBarPanel = new JPanel(new BorderLayout());
         searchBarPanel.add(keywordField, BorderLayout.CENTER);

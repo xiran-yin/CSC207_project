@@ -8,7 +8,6 @@ import entity.Recipe;
  * The State for Random View Model.
  */
 public class RandomState {
-
     private List<Recipe> recipeNames;
     private String errorMessage;
 
