@@ -210,33 +210,59 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
                 recipeCard.add(recipeLabel, BorderLayout.CENTER);
 
                 final JButton ingredientButton = new JButton("Ingredient");
+//                ingredientButton.addActionListener(evt -> {
+//                    final String[] ingredients = recipe.getIngredients();
+//                    final String ingredientList = String.join("\n", ingredients);
+//                    final String dietInfo;
+//                    if (recipe.getDiet().toString() != null) {
+//                        dietInfo = "Diet: " + recipe.getDiet().toString();
+//                    }
+//                    else {
+//                        dietInfo = null;
+//                    }
+//
+//                    final String cuisineInfo;
+//                    if (recipe.getCuisine() != null) {
+//                        cuisineInfo = "Cuisine: " + recipe.getCuisine().toString();
+//                    }
+//                    else {
+//                        cuisineInfo = null;
+//                    }
+//
+//                    final String message = cuisineInfo + "\n\n" + dietInfo + "\n\n" + ingredientList;
+//
+//                    JOptionPane.showMessageDialog(
+//                            this, message,
+//                            "Ingredients for " + recipe.getLabel(),
+//                            JOptionPane.INFORMATION_MESSAGE
+//                    );
+//                });
                 ingredientButton.addActionListener(evt -> {
                     final String[] ingredients = recipe.getIngredients();
                     final String ingredientList = String.join("\n", ingredients);
-                    final String dietInfo;
-                    if (recipe.getDiet().toString() != null) {
-                        dietInfo = "Diet: " + recipe.getDiet().toString();
-                    }
-                    else {
-                        dietInfo = null;
-                    }
 
-                    final String cuisineInfo;
+                    final StringBuilder messageBuilder = new StringBuilder();
+
+                    // Include cuisine information if not null
                     if (recipe.getCuisine() != null) {
-                        cuisineInfo = "Cuisine: " + recipe.getCuisine().toString();
-                    }
-                    else {
-                        cuisineInfo = null;
+                        messageBuilder.append("Cuisine: ").append(recipe.getCuisine().toString()).append("\n\n");
                     }
 
-                    final String message = cuisineInfo + "\n\n" + dietInfo + "\n\n" + ingredientList;
+                    // Include diet information if not null
+                    if (recipe.getDiet().getDietLabels().length > 0) {
+                        messageBuilder.append("Diet: ").append(recipe.getDiet().toString()).append("\n\n");
+                    }
+
+                    // Include the ingredients
+                    messageBuilder.append(ingredientList);
 
                     JOptionPane.showMessageDialog(
-                            this, message,
+                            this, messageBuilder.toString(),
                             "Ingredients for " + recipe.getLabel(),
                             JOptionPane.INFORMATION_MESSAGE
                     );
                 });
+
                 recipeCard.add(ingredientButton, BorderLayout.SOUTH);
                 recipesPanel.add(recipeCard);
             }
