@@ -25,7 +25,10 @@ public class DietSearchView extends JPanel {
 
         // Search bar setup
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
+
         keywordField = new JTextField();
+        keywordField.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+
         keywordField.setPreferredSize(new Dimension(250, 30));
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
@@ -59,7 +62,7 @@ public class DietSearchView extends JPanel {
         JPanel dietPanel = new JPanel(new BorderLayout());
         dietComboBox = new JComboBox<>(DIET);
         dietComboBox.setPreferredSize(new Dimension(200, 80));
-        dietComboBox.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        dietComboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
         dietComboBox.setBorder(BorderFactory.createTitledBorder("Select Diet Label"));
         dietComboBox.setBackground(Color.white);
         dietPanel.add(dietComboBox, BorderLayout.CENTER);

@@ -8,11 +8,11 @@ import java.util.List;
 
 public class DietLevelInteractor implements DietLevelInputBoundary{
     private final RecipeDataBase recipeDataBase;
-    private final DietLevelOutputBoundary dietLevelOutputBoundary;
+    private final DietLevelOutputBoundary dietPresenter;
 
     public DietLevelInteractor(RecipeDataBase recipeDataBase, DietLevelOutputBoundary dietLevelOutputBoundary) {
         this.recipeDataBase = recipeDataBase;
-        this.dietLevelOutputBoundary = dietLevelOutputBoundary;
+        this.dietPresenter = dietLevelOutputBoundary;
     }
 
     @Override
@@ -21,11 +21,10 @@ public class DietLevelInteractor implements DietLevelInputBoundary{
             List<Recipe> recipes = recipeDataBase.getAllRecipes(
                     dietLevelInputData.getKeyword(), dietLevelInputData.getDietLevel(), null, 0, 0
             );
-            DietLevelOutputData dietLevelOutputData = new DietLevelOutputData(recipes);
-            dietLevelOutputBoundary.presentRecipesDiet(dietLevelOutputData);
+            dietPresenter.presentRecipesDiet(new DietLevelOutputData(recipes));
         } catch (Exception e) {
             e.printStackTrace();
-            dietLevelOutputBoundary.presentRecipesDiet(new DietLevelOutputData(Collections.emptyList()));
+            dietPresenter.presentRecipesDiet(new DietLevelOutputData(Collections.emptyList()));
         }
 
     }

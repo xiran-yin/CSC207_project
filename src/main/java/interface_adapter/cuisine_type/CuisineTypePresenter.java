@@ -15,8 +15,8 @@ public class CuisineTypePresenter implements CuisineTypeOutputBoundary {
 
     @Override
     public void presentRecipesCuisine(CuisineTypeOutputData cuisineTypeOutputData) {
-        List<Recipe> recipes = cuisineTypeOutputData.getRecipes();
-        cuisineViewModel.setRecipeNames(recipes);
-        cuisineViewModel.setLoading(false);
+//        List<Recipe> recipes = cuisineTypeOutputData.getRecipes();
+//        cuisineViewModel.setRecipeNames(recipes);
+//        cuisineViewModel.setLoading(false);
     }
 }

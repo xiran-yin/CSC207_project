@@ -21,6 +21,8 @@ public class CalorieSearchView extends JPanel {
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         keywordField = new JTextField();
         keywordField.setPreferredSize(new Dimension(250, 30));
+        keywordField.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 

@@ -15,5 +15,6 @@ public class RandomPresenter implements RandomOutputBoundary {
     }
     @Override
     public void presentRecipes(RandomOutputData randomOutputData) {
+        // note: this use case actually just passing data:)
     }
 }

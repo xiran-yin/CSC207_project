@@ -24,7 +24,7 @@ public class Main {
         // Create a temporary placeholder for RecipeChoiceView
         RecipeChoiceView recipeChoiceView = new RecipeChoiceView(null);
 
-        KeywordController keywordController = new KeywordController(new KeywordInteractor(recipeDataBase, recipeChoiceView));
+        KeywordController keywordController = new KeywordController(new KeywordInteractor(recipeChoiceView, recipeDataBase));
         DietLevelController dietLevelController = new DietLevelController(new DietLevelInteractor(recipeDataBase,recipeChoiceView));
         CuisineTypeController cuisineController = new CuisineTypeController(new CuisineTypeInteractor(recipeDataBase, recipeChoiceView));
 

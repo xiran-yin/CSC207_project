@@ -2,8 +2,6 @@ package usecase.random;
 
 import api.RecipeDataBase;
 import entity.Recipe;
-import interface_adapter.random.RandomViewModel;
-import interface_adapter.random.RandomPresenter;
 
 import java.util.Collections;
 import java.util.List;

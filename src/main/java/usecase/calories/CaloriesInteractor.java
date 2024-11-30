@@ -8,11 +8,11 @@ import java.util.List;
 
 public class CaloriesInteractor implements CaloriesInputBoundary {
     private final RecipeDataBase recipeDataBase;
-    private final CaloriesOutputBoundary caloriesOutputBoundary;
+    private final CaloriesOutputBoundary caloriesPresenter;
 
     public CaloriesInteractor(RecipeDataBase recipeDataBase, CaloriesOutputBoundary caloriesOutputBoundary) {
         this.recipeDataBase = recipeDataBase;
-        this.caloriesOutputBoundary = caloriesOutputBoundary;
+        this.caloriesPresenter = caloriesOutputBoundary;
     }
 
     @Override
@@ -21,12 +21,10 @@ public class CaloriesInteractor implements CaloriesInputBoundary {
             List<Recipe> recipes = recipeDataBase.getAllRecipes(
                     caloriesInputData.getKeyword(), null, null, caloriesInputData.getCaloriesRange().getMinCalories(), caloriesInputData.getCaloriesRange().getMaxCalories()
             );
-            CaloriesOutputData caloriesOutputData = new CaloriesOutputData(recipes);
-            caloriesOutputBoundary.presentRecipesCalories(caloriesOutputData);
+            caloriesPresenter.presentRecipesCalories(new CaloriesOutputData(recipes));
         } catch (Exception e) {
             e.printStackTrace();
-            caloriesOutputBoundary.presentRecipesCalories(new CaloriesOutputData(Collections.emptyList()));
+            caloriesPresenter.presentRecipesCalories(new CaloriesOutputData(Collections.emptyList()));
         }
-
     }
 }

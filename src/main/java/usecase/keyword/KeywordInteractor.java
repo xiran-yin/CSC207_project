@@ -2,17 +2,18 @@ package usecase.keyword;
 
 import api.RecipeDataBase;
 import entity.Recipe;
+import interface_adapter.keyword.KeywordViewModel;
 
 import java.util.Collections;
 import java.util.List;
 
 public class KeywordInteractor implements KeywordInputBoundary{
     private final RecipeDataBase recipeDataBase;
-    private final KeywordOutputBoundary keywordOutputBoundary;
+    private final KeywordOutputBoundary keywordPresenter;
 
-    public KeywordInteractor(RecipeDataBase recipeDataBase, KeywordOutputBoundary keywordOutputBoundary) {
+    public KeywordInteractor(KeywordOutputBoundary keywordOutputBoundary, RecipeDataBase recipeDataBase) {
+        this.keywordPresenter = keywordOutputBoundary;
         this.recipeDataBase = recipeDataBase;
-        this.keywordOutputBoundary = keywordOutputBoundary;
     }
 
     @Override
@@ -23,11 +24,10 @@ public class KeywordInteractor implements KeywordInputBoundary{
                     keywordInputData.getKeyword(), null, null, 0, 0
             );
             System.out.println("Recipes retrieved: " + recipes);
-            KeywordOutputData keywordOutputData = new KeywordOutputData(recipes);
-            keywordOutputBoundary.presentRecipesKeyword(keywordOutputData);
+            keywordPresenter.presentRecipesKeyword(new KeywordOutputData(recipes));
         } catch (Exception e) {
             e.printStackTrace();
-            keywordOutputBoundary.presentRecipesKeyword(new KeywordOutputData(Collections.emptyList()));
+            keywordPresenter.presentRecipesKeyword(new KeywordOutputData(Collections.emptyList()));
         }
 
     }

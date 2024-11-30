@@ -26,6 +26,8 @@ public class CuisineSearchView extends JPanel{
         JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         keywordField = new JTextField();
         keywordField.setPreferredSize(new Dimension(250, 30));
+        keywordField.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 
@@ -57,7 +59,7 @@ public class CuisineSearchView extends JPanel{
         JPanel cuisinePanel = new JPanel(new BorderLayout());
         cuisineComboBox = new JComboBox<>(CUISINES);
         cuisineComboBox.setPreferredSize(new Dimension(200, 80));
-        cuisineComboBox.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        cuisineComboBox.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
         cuisineComboBox.setBorder(BorderFactory.createTitledBorder("Select Cuisine"));
         cuisineComboBox.setBackground(Color.white);
         cuisinePanel.add(cuisineComboBox, BorderLayout.CENTER);

@@ -15,8 +15,8 @@ public class CaloriesPresenter implements CaloriesOutputBoundary {
 
     @Override
     public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
-        List<Recipe> recipes = caloriesOutputData.getRecipes();
-        caloriesViewModel.setRecipeNames(recipes);
-        caloriesViewModel.setLoading(false);
+//        List<Recipe> recipes = caloriesOutputData.getRecipes();
+//        caloriesViewModel.setRecipeNames(recipes);
+//        caloriesViewModel.setLoading(false);
     }
 }
