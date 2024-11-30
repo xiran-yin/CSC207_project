@@ -13,13 +13,14 @@ public class KeywordController {
     public KeywordController(KeywordInputBoundary keywordUseCaseInteractor) {
         this.keywordUseCaseInteractor = keywordUseCaseInteractor;
     }
+
     /**
      * Executes the keyword use case.
      * @param keyword the keyword entered for recipe search
      */
     public void keywordRecipes(String keyword) {
         // Create input data for the use case
-        KeywordInputData inputData = new KeywordInputData(keyword);
+        final KeywordInputData inputData = new KeywordInputData(keyword);
 
         // Delegate the search to the interactor
         keywordUseCaseInteractor.searchKeywordRecipe(inputData);

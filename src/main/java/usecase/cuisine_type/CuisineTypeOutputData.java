@@ -14,6 +14,10 @@ public class CuisineTypeOutputData {
         this.recipes = recipes;
     }
 
+    /**
+     * Get the Output recipe of the Search.
+     * @return the output data
+     */
     public List<Recipe> getRecipes() {
         return recipes;
     }

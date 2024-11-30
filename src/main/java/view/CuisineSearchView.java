@@ -24,7 +24,6 @@ public class CuisineSearchView extends JPanel {
         "Central Europe", "Chinese", "Eastern Europe", "French",
         "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
         "Middle Eastern", "Nordic", "South American", "South East Asian"};
-    private JPanel recipePanel;
     private JTextField keywordField;
     private JButton searchButton;
     private JButton backButton;

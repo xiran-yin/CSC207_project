@@ -16,7 +16,6 @@ import interface_adapter.random.RandomController;
  * The View for when the user is used the Random generator in the program.
  */
 public class RandomSearchView extends JPanel{
-    private JPanel recipePanel;
     private JButton searchButton;
     private JButton backButton;
 
@@ -43,7 +42,6 @@ public class RandomSearchView extends JPanel{
 
         searchButton.addActionListener(e ->  {
             randomController.execute();
-            RecipeChoiceView recipeChoiceView = (RecipeChoiceView) recipePanel;
             mainFrame.showView("RecipeChoiceView");
         });
 

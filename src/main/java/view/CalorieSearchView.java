@@ -20,7 +20,6 @@ import interface_adapter.calories.CaloriesController;
  * The View for when the user is used the Calories Filter in the program.
  */
 public class CalorieSearchView extends JPanel {
-    private JPanel recipePanel;
     private JTextField keywordField;
     private JTextField minCaloriesField;
     private JTextField maxCaloriesField;
@@ -83,8 +82,6 @@ public class CalorieSearchView extends JPanel {
 
                     if (!keyword.isEmpty()) {
                         caloriesController.execute(keyword, caloriesRange);
-                        RecipeChoiceView recipeChoiceView = (RecipeChoiceView) recipePanel;
-                        // Switch to the RecipeChoiceView card
                         mainFrame.showView("RecipeChoiceView");
                     }
                     else {

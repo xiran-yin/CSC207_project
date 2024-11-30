@@ -15,9 +15,10 @@ public class KeywordPresenter implements KeywordOutputBoundary {
     public KeywordPresenter(KeywordViewModel keywordViewModel) {
         this.keywordViewModel = keywordViewModel;
     }
+
     @Override
     public void presentRecipesKeyword(KeywordOutputData keywordOutputData) {
-        List<Recipe> recipes = keywordOutputData.getRecipes();
+        final List<Recipe> recipes = keywordOutputData.getRecipes();
         keywordViewModel.setRecipeNames(recipes);
         keywordViewModel.setLoading(false);
 

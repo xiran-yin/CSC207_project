@@ -1,10 +1,10 @@
 package interface_adapter.diet_level;
 
-import interface_adapter.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
 import entity.Recipe;
+import interface_adapter.ViewModel;
 
 /**
  * The View Model for Diet View Model.
