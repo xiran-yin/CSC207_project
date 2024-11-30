@@ -1,11 +1,12 @@
 package interface_adapter.keyword;
 
 import entity.Recipe;
+import interface_adapter.ViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class KeywordViewModel {
+public class KeywordViewModel extends KeywordState {
 
     private List<Recipe> recipes = new ArrayList<>();
     private boolean isLoading = true;

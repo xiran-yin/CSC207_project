@@ -29,7 +29,7 @@ public class Main {
         CuisineTypeController cuisineController = new CuisineTypeController(new CuisineTypeInteractor(recipeDataBase, recipeChoiceView));
 
         CaloriesController caloriesController = new CaloriesController(new CaloriesInteractor(recipeDataBase,recipeChoiceView));
-        RandomController randomController = new RandomController(new RandomInteractor(recipeDataBase, recipeChoiceView));
+        RandomController randomController = new RandomController(new RandomInteractor(recipeChoiceView, recipeDataBase));
 
         // Create the MainFrame and assign it to RecipeChoiceView
         SwingUtilities.invokeLater(() -> {

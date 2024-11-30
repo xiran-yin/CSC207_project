@@ -1,20 +1,25 @@
 package interface_adapter.random;
 
 import entity.Recipe;
+import interface_adapter.ViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RandomViewModel {
+public class RandomViewModel extends ViewModel<RandomState> {
     private List<Recipe> recipes = new ArrayList<>();
     private boolean isLoading = true;
 
-    public List<Recipe> getRecipeNames() {
+    public RandomViewModel(String viewName) {
+        super(viewName);
+    }
+
+    public List<Recipe> getRecipes() {
         return recipes;
     }
 
-    public void setRecipeNames(List<Recipe> recipeNames) {
-        this.recipes = recipeNames;
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 
     public boolean isLoading() {

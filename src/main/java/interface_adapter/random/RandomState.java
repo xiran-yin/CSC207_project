@@ -1,6 +1,7 @@
 package interface_adapter.random;
 
 import entity.Recipe;
+import interface_adapter.ViewModel;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class RandomState {
     }
 
     private Status status;
-    private List<Recipe> recipeNames;
+    private List<Recipe> recipes;
     private String errorMessage;
 
     public Status getStatus() {
@@ -23,12 +24,12 @@ public class RandomState {
         this.status = status;
     }
 
-    public List<Recipe> getRecipeNames() {
-        return recipeNames;
+    public List<Recipe> getRecipes() {
+        return recipes;
     }
 
-    public void setRecipeNames(List<Recipe> recipeNames) {
-        this.recipeNames = recipeNames;
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 
     public String getErrorMessage() {

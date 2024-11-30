@@ -23,11 +23,11 @@ public class HomeView extends JPanel {
         // Add buttons to the panel
         add(Box.createVerticalGlue());
 
-        add(randomRecipeButton);
-        add(Box.createVerticalStrut(20)); // Space between buttons
-
         add(keywordSearchButton);
         add(Box.createVerticalStrut(20)); // Space between buttons
+
+        add(calorieSearchButton);
+        add(Box.createVerticalStrut(20));
 
         add(cuisineSearchButton);
         add(Box.createVerticalStrut(20)); // Space between buttons
@@ -35,7 +35,7 @@ public class HomeView extends JPanel {
         add(dietSearchButton);
         add(Box.createVerticalStrut(20)); // Space between buttons
 
-        add(calorieSearchButton);
+        add(randomRecipeButton);
         add(Box.createVerticalGlue());
 
         // Add action listeners to buttons
