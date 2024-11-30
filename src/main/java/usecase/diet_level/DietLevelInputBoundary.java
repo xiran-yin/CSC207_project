@@ -10,5 +10,4 @@ public interface DietLevelInputBoundary {
      * @param dietLevelInputData the input data
      */
     void searchDietLevelRecipe(DietLevelInputData dietLevelInputData);
-
 }

@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -29,11 +30,11 @@ public class KeywordSearchView extends JPanel {
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 
-        JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
+        final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
 
-        JPanel searchBarPanel = new JPanel(new BorderLayout());
+        final JPanel searchBarPanel = new JPanel(new BorderLayout());
         searchBarPanel.add(keywordField, BorderLayout.CENTER);
         searchBarPanel.add(buttonPanel, BorderLayout.EAST);
         searchBarPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
@@ -41,27 +42,25 @@ public class KeywordSearchView extends JPanel {
         add(searchBarPanel, BorderLayout.NORTH);
 
         // Search button action
-        searchButton.addActionListener(e -> {
-            String keyword = keywordField.getText().trim();
+        searchButton.addActionListener(evt -> {
+            final String keyword = keywordField.getText().trim();
             if (!keyword.isEmpty()) {
                 try {
                     controller.keywordRecipes(keyword);
                     mainFrame.showView("RecipeChoiceView");
 
-                } catch (IllegalArgumentException ex) {
+                }
+                catch (IllegalArgumentException ex) {
                     JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
-
-
-                                    }
-            } else {
+                }
+            }
+            else
+            {
                 JOptionPane.showMessageDialog(this, "Please enter a keyword.");
             }
         });
 
         // Back button action
-        backButton.addActionListener(e -> mainFrame.showView("HomeView"));
-
+        backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
     }
-
-
 }

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -16,58 +17,57 @@ import app.MainFrame;
  */
 public class HomeView extends JPanel {
     private final MainFrame mainFrame;
+
     public HomeView(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
-//        setLayout(new GridLayout(5, 1, 10, 10)); // 5 buttons in a vertical layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.WHITE);
 
-        JButton randomRecipeButton = createStyledButton("Random Recipe");
-        JButton keywordSearchButton = createStyledButton("Search by Keyword");
-        JButton cuisineSearchButton = createStyledButton("Search by Cuisine Type");
-        JButton dietSearchButton = createStyledButton("Search by Diet Label");
-        JButton calorieSearchButton = createStyledButton("Search by Calories");
-
+        final JButton randomRecipeButton = createStyledButton("Random Recipe");
+        final JButton keywordSearchButton = createStyledButton("Search by Keyword");
+        final JButton cuisineSearchButton = createStyledButton("Search by Cuisine Type");
+        final JButton dietSearchButton = createStyledButton("Search by Diet Label");
+        final JButton calorieSearchButton = createStyledButton("Search by Calories");
 
         // Add buttons to the panel
         add(Box.createVerticalGlue());
 
         add(randomRecipeButton);
-        add(Box.createVerticalStrut(20)); // Space between buttons
+        add(Box.createVerticalStrut(20));
 
         add(keywordSearchButton);
-        add(Box.createVerticalStrut(20)); // Space between buttons
+        add(Box.createVerticalStrut(20));
 
         add(cuisineSearchButton);
-        add(Box.createVerticalStrut(20)); // Space between buttons
+        add(Box.createVerticalStrut(20));
 
         add(dietSearchButton);
-        add(Box.createVerticalStrut(20)); // Space between buttons
+        add(Box.createVerticalStrut(20));
 
         add(calorieSearchButton);
         add(Box.createVerticalGlue());
 
         // Add action listeners to buttons
-        keywordSearchButton.addActionListener(e -> mainFrame.showView("KeywordSearchView"));
-        cuisineSearchButton.addActionListener(e -> mainFrame.showView("CuisineSearchView"));
-        dietSearchButton.addActionListener(e -> mainFrame.showView("DietSearchView"));
-        calorieSearchButton.addActionListener(e -> mainFrame.showView("CalorieSearchView"));
-        randomRecipeButton.addActionListener(e -> mainFrame.showView("RandomSearchView"));
-
+        keywordSearchButton.addActionListener(evt -> mainFrame.showView("KeywordSearchView"));
+        cuisineSearchButton.addActionListener(evt -> mainFrame.showView("CuisineSearchView"));
+        dietSearchButton.addActionListener(evt -> mainFrame.showView("DietSearchView"));
+        calorieSearchButton.addActionListener(evt -> mainFrame.showView("CalorieSearchView"));
+        randomRecipeButton.addActionListener(evt -> mainFrame.showView("RandomSearchView"));
     }
 
     private JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
+        final JButton button = new JButton(text);
 
         // Style the button
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button.setBackground(Color.PINK);
-        button.setPreferredSize(new Dimension(400, 65)); // Button size
-        button.setMaximumSize(new Dimension(400, 65)); // Prevents resizing
+        button.setPreferredSize(new Dimension(400, 65));
+        button.setMaximumSize(new Dimension(400, 65));
+        // Prevents resizing
 
         // Set background and word color
         button.setOpaque(true);
-        button.setBackground(new Color(102,204,0));
+        button.setBackground(new Color(102, 204, 0));
         button.setBorderPainted(false);
         button.setForeground(Color.WHITE);
         button.setFont(new Font("Arial", Font.BOLD, 20));

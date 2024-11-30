@@ -1,23 +1,30 @@
 package app;
 
+import javax.swing.SwingUtilities;
+
 import api.RecipeDataBase;
 import api.getRecipeDataBase;
 import interface_adapter.calories.CaloriesController;
+import interface_adapter.cuisine_type.CuisineTypeController;
 import interface_adapter.diet_level.DietLevelController;
+import interface_adapter.keyword.KeywordController;
 import interface_adapter.random.RandomController;
 import usecase.calories.CaloriesInteractor;
-import interface_adapter.keyword.KeywordController;
-import interface_adapter.cuisine_type.CuisineTypeController;
+import usecase.cuisine_type.CuisineTypeInteractor;
 import usecase.diet_level.DietLevelInteractor;
 import usecase.keyword.KeywordInteractor;
-import usecase.cuisine_type.CuisineTypeInteractor;
 import usecase.random.RandomInteractor;
 import view.RecipeChoiceView;
 
-import javax.swing.*;
-
+/**
+ * The Main class of our application.
+ */
 public class Main {
 
+    /**
+     * Builds and runs the CA architecture of the application.
+     * @param args unused arguments
+     */
     public static void main(String[] args) {
         RecipeDataBase recipeDataBase = new getRecipeDataBase();
 
