@@ -4,7 +4,9 @@ import entity.CaloriesRange;
 import usecase.calories.CaloriesInputBoundary;
 import usecase.calories.CaloriesInputData;
 
-
+/**
+ * The Controller for Calories Use Case.
+ */
 public class CaloriesController {
     private final CaloriesInputBoundary caloriesInteractor;
 
@@ -14,6 +16,8 @@ public class CaloriesController {
 
     /**
      * Executes the calories use case.
+     * @param keyword the keyword entered for recipe search
+     * @param caloriesRange the calories eneter for recipe search
      */
     public void execute(String keyword, CaloriesRange caloriesRange) {
         final CaloriesInputData caloriesInputData = new CaloriesInputData(keyword, caloriesRange);

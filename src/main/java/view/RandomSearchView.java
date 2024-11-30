@@ -1,11 +1,20 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 import app.MainFrame;
 import interface_adapter.random.RandomController;
 
-import javax.swing.*;
-import java.awt.*;
 
+/**
+ * The View for when the user is used the Random generator in the program.
+ */
 public class RandomSearchView extends JPanel{
     private JPanel recipePanel;
     private JButton searchButton;

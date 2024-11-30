@@ -1,9 +1,12 @@
 package interface_adapter.random;
 
-import entity.Recipe;
-
 import java.util.List;
 
+import entity.Recipe;
+
+/**
+ * The State for Random View Model.
+ */
 public class RandomState {
     public enum Status {
         LOADING,

@@ -1,12 +1,24 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import app.MainFrame;
 import entity.CaloriesRange;
 import interface_adapter.calories.CaloriesController;
 
-import javax.swing.*;
-import java.awt.*;
-
+/**
+ * The View for when the user is used the Calories Filter in the program.
+ */
 public class CalorieSearchView extends JPanel {
     private JPanel recipePanel;
     private JTextField keywordField;
@@ -17,22 +29,22 @@ public class CalorieSearchView extends JPanel {
 
     public CalorieSearchView(MainFrame mainFrame, CaloriesController caloriesController) {
         // Setup for the search bar
-        JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
+        final JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         keywordField = new JTextField();
         keywordField.setPreferredSize(new Dimension(250, 30));
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 
-        JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
+        final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
 
         searchPanel.add(keywordField, BorderLayout.CENTER);
         searchPanel.add(buttonPanel, BorderLayout.EAST);
-        searchPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10)); // Padding around search panel
+        searchPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
 
         // Setup for the calories input panel
-        JPanel caloriePanel = new JPanel(new GridLayout(1, 2, 10, 10)); // GridLayout for min and max calories input
+        final JPanel caloriePanel = new JPanel(new GridLayout(1, 2, 10, 10));
         minCaloriesField = new JTextField();
         minCaloriesField.setPreferredSize(new Dimension(100, 40));
         minCaloriesField.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -48,7 +60,7 @@ public class CalorieSearchView extends JPanel {
         caloriePanel.add(maxCaloriesField);
 
         // Combine searchPanel and caloriePanel into a single panel
-        JPanel combinedPanel = new JPanel();
+        final JPanel combinedPanel = new JPanel();
         combinedPanel.setLayout(new BoxLayout(combinedPanel, BoxLayout.Y_AXIS));
         combinedPanel.add(searchPanel);
         combinedPanel.add(caloriePanel);
@@ -58,34 +70,37 @@ public class CalorieSearchView extends JPanel {
         add(combinedPanel, BorderLayout.NORTH);
 
         // Search button action
-        searchButton.addActionListener(e -> {
+        searchButton.addActionListener(evt -> {
             String keyword = keywordField.getText().trim();
             String minCalories = minCaloriesField.getText().trim();
             String maxCalories = maxCaloriesField.getText().trim();
 
             if (!minCalories.isEmpty() && !maxCalories.isEmpty()) {
                 try {
-                    int minCal = Integer.parseInt(minCalories);
-                    int maxCal = Integer.parseInt(maxCalories);
-                    CaloriesRange caloriesRange = new CaloriesRange(minCal, maxCal);
+                    final int minCal = Integer.parseInt(minCalories);
+                    final int maxCal = Integer.parseInt(maxCalories);
+                    final CaloriesRange caloriesRange = new CaloriesRange(minCal, maxCal);
 
                     if (!keyword.isEmpty()) {
                         caloriesController.execute(keyword, caloriesRange);
                         RecipeChoiceView recipeChoiceView = (RecipeChoiceView) recipePanel;
                         // Switch to the RecipeChoiceView card
                         mainFrame.showView("RecipeChoiceView");
-                    } else {
+                    }
+                    else {
                         JOptionPane.showMessageDialog(this, "Please enter a keyword.");
                     }
-                } catch (NumberFormatException ex) {
+                }
+                catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(this, "Please enter valid calorie values.");
                 }
-            } else {
+            }
+            else {
                 JOptionPane.showMessageDialog(this, "Please enter both minimum and maximum calorie values.");
             }
         });
 
         // Back button action
-        backButton.addActionListener(e -> mainFrame.showView("HomeView"));
+        backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
     }
 }

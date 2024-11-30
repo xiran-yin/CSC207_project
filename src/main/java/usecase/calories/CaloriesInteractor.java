@@ -1,11 +1,15 @@
 package usecase.calories;
 
-import api.RecipeDataBase;
-import entity.Recipe;
-
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
+import api.RecipeDataBase;
+import entity.Recipe;
+
+/**
+ * The Calories Search Interactor.
+ */
 public class CaloriesInteractor implements CaloriesInputBoundary {
     private final RecipeDataBase recipeDataBase;
     private final CaloriesOutputBoundary caloriesOutputBoundary;
@@ -18,13 +22,17 @@ public class CaloriesInteractor implements CaloriesInputBoundary {
     @Override
     public void searchCaloriesRecipes(CaloriesInputData caloriesInputData) {
         try {
-            List<Recipe> recipes = recipeDataBase.getAllRecipes(
-                    caloriesInputData.getKeyword(), null, null, caloriesInputData.getCaloriesRange().getMinCalories(), caloriesInputData.getCaloriesRange().getMaxCalories()
+            final List<Recipe> recipes = recipeDataBase.getAllRecipes(
+                    caloriesInputData.getKeyword(),
+                    null, null,
+                    caloriesInputData.getCaloriesRange().getMinCalories(),
+                    caloriesInputData.getCaloriesRange().getMaxCalories()
             );
-            CaloriesOutputData caloriesOutputData = new CaloriesOutputData(recipes);
+            final CaloriesOutputData caloriesOutputData = new CaloriesOutputData(recipes);
             caloriesOutputBoundary.presentRecipesCalories(caloriesOutputData);
-        } catch (Exception e) {
-            e.printStackTrace();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
             caloriesOutputBoundary.presentRecipesCalories(new CaloriesOutputData(Collections.emptyList()));
         }
 

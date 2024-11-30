@@ -1,13 +1,21 @@
 package interface_adapter.diet_level;
 
-import entity.Recipe;
-
+import interface_adapter.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DietViewModel {
+import entity.Recipe;
+
+/**
+ * The View Model for Diet View Model.
+ */
+public class DietViewModel extends ViewModel<DietState> {
     private List<Recipe> recipes = new ArrayList<>();
     private boolean isLoading = true;
+
+    public DietViewModel(String viewName) {
+        super(viewName);
+    }
 
     public List<Recipe> getRecipeNames() {
         return recipes;

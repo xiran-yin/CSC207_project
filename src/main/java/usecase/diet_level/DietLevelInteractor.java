@@ -3,9 +3,13 @@ package usecase.diet_level;
 import api.RecipeDataBase;
 import entity.Recipe;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The Diet Search Interactor.
+ */
 public class DietLevelInteractor implements DietLevelInputBoundary{
     private final RecipeDataBase recipeDataBase;
     private final DietLevelOutputBoundary dietLevelOutputBoundary;
@@ -23,8 +27,8 @@ public class DietLevelInteractor implements DietLevelInputBoundary{
             );
             DietLevelOutputData dietLevelOutputData = new DietLevelOutputData(recipes);
             dietLevelOutputBoundary.presentRecipesDiet(dietLevelOutputData);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
             dietLevelOutputBoundary.presentRecipesDiet(new DietLevelOutputData(Collections.emptyList()));
         }
 

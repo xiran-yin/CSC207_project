@@ -1,11 +1,14 @@
 package interface_adapter.random;
 
+import java.util.List;
+
 import entity.Recipe;
 import usecase.random.RandomOutputBoundary;
 import usecase.random.RandomOutputData;
 
-import java.util.List;
-
+/**
+ * The Presenter for Random Use Case.
+ */
 public class RandomPresenter implements RandomOutputBoundary {
     private final RandomViewModel randomViewModel;
 

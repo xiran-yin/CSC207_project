@@ -1,11 +1,14 @@
 package interface_adapter.calories;
 
+import java.util.List;
+
 import entity.Recipe;
 import usecase.calories.CaloriesOutputBoundary;
 import usecase.calories.CaloriesOutputData;
 
-import java.util.List;
-
+/**
+ * The Presenter for Calories Use Case.
+ */
 public class CaloriesPresenter implements CaloriesOutputBoundary {
     private final CaloriesViewModel caloriesViewModel;
 
@@ -15,7 +18,7 @@ public class CaloriesPresenter implements CaloriesOutputBoundary {
 
     @Override
     public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
-        List<Recipe> recipes = caloriesOutputData.getRecipes();
+        final List<Recipe> recipes = caloriesOutputData.getRecipes();
         caloriesViewModel.setRecipeNames(recipes);
         caloriesViewModel.setLoading(false);
     }

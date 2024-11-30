@@ -5,6 +5,9 @@ import entity.Diet;
 
 import java.util.Random;
 
+/**
+ * The Input Data of the Diet Search Use Case.
+ */
 public class RandomInputData {
     private final String keyword;
     private final Diet dietLevel;

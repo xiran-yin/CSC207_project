@@ -3,9 +3,13 @@ package usecase.random;
 import api.RecipeDataBase;
 import entity.Recipe;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The Random Search Interactor.
+ */
 public class RandomInteractor implements RandomInputBoundary {
     private final RecipeDataBase recipeDataBase;
     private final RandomOutputBoundary randomOutputBoundary;
@@ -41,8 +45,8 @@ public class RandomInteractor implements RandomInputBoundary {
 
             RandomOutputData randomOutputData = new RandomOutputData(recipes);
             randomOutputBoundary.presentRecipes(randomOutputData);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
             randomOutputBoundary.presentRecipes(new RandomOutputData(Collections.emptyList()));
         }
     }

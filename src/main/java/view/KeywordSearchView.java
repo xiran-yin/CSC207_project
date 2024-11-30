@@ -1,10 +1,20 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import app.MainFrame;
 import interface_adapter.keyword.KeywordController;
 
-import javax.swing.*;
-import java.awt.*;public class KeywordSearchView extends JPanel {
+/**
+ * The View for when the user is used the Keyword Search of the program.
+ */
+public class KeywordSearchView extends JPanel {
     private JTextField keywordField;
     private JButton searchButton;
     private JButton backButton;
