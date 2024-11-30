@@ -2,21 +2,17 @@ package app;
 
 import api.RecipeDataBase;
 import api.getRecipeDataBase;
-import interface_adapter.Calories.CaloriesController;
-import interface_adapter.Calories.CaloriesPresenter;
-import interface_adapter.DietLevel.DietLevelController;
-import interface_adapter.Random.RandomController;
-import usecase.Calories.CaloriesInteractor;
-import interface_adapter.CuisineType.CuisineTypePresenter;
-import interface_adapter.Keyword.KeywordController;
-import interface_adapter.Keyword.KeywordPresenter;
-import interface_adapter.CuisineType.CuisineTypeController;
-import usecase.DietLevel.DietLevelInteractor;
-import usecase.Keyword.KeywordInteractor;
-import usecase.CuisineType.CuisineTypeInteractor;
-import usecase.Random.RandomInteractor;
+import interface_adapter.calories.CaloriesController;
+import interface_adapter.diet_level.DietLevelController;
+import interface_adapter.random.RandomController;
+import usecase.calories.CaloriesInteractor;
+import interface_adapter.keyword.KeywordController;
+import interface_adapter.cuisine_type.CuisineTypeController;
+import usecase.diet_level.DietLevelInteractor;
+import usecase.keyword.KeywordInteractor;
+import usecase.cuisine_type.CuisineTypeInteractor;
+import usecase.random.RandomInteractor;
 import view.RecipeChoiceView;
-import view.MainFrame;
 
 import javax.swing.*;
 

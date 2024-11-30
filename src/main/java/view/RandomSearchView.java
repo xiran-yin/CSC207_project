@@ -1,6 +1,7 @@
 package view;
 
-import interface_adapter.Random.RandomController;
+import app.MainFrame;
+import interface_adapter.random.RandomController;
 
 import javax.swing.*;
 import java.awt.*;

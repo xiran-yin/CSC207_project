@@ -7,10 +7,10 @@ import entity.Cuisine;
 import entity.Recipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import usecase.CuisineType.CuisineTypeInteractor;
-import usecase.CuisineType.CuisineTypeOutputBoundary;
-import usecase.CuisineType.CuisineTypeInputData;
-import usecase.CuisineType.CuisineTypeOutputData;
+import usecase.cuisine_type.CuisineTypeInteractor;
+import usecase.cuisine_type.CuisineTypeOutputBoundary;
+import usecase.cuisine_type.CuisineTypeInputData;
+import usecase.cuisine_type.CuisineTypeOutputData;
 
 import java.io.IOException;
 import java.util.Collections;

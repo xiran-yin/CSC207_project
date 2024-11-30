@@ -6,9 +6,9 @@ import entity.Cuisine;
 import entity.Recipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import usecase.Calories.CaloriesInputData;
-import usecase.Calories.CaloriesInteractor;
-import usecase.Calories.CaloriesOutputBoundary;
+import usecase.calories.CaloriesInputData;
+import usecase.calories.CaloriesInteractor;
+import usecase.calories.CaloriesOutputBoundary;
 
 import static org.mockito.Mockito.*;
 
