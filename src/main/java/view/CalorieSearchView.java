@@ -70,34 +70,38 @@ public class CalorieSearchView extends JPanel {
 
         // Search button action
         searchButton.addActionListener(evt -> {
-            String keyword = keywordField.getText().trim();
-            String minCalories = minCaloriesField.getText().trim();
-            String maxCalories = maxCaloriesField.getText().trim();
-
-            if (!minCalories.isEmpty() && !maxCalories.isEmpty()) {
-                try {
-                    final int minCal = Integer.parseInt(minCalories);
-                    final int maxCal = Integer.parseInt(maxCalories);
-                    final CaloriesRange caloriesRange = new CaloriesRange(minCal, maxCal);
-
-                    if (!keyword.isEmpty()) {
-                        caloriesController.execute(keyword, caloriesRange);
-                        mainFrame.showView("RecipeChoiceView");
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(this, "Please enter a keyword.");
-                    }
-                }
-                catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(this, "Please enter valid calorie values.");
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(this, "Please enter both minimum and maximum calorie values.");
-            }
+            handelCaloriesSearch(mainFrame, caloriesController);
         });
 
         // Back button action
         backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+    }
+
+    private void handelCaloriesSearch(MainFrame mainFrame, CaloriesController caloriesController) {
+        final String keyword = keywordField.getText().trim();
+        final String minCalories = minCaloriesField.getText().trim();
+        final String maxCalories = maxCaloriesField.getText().trim();
+
+        if (!minCalories.isEmpty() && !maxCalories.isEmpty()) {
+            try {
+                final int minCal = Integer.parseInt(minCalories);
+                final int maxCal = Integer.parseInt(maxCalories);
+                final CaloriesRange caloriesRange = new CaloriesRange(minCal, maxCal);
+
+                if (!keyword.isEmpty()) {
+                    caloriesController.execute(keyword, caloriesRange);
+                    mainFrame.showView("RecipeChoiceView");
+                }
+                else {
+                    JOptionPane.showMessageDialog(this, "Please enter a keyword.");
+                }
+            }
+            catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Please enter valid calorie values.");
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Please enter both minimum and maximum calorie values.");
+        }
     }
 }

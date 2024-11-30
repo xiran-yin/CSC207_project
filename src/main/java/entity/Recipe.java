@@ -40,8 +40,8 @@ public class Recipe {
 
     @Override
     public String toString() {
-        String ingredientsString = String.join(", ", ingredients);
-        String dietLabelsString = String.join(", ", diet.getDietLabels());
+        final String ingredientsString = String.join(", ", ingredients);
+        final String dietLabelsString = String.join(", ", diet.getDietLabels());
 
         return String.format(
                 "[Recipe: %s, Calories: %.2f, Cuisine: %s, Diet: [%s], Ingredients: [%s]]",

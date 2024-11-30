@@ -19,7 +19,6 @@ public class KeywordSearchView extends JPanel {
     private JTextField keywordField;
     private JButton searchButton;
     private JButton backButton;
-    private KeywordController controller;
 
     public KeywordSearchView(KeywordController controller, MainFrame mainFrame) {
 
@@ -43,24 +42,27 @@ public class KeywordSearchView extends JPanel {
 
         // Search button action
         searchButton.addActionListener(evt -> {
-            final String keyword = keywordField.getText().trim();
-            if (!keyword.isEmpty()) {
-                try {
-                    controller.keywordRecipes(keyword);
-                    mainFrame.showView("RecipeChoiceView");
-
-                }
-                catch (IllegalArgumentException ex) {
-                    JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
-                }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "Please enter a keyword.");
-            }
+            handleKeywordSearch(mainFrame, controller);
         });
 
         // Back button action
         backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+    }
+
+    private void handleKeywordSearch(MainFrame mainFrame, KeywordController controller) {
+        final String keyword = keywordField.getText().trim();
+        if (!keyword.isEmpty()) {
+            try {
+                controller.keywordRecipes(keyword);
+                mainFrame.showView("RecipeChoiceView");
+
+            }
+            catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Please enter a keyword.");
+        }
     }
 }

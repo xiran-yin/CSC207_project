@@ -26,23 +26,28 @@ public class Main {
      * @param args unused arguments
      */
     public static void main(String[] args) {
-        RecipeDataBase recipeDataBase = new getRecipeDataBase();
+        final RecipeDataBase recipeDataBase = new getRecipeDataBase();
 
         // Create a temporary placeholder for RecipeChoiceView
-        RecipeChoiceView recipeChoiceView = new RecipeChoiceView(null);
+        final RecipeChoiceView recipeChoiceView = new RecipeChoiceView(null);
 
-        KeywordController keywordController = new KeywordController(new KeywordInteractor(recipeDataBase, recipeChoiceView));
-        DietLevelController dietLevelController = new DietLevelController(new DietLevelInteractor(recipeDataBase,recipeChoiceView));
-        CuisineTypeController cuisineController = new CuisineTypeController(new CuisineTypeInteractor(recipeDataBase, recipeChoiceView));
+        final KeywordController keywordController = new KeywordController(
+                new KeywordInteractor(recipeDataBase, recipeChoiceView));
+        final DietLevelController dietLevelController = new DietLevelController(
+                new DietLevelInteractor(recipeDataBase, recipeChoiceView));
+        final CuisineTypeController cuisineController = new CuisineTypeController(
+                new CuisineTypeInteractor(recipeDataBase, recipeChoiceView));
 
-        CaloriesController caloriesController = new CaloriesController(new CaloriesInteractor(recipeDataBase,recipeChoiceView));
-        RandomController randomController = new RandomController(new RandomInteractor(recipeDataBase, recipeChoiceView));
+        final CaloriesController caloriesController = new CaloriesController(
+                new CaloriesInteractor(recipeDataBase, recipeChoiceView));
+        final RandomController randomController = new RandomController(
+                new RandomInteractor(recipeDataBase, recipeChoiceView));
 
         // Create the MainFrame and assign it to RecipeChoiceView
         SwingUtilities.invokeLater(() -> {
-            MainFrame mainFrame = new MainFrame(keywordController, cuisineController,
+            final MainFrame mainFrame = new MainFrame(keywordController, cuisineController,
                     recipeChoiceView, caloriesController, randomController, dietLevelController);
-            recipeChoiceView.setMainFrame(mainFrame); // Link the MainFrame to RecipeChoiceView
+            recipeChoiceView.setMainFrame(mainFrame);
             mainFrame.setVisible(true);
         });
     }

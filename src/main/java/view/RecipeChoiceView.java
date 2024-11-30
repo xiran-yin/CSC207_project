@@ -1,171 +1,238 @@
 package view;
 
-import app.MainFrame;
-import entity.Recipe;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import java.util.ArrayList;
-import java.util.List;
 
+import app.MainFrame;
+import entity.Recipe;
 import usecase.calories.CaloriesOutputBoundary;
 import usecase.calories.CaloriesOutputData;
 import usecase.cuisine_type.CuisineTypeOutputBoundary;
+import usecase.cuisine_type.CuisineTypeOutputData;
 import usecase.diet_level.DietLevelOutputBoundary;
 import usecase.diet_level.DietLevelOutputData;
 import usecase.keyword.KeywordOutputBoundary;
 import usecase.keyword.KeywordOutputData;
-import usecase.cuisine_type.CuisineTypeOutputData;
 import usecase.random.RandomOutputBoundary;
 import usecase.random.RandomOutputData;
-
 
 /**
  * The View for when the user is search out the recipe in the program.
  */
-public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary, CaloriesOutputBoundary, RandomOutputBoundary {
-    private List<Recipe> keywordRecipes; // Store recipes from keyword search
-    private List<Recipe> cuisineRecipes; // Store recipes from cuisine search
+public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
+        CuisineTypeOutputBoundary, DietLevelOutputBoundary,
+        CaloriesOutputBoundary, RandomOutputBoundary {
+    private List<Recipe> keywordRecipes;
+    private List<Recipe> cuisineRecipes;
     private List<Recipe> dietRecipes;
     private List<Recipe> caloriesRecipes;
     private List<Recipe> randomRecipes;
-    private MainFrame mainFrame;         // Reference to MainFrame for navigation
+    private MainFrame mainFrame;
     private JButton backButton;
     private String previousView;
 
     public RecipeChoiceView(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
-        initializeUI();}
+        initializeUi();
+    }
 
-    private void initializeUI() {
+    private void initializeUi() {
 
         setLayout(new BorderLayout());
 
         // Back Button
         backButton = new JButton("Back");
-        backButton.addActionListener(e -> {
-            if ("KeywordSearchView".equals(previousView)) {
-                mainFrame.showView("KeywordSearchView");
-            } else if ("CuisineSearchView".equals(previousView)) {
-                mainFrame.showView("CuisineSearchView");
-            } else if ("DietSearchView".equals(previousView)) {
-                mainFrame.showView("DietSearchView");
-            }else if ("CalorieSearchView".equals(previousView)) {
-                mainFrame.showView("CalorieSearchView");
-            }else if ("RandomSearchView".equals(previousView)) {
-                mainFrame.showView("RandomSearchView");
-            }
-            keywordRecipes = null;
-            cuisineRecipes = null;
-            dietRecipes = null;
-            caloriesRecipes = null;
-            randomRecipes = null;
+        backButton.addActionListener(evt -> {
+            handleBackButton();
         });
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        final JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);
         add(buttonPanel, BorderLayout.NORTH);
     }
 
+    private void handleBackButton() {
+        if ("KeywordSearchView".equals(previousView)) {
+            mainFrame.showView("KeywordSearchView");
+        }
+        else if ("CuisineSearchView".equals(previousView)) {
+            mainFrame.showView("CuisineSearchView");
+        }
+        else if ("DietSearchView".equals(previousView)) {
+            mainFrame.showView("DietSearchView");
+        }
+        else if ("CalorieSearchView".equals(previousView)) {
+            mainFrame.showView("CalorieSearchView");
+        }
+        else if ("RandomSearchView".equals(previousView)) {
+            mainFrame.showView("RandomSearchView");
+        }
+        keywordRecipes = null;
+        cuisineRecipes = null;
+        dietRecipes = null;
+        caloriesRecipes = null;
+        randomRecipes = null;
+    }
+
+    /**
+     * Present Recipe.
+     * @param keywordOutputData the output data
+     */
     public void presentRecipesKeyword(KeywordOutputData keywordOutputData) {
         System.out.println("Presenting recipes in RecipeChoiceView");
         this.keywordRecipes = keywordOutputData.getRecipes();
-        this.previousView = "KeywordSearchView"; // Set the previous view
+        this.previousView = "KeywordSearchView";
         displayRecipes();
     }
 
+    /**
+     * Present Recipe.
+     * @param cuisineOutputData the output data
+     */
     public void presentRecipesCuisine(CuisineTypeOutputData cuisineOutputData) {
         this.cuisineRecipes = cuisineOutputData.getRecipes();
-        this.previousView = "CuisineSearchView"; // Set the previous view
+        this.previousView = "CuisineSearchView";
         displayRecipes();
     }
 
+    /**
+     * Present Recipe.
+     * @param dietLevelOutputData the output data
+     */
     public void presentRecipesDiet(DietLevelOutputData dietLevelOutputData) {
         this.dietRecipes = dietLevelOutputData.getRecipes();
-        this.previousView = "DietSearchView"; // Set the previous view
+        this.previousView = "DietSearchView";
         displayRecipes();
     }
 
+    /**
+     * Set Recipe.
+     * @param recipes the recipe
+     */
     public void setKeywordRecipes(List<Recipe> recipes) {
         this.keywordRecipes = recipes;
         this.previousView = "KeywordSearchView";
-        System.out.println("Keyword recipes set in RecipeChoiceView: " + keywordRecipes);// Store recipes in the class for rendering
+        System.out.println("Keyword recipes set in RecipeChoiceView: " + keywordRecipes);
     }
 
+    /**
+     * Set Recipe.
+     * @param recipes the recipe
+     */
     public void setCuisineRecipes(List<Recipe> recipes) {
         this.cuisineRecipes = recipes;
         this.previousView = "CuisineSearchView";
         System.out.println("Cuisine recipes set in recipeChoiceView: " + cuisineRecipes);
     }
 
+    /**
+     * Set Recipe.
+     * @param recipes the recipe
+     */
     public void setDietRecipes(List<Recipe> recipes) {
         this.dietRecipes = recipes;
         this.previousView = "DietSearchView";
         System.out.println("Diet recipes set in RecipeChoiceView: " + dietRecipes);
     }
 
+    /**
+     * Present Recipe.
+     * @param randomOutputData the output data
+     */
     public void presentRecipes(RandomOutputData randomOutputData) {
         this.randomRecipes = randomOutputData.getRecipes();
         this.previousView = "RandomSearchView";
         displayRecipes();
     }
 
-    public void presentRecipesCalories(CaloriesOutputData caloriesOutputData){
+    /**
+     * Present Recipe.
+     * @param caloriesOutputData the output data
+     */
+    public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
         this.caloriesRecipes = caloriesOutputData.getRecipes();
         this.previousView = "CalorieSearchView";
         displayRecipes();
     }
 
+    /**
+     * Present the Recipes.
+     */
     public void displayRecipes() {
         removeAll();
-        JPanel backButtonPanel = new JPanel();
+        final JPanel backButtonPanel = new JPanel();
         backButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         backButtonPanel.add(backButton, BorderLayout.NORTH);
         add(backButtonPanel, BorderLayout.NORTH);
 
-        JPanel recipesPanel = new JPanel();
-        recipesPanel.setLayout(new GridLayout(0, 3, 10, 10)); // 3 columns, dynamic rows
+        final JPanel recipesPanel = new JPanel();
+        recipesPanel.setLayout(new GridLayout(0, 3, 10, 10));
 
-        List<Recipe> allRecipes = new ArrayList<>();
-        if (keywordRecipes != null) {allRecipes.addAll(keywordRecipes); }
-        if (cuisineRecipes != null) {allRecipes.addAll(cuisineRecipes); }
-        if (dietRecipes != null) {allRecipes.addAll(dietRecipes); }
-        if (caloriesRecipes != null) {allRecipes.addAll(caloriesRecipes); }
-        if (randomRecipes != null) {allRecipes.addAll(randomRecipes); }
+        final List<Recipe> allRecipes = new ArrayList<>();
+        if (keywordRecipes != null) {
+            allRecipes.addAll(keywordRecipes);
+        }
+        if (cuisineRecipes != null) {
+            allRecipes.addAll(cuisineRecipes);
+        }
+        if (dietRecipes != null) {
+            allRecipes.addAll(dietRecipes);
+        }
+        if (caloriesRecipes != null) {
+            allRecipes.addAll(caloriesRecipes);
+        }
+        if (randomRecipes != null) {
+            allRecipes.addAll(randomRecipes);
+        }
         if (allRecipes.isEmpty()) {
             System.out.println("No recipes to display.");
             JOptionPane.showMessageDialog(this, "No recipes found.");
-        } else {
+        }
+        else {
             // Display recipes
             for (Recipe recipe : allRecipes) {
                 System.out.println("Displaying recipe: " + recipe);
-                JPanel recipeCard = new JPanel();
+                final JPanel recipeCard = new JPanel();
                 recipeCard.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 recipeCard.setLayout(new BorderLayout());
                 // Recipe Label
-                JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
+                final JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
                 recipeCard.add(recipeLabel, BorderLayout.CENTER);
 
+                final JButton ingredientButton = new JButton("Ingredient");
+                ingredientButton.addActionListener(evt -> {
+                    final String[] ingredients = recipe.getIngredients();
+                    final String ingredientList = String.join("\n", ingredients);
+                    final String dietInfo;
+                    if (recipe.getDiet().toString() != null) {
+                        dietInfo = "Diet: " + recipe.getDiet().toString();
+                    }
+                    else {
+                        dietInfo = null;
+                    }
 
-                JButton ingredientButton = new JButton("Ingredient");
-                ingredientButton.addActionListener(e -> {
-                    String[] ingredients = recipe.getIngredients();
-                    String ingredientList = String.join("\n", ingredients);
-                    String dietInfo = recipe.getDiet() != null ? "Diet: " + recipe.getDiet().toString() : "Diet: Not available";
-                    String cuisineInfo = recipe.getCuisine() != null ? "Cuisine: " + recipe.getCuisine().toString() : "Cuisine: Not available";
+                    final String cuisineInfo;
+                    if (recipe.getCuisine() != null) {
+                        cuisineInfo = "Cuisine: " + recipe.getCuisine().toString();
+                    }
+                    else {
+                        cuisineInfo = null;
+                    }
 
-                    String message = cuisineInfo + "\n\n" + dietInfo + "\n\n" + ingredientList;
-
+                    final String message = cuisineInfo + "\n\n" + dietInfo + "\n\n" + ingredientList;
 
                     JOptionPane.showMessageDialog(
-                            this,
-                            ingredientList.isEmpty() ? "No ingredients available" : message,
+                            this, message,
                             "Ingredients for " + recipe.getLabel(),
                             JOptionPane.INFORMATION_MESSAGE
                     );
@@ -176,11 +243,11 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, C
         }
         add(recipesPanel, BorderLayout.CENTER);
 
-        revalidate(); // Update UI layout
-        repaint(); // Redraw the panel
+        revalidate();
+        repaint();
     }
 
-    public void setMainFrame(MainFrame mainFrame){
-            this.mainFrame = mainFrame;
-        }
+    public void setMainFrame(MainFrame mainFrame) {
+        this.mainFrame = mainFrame;
     }
+}

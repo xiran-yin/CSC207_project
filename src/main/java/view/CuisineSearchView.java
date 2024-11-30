@@ -67,23 +67,27 @@ public class CuisineSearchView extends JPanel {
 
         // Search button action
         searchButton.addActionListener(evt -> {
-            final String keyword = keywordField.getText().trim();
-            final String cuisine = (String) cuisineComboBox.getSelectedItem();
-            if (!keyword.isEmpty()) {
-                try {
-                    cuisineController.cuisineRecipes(keyword, cuisine);
-                    mainFrame.showView("RecipeChoiceView");
-                }
-                catch (IllegalArgumentException ex) {
-                    JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(this, "Please enter a keyword.");
-            }
+            handleCuisineSearch(cuisineController, mainFrame);
         });
 
         // Back button action
         backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+    }
+
+    private void handleCuisineSearch(CuisineTypeController cuisineController, MainFrame mainFrame) {
+        final String keyword = keywordField.getText().trim();
+        final String cuisine = (String) cuisineComboBox.getSelectedItem();
+        if (!keyword.isEmpty()) {
+            try {
+                cuisineController.cuisineRecipes(keyword, cuisine);
+                mainFrame.showView("RecipeChoiceView");
+            }
+            catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Please enter a keyword.");
+        }
     }
 }

@@ -18,7 +18,7 @@ public class RandomPresenter implements RandomOutputBoundary {
 
     @Override
     public void presentRecipes(RandomOutputData outputData) {
-        List<Recipe> recipes = outputData.getRecipes();
+        final List<Recipe> recipes = outputData.getRecipes();
         randomViewModel.setRecipeNames(recipes);
         randomViewModel.setLoading(false);
     }

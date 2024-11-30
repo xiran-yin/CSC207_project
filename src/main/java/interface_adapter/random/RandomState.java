@@ -8,23 +8,9 @@ import entity.Recipe;
  * The State for Random View Model.
  */
 public class RandomState {
-    public enum Status {
-        LOADING,
-        SUCCESS,
-        FAILURE
-    }
 
-    private Status status;
     private List<Recipe> recipeNames;
     private String errorMessage;
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 
     public List<Recipe> getRecipeNames() {
         return recipeNames;

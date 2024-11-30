@@ -1,11 +1,11 @@
 package usecase.random;
 
-import api.RecipeDataBase;
-import entity.Recipe;
-
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+
+import api.RecipeDataBase;
+import entity.Recipe;
 
 /**
  * The Random Search Interactor.
@@ -22,30 +22,36 @@ public class RandomInteractor implements RandomInputBoundary {
     @Override
     public void searchRandomRecipe(RandomInputData randomInputData) {
         try {
-            List<Recipe> recipes;
+            final List<Recipe> recipes;
             if ("Diet".equals(randomInputData.getFilter())) {
                 recipes = recipeDataBase.getAllRecipes(
                     randomInputData.getKeyword(), randomInputData.getDietLevel().toString(),
-                        null, 0, 0);}
+                        null, 0, 0);
+            }
 
             else if ("CuisineType".equals(randomInputData.getFilter())) {
                 recipes = recipeDataBase.getAllRecipes(
                         randomInputData.getKeyword(), null,
-                        randomInputData.getCuisineType().toString(), 0, 0);}
+                        randomInputData.getCuisineType().toString(), 0, 0);
+            }
 
             else if ("Calories".equals(randomInputData.getFilter())) {
                 recipes = recipeDataBase.getAllRecipes(
                         randomInputData.getKeyword(), null,
-                        null, randomInputData.getCaloriesRange().getMinCalories()
-                        , randomInputData.getCaloriesRange().getMaxCalories());}
+                        null, randomInputData.getCaloriesRange().getMinCalories(),
+                        randomInputData.getCaloriesRange().getMaxCalories());
+            }
 
-            else {recipes = recipeDataBase.getAllRecipes(
+            else {
+                recipes = recipeDataBase.getAllRecipes(
                     randomInputData.getKeyword(), null,
-                    null, 0, 0);}
+                    null, 0, 0);
+            }
 
-            RandomOutputData randomOutputData = new RandomOutputData(recipes);
+            final RandomOutputData randomOutputData = new RandomOutputData(recipes);
             randomOutputBoundary.presentRecipes(randomOutputData);
-        } catch (IOException ex) {
+        }
+        catch (IOException ex) {
             ex.printStackTrace();
             randomOutputBoundary.presentRecipes(new RandomOutputData(Collections.emptyList()));
         }

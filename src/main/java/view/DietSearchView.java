@@ -26,7 +26,6 @@ public class DietSearchView extends JPanel {
     private JButton searchButton;
     private JButton backButton;
     private JComboBox<String> dietComboBox;
-    private DietLevelController dietLevelController;
 
     public DietSearchView(MainFrame mainFrame, DietLevelController dietLevelController) {
         setLayout(new BorderLayout());
@@ -66,23 +65,27 @@ public class DietSearchView extends JPanel {
 
         // Search button action
         searchButton.addActionListener(evt -> {
-            final String keyword = keywordField.getText().trim();
-            final String diet = (String) dietComboBox.getSelectedItem();
-            if (!keyword.isEmpty()) {
-                try {
-                    dietLevelController.searchDietLevelRecipe(keyword, diet);
-                    mainFrame.showView("RecipeChoiceView");
-                }
-                catch (IllegalArgumentException ex) {
-                    JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(this, "Please enter a keyword.");
-            }
+            handleDietSearch(mainFrame, dietLevelController);
         });
 
         // Back button action
         backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+    }
+
+    private void handleDietSearch(MainFrame mainFrame, DietLevelController dietLevelController) {
+        final String keyword = keywordField.getText().trim();
+        final String diet = (String) dietComboBox.getSelectedItem();
+        if (!keyword.isEmpty()) {
+            try {
+                dietLevelController.searchDietLevelRecipe(keyword, diet);
+                mainFrame.showView("RecipeChoiceView");
+            }
+            catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Please enter a keyword.");
+        }
     }
 }

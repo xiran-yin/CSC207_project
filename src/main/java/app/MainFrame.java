@@ -1,13 +1,17 @@
 package app;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import interface_adapter.calories.CaloriesController;
 import interface_adapter.cuisine_type.CuisineTypeController;
 import interface_adapter.diet_level.DietLevelController;
 import interface_adapter.keyword.KeywordController;
 import interface_adapter.random.RandomController;
-
-import javax.swing.*;
-import java.awt.*;
 import view.CalorieSearchView;
 import view.CuisineSearchView;
 import view.DietSearchView;
@@ -16,6 +20,9 @@ import view.KeywordSearchView;
 import view.RandomSearchView;
 import view.RecipeChoiceView;
 
+/**
+ * The Main Frame for your program.
+ */
 public class MainFrame extends JFrame {
     private JPanel mainPanel;
     private CardLayout cardLayout;
@@ -25,22 +32,20 @@ public class MainFrame extends JFrame {
                      RecipeChoiceView recipeChoiceView,
                      CaloriesController caloriesController,
                      RandomController randomController,
-                     DietLevelController dietLevelController){
+                     DietLevelController dietLevelController) {
         setTitle("Recipe Finder");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
-
 
         // Initialize CardLayout and Main Panel
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
 
         // Set the background color.
-        setBackground(new Color(102,204,0));
+        setBackground(new Color(102, 204, 0));
 
-        // Create and add views
-        HomeView homeView = new HomeView(this); // Home view
+        final HomeView homeView = new HomeView(this);
 
         // Add views to the main panel
         mainPanel.add(homeView, "HomeView");
@@ -61,6 +66,11 @@ public class MainFrame extends JFrame {
     }
 
     // Method to navigate between views
+
+    /**
+     * Show each view.
+     * @param viewName niew name for each view
+     */
     public void showView(String viewName) {
         System.out.println("Switching to view: " + viewName);
         cardLayout.show(mainPanel, viewName);
@@ -69,12 +79,5 @@ public class MainFrame extends JFrame {
     private void addView(String viewName, JPanel view) {
         mainPanel.add(view, viewName);
     }
-
-
-
-
-
-
-
 
 }
