@@ -45,7 +45,7 @@ public class MainFrame extends JFrame {
         // Set the background color.
         setBackground(new Color(102, 204, 0));
 
-       final HomeView homeView = new HomeView(this);
+        final HomeView homeView = new HomeView(this);
 
         // Add views to the main panel
         mainPanel.add(homeView, "HomeView");
