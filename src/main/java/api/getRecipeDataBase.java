@@ -92,8 +92,8 @@ public class getRecipeDataBase implements RecipeDataBase {
 
     @Override
     public Diet getDietLabels(JSONObject recipeObject) throws JSONException {
-        JSONArray dietLabelsArray = recipeObject.optJSONArray("dietLabels");
-        String[] dietLabels = new String[dietLabelsArray.length()];
+        final JSONArray dietLabelsArray = recipeObject.optJSONArray("dietLabels");
+        final String[] dietLabels = new String[dietLabelsArray.length()];
         for (int i = 0; i < dietLabelsArray.length(); i++) {
             dietLabels[i] = dietLabelsArray.getString(i);
         }
@@ -101,8 +101,8 @@ public class getRecipeDataBase implements RecipeDataBase {
 
     @Override
     public String[] getIngredients(JSONObject recipeObject) throws JSONException {
-        JSONArray ingredientLines = recipeObject.getJSONArray("ingredientLines");
-        String[] ingredients = new String[ingredientLines.length()];
+        final JSONArray ingredientLines = recipeObject.getJSONArray("ingredientLines");
+        final String[] ingredients = new String[ingredientLines.length()];
         for (int i = 0; i < ingredientLines.length(); i++) {
             ingredients[i] = ingredientLines.getString(i);
         }
@@ -110,6 +110,6 @@ public class getRecipeDataBase implements RecipeDataBase {
 
     @Override
     public Cuisine getCuisineType(JSONObject recipeObject) throws JSONException {
-        String cuisineTypeString = recipeObject.getJSONArray("cuisineType").getString(0);
+        final String cuisineTypeString = recipeObject.getJSONArray("cuisineType").getString(0);
         return new Cuisine(cuisineTypeString);    }
 }
