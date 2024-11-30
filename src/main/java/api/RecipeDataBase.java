@@ -26,7 +26,8 @@ public interface RecipeDataBase {
      * @throws IOException the exception
      * @throws JSONException the exception
      */
-    List<Recipe> getAllRecipes(String keyword, String diet, String cuisine, int mincalories, int maxcalories) throws IOException, JSONException;
+    List<Recipe> getAllRecipes(String keyword, String diet, String cuisine,
+                               int mincalories, int maxcalories) throws IOException, JSONException;
 
     /**
      * Fetches a single recipe (first from the list).
@@ -38,7 +39,8 @@ public interface RecipeDataBase {
      * @return the recipe
      * @throws JSONException the exception
      */
-    Recipe getRecipe(String keyword, String diet, String cuisine, int mincalories, int maxcalories) throws JSONException;
+    Recipe getRecipe(String keyword, String diet, String cuisine, int mincalories,
+                     int maxcalories) throws JSONException;
 
     /**
      * Retrieves the calories of a recipe based on a JSON object.

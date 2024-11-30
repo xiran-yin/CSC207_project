@@ -3,7 +3,7 @@ package app;
 import javax.swing.SwingUtilities;
 
 import api.RecipeDataBase;
-import api.getRecipeDataBase;
+import api.GetRecipeDataBase;
 import interface_adapter.calories.CaloriesController;
 import interface_adapter.cuisine_type.CuisineTypeController;
 import interface_adapter.diet_level.DietLevelController;
@@ -26,7 +26,7 @@ public class Main {
      * @param args unused arguments
      */
     public static void main(String[] args) {
-        final RecipeDataBase recipeDataBase = new getRecipeDataBase();
+        final RecipeDataBase recipeDataBase = new GetRecipeDataBase();
 
         // Create a temporary placeholder for RecipeChoiceView
         final RecipeChoiceView recipeChoiceView = new RecipeChoiceView(null);

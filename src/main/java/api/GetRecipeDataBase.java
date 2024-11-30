@@ -11,7 +11,6 @@ import org.json.JSONObject;
 import entity.Cuisine;
 import entity.Diet;
 import entity.Recipe;
-
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -19,14 +18,15 @@ import okhttp3.Response;
 /**
  * Actual Connect with API.
  */
-public class getRecipeDataBase implements RecipeDataBase {
+public class GetRecipeDataBase implements RecipeDataBase {
     private static final String API_URL = "https://api.edamam.com/api/recipes/v2?type=public";
     private static final String APP_ID = "7e6602a1";
     private static final String APP_KEY = "a6c9d7096dd6346a6aecc6c4bcdc3824";
     private static final int SUCCESS_CODE = 200;
 
     // Helper to call API
-    private JSONObject callApi(String keyword, String diet, String cuisine, int minCalories, int maxCalories) throws IOException, JSONException {
+    private JSONObject callApi(String keyword, String diet, String cuisine, int minCalories,
+                               int maxCalories) throws IOException, JSONException {
         final StringBuilder url = new StringBuilder(
                 String.format("%s&q=%s&app_id=%s&app_key=%s", API_URL, keyword != null ? keyword : "", APP_ID, APP_KEY)
         );
@@ -60,7 +60,8 @@ public class getRecipeDataBase implements RecipeDataBase {
     }
 
     @Override
-    public List<Recipe> getAllRecipes(String keyword, String diet, String cuisine, int minCalories, int maxCalories) throws IOException, JSONException {
+    public List<Recipe> getAllRecipes(String keyword, String diet, String cuisine,
+                                      int minCalories, int maxCalories) throws IOException, JSONException {
         final JSONObject apiResponse = callApi(keyword, diet, cuisine, minCalories, maxCalories);
         final JSONArray hits = apiResponse.optJSONArray("hits");
         if (hits == null || hits.length() == 0) {
@@ -68,20 +69,21 @@ public class getRecipeDataBase implements RecipeDataBase {
         }
         final List<Recipe> recipes = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
-            final JSONObject recipeObject = hits. getJSONObject(i).getJSONObject( "recipe");
-            final String label = recipeObject.getString( "label");
+            final JSONObject recipeObject = hits.getJSONObject(i).getJSONObject("recipe");
+            final String label = recipeObject.getString("label");
             final double calories = getCalories(recipeObject);
             final Cuisine cuisineType = getCuisineType(recipeObject);
             final Diet dietLabels = getDietLabels(recipeObject);
             final String[] ingredients = getIngredients(recipeObject);
-// Add the recipe to the list
-        recipes.add (new Recipe(label, calories, cuisineType, dietLabels, ingredients));
-    }
+            // Add the recipe to the list
+            recipes.add(new Recipe(label, calories, cuisineType, dietLabels, ingredients));
+        }
         return recipes;
     }
 
     @Override
-    public Recipe getRecipe(String keyword, String diet, String cuisine, int mincalories, int maxcalories) throws JSONException {
+    public Recipe getRecipe(String keyword, String diet, String cuisine, int mincalories,
+                            int maxcalories) throws JSONException {
         return null;
     }
 
@@ -97,7 +99,8 @@ public class getRecipeDataBase implements RecipeDataBase {
         for (int i = 0; i < dietLabelsArray.length(); i++) {
             dietLabels[i] = dietLabelsArray.getString(i);
         }
-        return new Diet(dietLabels);    }
+        return new Diet(dietLabels);
+    }
 
     @Override
     public String[] getIngredients(JSONObject recipeObject) throws JSONException {
@@ -106,10 +109,12 @@ public class getRecipeDataBase implements RecipeDataBase {
         for (int i = 0; i < ingredientLines.length(); i++) {
             ingredients[i] = ingredientLines.getString(i);
         }
-        return ingredients;    }
+        return ingredients;
+    }
 
     @Override
     public Cuisine getCuisineType(JSONObject recipeObject) throws JSONException {
         final String cuisineTypeString = recipeObject.getJSONArray("cuisineType").getString(0);
-        return new Cuisine(cuisineTypeString);    }
+        return new Cuisine(cuisineTypeString);
+    }
 }

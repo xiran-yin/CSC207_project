@@ -28,7 +28,10 @@ public class CalorieSearchView extends JPanel {
     private JButton backButton;
 
     public CalorieSearchView(MainFrame mainFrame, CaloriesController caloriesController) {
-        setBackground(new Color(249, 249, 232));
+        final Color backgroundColor = new Color(249, 249, 232);
+        final Color lightGreenColor = new Color(185, 224, 84);
+
+        setBackground(backgroundColor);
 
         final JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
         keywordField = new JTextField();
@@ -40,14 +43,14 @@ public class CalorieSearchView extends JPanel {
         backButton = new JButton("Back");
 
         searchButton.setOpaque(true);
-        searchButton.setBackground(new Color(185, 224, 84));
+        searchButton.setBackground(lightGreenColor);
         searchButton.setBorderPainted(false);
         searchButton.setForeground(Color.WHITE);
         searchButton.setFont(new Font(font, Font.BOLD, 16));
         searchButton.setPreferredSize(new Dimension(80, 30));
 
         backButton.setOpaque(true);
-        backButton.setBackground(new Color(185, 224, 84));
+        backButton.setBackground(lightGreenColor);
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.white);
         backButton.setFont(new Font(font, Font.BOLD, 16));
@@ -61,7 +64,7 @@ public class CalorieSearchView extends JPanel {
         searchPanel.add(keywordField, BorderLayout.CENTER);
         searchPanel.add(buttonPanel, BorderLayout.EAST);
         searchPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
-        searchPanel.setBackground(new Color(249, 249, 232));
+        searchPanel.setBackground(backgroundColor);
 
         // Setup for the calories input panel
         final JPanel caloriePanel = new JPanel(new GridLayout(1, 2, 10, 10));
@@ -78,14 +81,14 @@ public class CalorieSearchView extends JPanel {
         // Add both fields to the caloriePanel
         caloriePanel.add(minCaloriesField);
         caloriePanel.add(maxCaloriesField);
-        caloriePanel.setBackground(new Color(249, 249, 232));
+        caloriePanel.setBackground(backgroundColor);
 
         // Combine searchPanel and caloriePanel into a single panel
         final JPanel combinedPanel = new JPanel();
         combinedPanel.setLayout(new BoxLayout(combinedPanel, BoxLayout.Y_AXIS));
         combinedPanel.add(searchPanel);
         combinedPanel.add(caloriePanel);
-        caloriePanel.setBackground(new Color(249, 249, 232));
+        caloriePanel.setBackground(backgroundColor);
 
         // Add combined panel to the main layout
         setLayout(new BorderLayout());
