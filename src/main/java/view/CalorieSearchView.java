@@ -70,9 +70,9 @@ public class CalorieSearchView extends JPanel {
 
         // Search button action
         searchButton.addActionListener(evt -> {
-            String keyword = keywordField.getText().trim();
-            String minCalories = minCaloriesField.getText().trim();
-            String maxCalories = maxCaloriesField.getText().trim();
+            final String keyword = keywordField.getText().trim();
+            final String minCalories = minCaloriesField.getText().trim();
+            final String maxCalories = maxCaloriesField.getText().trim();
 
             if (!minCalories.isEmpty() && !maxCalories.isEmpty()) {
                 try {

@@ -54,8 +54,7 @@ public class KeywordSearchView extends JPanel {
                     JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
                 }
             }
-            else
-            {
+            else {
                 JOptionPane.showMessageDialog(this, "Please enter a keyword.");
             }
         });

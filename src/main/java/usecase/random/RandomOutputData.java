@@ -1,8 +1,8 @@
 package usecase.random;
 
-import entity.Recipe;
-
 import java.util.List;
+
+import entity.Recipe;
 
 /**
  * The Output Data of the Random Use Case.
