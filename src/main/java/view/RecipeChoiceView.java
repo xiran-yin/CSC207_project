@@ -2,8 +2,8 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,11 +56,11 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
         // Back Button
         backButton = new JButton("Back");
         backButton.setOpaque(true);
-        backButton.setBackground(new Color(185,224,84));
+        backButton.setBackground(new Color(185, 224, 84));
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-        backButton.addActionListener(e -> {
+        backButton.addActionListener(evt -> {
             if ("KeywordSearchView".equals(previousView)) {
                 mainFrame.showView("KeywordSearchView");
             } else if ("CuisineSearchView".equals(previousView)) {

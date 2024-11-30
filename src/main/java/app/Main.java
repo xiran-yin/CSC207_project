@@ -34,11 +34,11 @@ public class Main {
         final KeywordController keywordController = new KeywordController(
                 new KeywordInteractor(recipeChoiceView, recipeDataBase));
         final DietLevelController dietLevelController = new DietLevelController(
-                new DietLevelInteractor(recipeDataBase,recipeChoiceView));
+                new DietLevelInteractor(recipeDataBase, recipeChoiceView));
         final CuisineTypeController cuisineController = new CuisineTypeController(
                 new CuisineTypeInteractor(recipeDataBase, recipeChoiceView));
         final CaloriesController caloriesController = new CaloriesController(
-                new CaloriesInteractor(recipeDataBase,recipeChoiceView));
+                new CaloriesInteractor(recipeDataBase, recipeChoiceView));
         final RandomController randomController = new RandomController(
                 new RandomInteractor(recipeChoiceView, recipeDataBase));
 
@@ -46,7 +46,7 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             final MainFrame mainFrame = new MainFrame(keywordController, cuisineController,
                     recipeChoiceView, caloriesController, randomController, dietLevelController);
-            recipeChoiceView.setMainFrame(mainFrame); // Link the MainFrame to RecipeChoiceView
+            recipeChoiceView.setMainFrame(mainFrame);
             mainFrame.setVisible(true);
         });
     }

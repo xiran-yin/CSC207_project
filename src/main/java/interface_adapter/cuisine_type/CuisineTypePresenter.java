@@ -1,8 +1,5 @@
 package interface_adapter.cuisine_type;
 
-import java.util.List;
-
-import entity.Recipe;
 import usecase.cuisine_type.CuisineTypeOutputBoundary;
 import usecase.cuisine_type.CuisineTypeOutputData;
 
@@ -18,8 +15,5 @@ public class CuisineTypePresenter implements CuisineTypeOutputBoundary {
 
     @Override
     public void presentRecipesCuisine(CuisineTypeOutputData cuisineTypeOutputData) {
-//        List<Recipe> recipes = cuisineTypeOutputData.getRecipes();
-//        cuisineViewModel.setRecipeNames(recipes);
-//        cuisineViewModel.setLoading(false);
     }
 }

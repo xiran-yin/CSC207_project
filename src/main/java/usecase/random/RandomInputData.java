@@ -37,29 +37,32 @@ public class RandomInputData {
         this.keyword = keywords[random.nextInt(keywords.length)];
 
         // Randomly decide whether to apply a filter and which one
-        final String[] filters = {"Diet", "CuisineType", "Calories", null};
+        final String diet = "Diet";
+        final String cuisine = "CuisineType";
+        final String calories = "Calories";
+        final String[] filters = {diet, cuisine, calories, null};
         final String selectedFilter = filters[random.nextInt(filters.length)];
 
-        if ("Diet".equals(selectedFilter)) {
+        if (diet.equals(selectedFilter)) {
             this.dietLevel = new Diet(randomDiet);
             this.cuisineType = null;
             this.caloriesRange = null;
-            this.filter = "Diet";
+            this.filter = diet;
         }
-        else if ("CuisineType".equals(selectedFilter)) {
+        else if (cuisine.equals(selectedFilter)) {
             final Cuisine.CuisineType[] cuisines = Cuisine.CuisineType.values();
             this.cuisineType = new Cuisine(cuisines[random.nextInt(cuisines.length)].name());
             this.dietLevel = null;
             this.caloriesRange = null;
-            this.filter = "CuisineType";
+            this.filter = cuisine;
         }
-        else if ("Calories".equals(selectedFilter)) {
+        else if (calories.equals(selectedFilter)) {
             final int minCalories = random.nextInt(250);
             final int maxCalories = minCalories + random.nextInt(500);
             this.caloriesRange = new CaloriesRange(minCalories, maxCalories);
             this.dietLevel = null;
             this.cuisineType = null;
-            this.filter = "Calories";
+            this.filter = calories;
         }
         else {
             this.dietLevel = null;

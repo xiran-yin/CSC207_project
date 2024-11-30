@@ -1,9 +1,5 @@
 package interface_adapter.random;
 
-import java.util.List;
-
-import entity.Recipe;
-import interface_adapter.ViewManagerModel;
 import usecase.random.RandomOutputBoundary;
 import usecase.random.RandomOutputData;
 

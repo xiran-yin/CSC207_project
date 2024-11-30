@@ -1,9 +1,5 @@
 package interface_adapter.cuisine_type;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import entity.Recipe;
 import interface_adapter.ViewModel;
 
 /**

@@ -45,7 +45,8 @@ public class RandomInteractor implements RandomInputBoundary {
             else {
                 recipes = recipeDataBase.getAllRecipes(
                     randomInputData.getKeyword(), null,
-                    null, 0, 0);}
+                    null, 0, 0);
+            }
 
             randomPresenter.presentRecipes(new RandomOutputData(recipes));
         }

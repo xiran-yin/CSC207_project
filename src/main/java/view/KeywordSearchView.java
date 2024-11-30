@@ -3,8 +3,8 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -22,7 +22,6 @@ public class KeywordSearchView extends JPanel {
     private JTextField keywordField;
     private JButton searchButton;
     private JButton backButton;
-    private KeywordController controller;
 
     public KeywordSearchView(KeywordController controller, MainFrame mainFrame) {
 
@@ -33,20 +32,21 @@ public class KeywordSearchView extends JPanel {
         keywordField = new JTextField();
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
-        keywordField.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+        final String font = "Comic Sans MS";
+        keywordField.setFont(new Font(font, Font.PLAIN, 16));
 
         searchButton.setOpaque(true);
-        searchButton.setBackground(new Color(185,224,84));
+        searchButton.setBackground(new Color(185, 224, 84));
         searchButton.setBorderPainted(false);
         searchButton.setForeground(Color.WHITE);
-        searchButton.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        searchButton.setFont(new Font(font, Font.BOLD, 16));
         searchButton.setPreferredSize(new Dimension(80, 30));
 
         backButton.setOpaque(true);
-        backButton.setBackground(new Color(185,224,84));
+        backButton.setBackground(new Color(185, 224, 84));
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.white);
-        backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+        backButton.setFont(new Font(font, Font.BOLD, 16));
         backButton.setPreferredSize(new Dimension(80, 30));
 
         final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));

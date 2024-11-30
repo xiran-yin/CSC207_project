@@ -1,6 +1,5 @@
 package interface_adapter.random;
 
-import entity.Recipe;
 import interface_adapter.ViewModel;
 
 /**
