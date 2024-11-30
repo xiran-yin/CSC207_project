@@ -1,10 +1,13 @@
 package interface_adapter.keyword;
 
-import entity.Recipe;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import entity.Recipe;
+
+/**
+ * The View Model for Keyword View Model.
+ */
 public class KeywordViewModel {
 
     private List<Recipe> recipes = new ArrayList<>();

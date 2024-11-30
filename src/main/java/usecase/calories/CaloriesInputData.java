@@ -2,6 +2,9 @@ package usecase.calories;
 
 import entity.CaloriesRange;
 
+/**
+ * The Input Data of Calories Search Use Case.
+ */
 public class CaloriesInputData {
     private final String keyword;
     private final CaloriesRange caloriesRange;
@@ -11,7 +14,19 @@ public class CaloriesInputData {
         this.caloriesRange = caloriesRange;
     }
 
-    public String getKeyword() {return keyword;}
+    /**
+     * Get the keyword of the Input Data.
+     * @return the keyword of the search
+     */
+    public String getKeyword() {
+        return keyword;
+    }
 
-    public CaloriesRange getCaloriesRange() {return caloriesRange;}
+    /**
+     * Get the calories range of the input data.
+     * @return the calories range of the search
+     */
+    public CaloriesRange getCaloriesRange() {
+        return caloriesRange;
+    }
 }

@@ -1,10 +1,13 @@
 package interface_adapter.random;
 
-import entity.Recipe;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import entity.Recipe;
+
+/**
+ * The View Model for Random View Model.
+ */
 public class RandomViewModel {
     private List<Recipe> recipes = new ArrayList<>();
     private boolean isLoading = true;

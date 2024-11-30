@@ -3,9 +3,13 @@ package usecase.keyword;
 import api.RecipeDataBase;
 import entity.Recipe;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * The Keyword Search Interactor.
+ */
 public class KeywordInteractor implements KeywordInputBoundary{
     private final RecipeDataBase recipeDataBase;
     private final KeywordOutputBoundary keywordOutputBoundary;
@@ -25,8 +29,8 @@ public class KeywordInteractor implements KeywordInputBoundary{
             System.out.println("Recipes retrieved: " + recipes);
             KeywordOutputData keywordOutputData = new KeywordOutputData(recipes);
             keywordOutputBoundary.presentRecipesKeyword(keywordOutputData);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
             keywordOutputBoundary.presentRecipesKeyword(new KeywordOutputData(Collections.emptyList()));
         }
 

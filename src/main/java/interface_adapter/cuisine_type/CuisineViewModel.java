@@ -1,13 +1,21 @@
 package interface_adapter.cuisine_type;
 
-import entity.Recipe;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class CuisineViewModel {
+import entity.Recipe;
+import interface_adapter.ViewModel;
+
+/**
+ * The View Model for Cuisine View Model.
+ */
+public class CuisineViewModel extends ViewModel<CuisineState> {
     private List<Recipe> recipes = new ArrayList<>();
     private boolean isLoading = true;
+
+    public CuisineViewModel(String viewName) {
+        super(viewName);
+    }
 
     public List<Recipe> getRecipeNames() {
         return recipes;

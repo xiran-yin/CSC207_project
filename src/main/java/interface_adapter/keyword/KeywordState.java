@@ -1,10 +1,13 @@
 package interface_adapter.keyword;
 
+import java.util.List;
+
 import entity.Recipe;
 import interface_adapter.random.RandomState;
 
-import java.util.List;
-
+/**
+ * The State for Keyword View Model.
+ */
 public class KeywordState {
     public enum Status {
         LOADING,

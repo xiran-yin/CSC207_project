@@ -1,10 +1,13 @@
 package interface_adapter.diet_level;
 
+import java.util.List;
+
 import entity.Recipe;
 import interface_adapter.random.RandomState;
 
-import java.util.List;
-
+/**
+ * The State for Diet View Model.
+ */
 public class DietState {
     public enum Status {
         LOADING,

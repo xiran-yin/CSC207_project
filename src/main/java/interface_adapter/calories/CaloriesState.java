@@ -1,28 +1,16 @@
 package interface_adapter.calories;
 
-import entity.Recipe;
-import interface_adapter.random.RandomState;
-
 import java.util.List;
 
-public class CaloriesState {
-    public enum Status {
-        LOADING,
-        SUCCESS,
-        FAILURE
-    }
+import entity.Recipe;
 
-    private RandomState.Status status;
+/**
+ * The State for Calories Search View Model.
+ */
+public class CaloriesState {
+
     private List<Recipe> recipeNames;
     private String errorMessage;
-
-    public RandomState.Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(RandomState.Status status) {
-        this.status = status;
-    }
 
     public List<Recipe> getRecipeNames() {
         return recipeNames;

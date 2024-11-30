@@ -3,7 +3,14 @@ package entity;
 import java.util.Collections;
 import java.util.Set;
 
+/**
+ * The representation of Diet for our application.
+ */
 public class Diet {
+
+    /**
+     * Enum of all possible Diet labels.
+     */
     public enum DietLabels {
         LOW_FAT, LOW_CARB, BALANCED, HIGH_FIBER, LOW_SODIUM, HIGH_PROTEIN
     }

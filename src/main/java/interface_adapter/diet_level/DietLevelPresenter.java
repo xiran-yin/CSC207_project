@@ -1,11 +1,14 @@
 package interface_adapter.diet_level;
 
+import java.util.List;
+
 import entity.Recipe;
 import usecase.diet_level.DietLevelOutputBoundary;
 import usecase.diet_level.DietLevelOutputData;
 
-import java.util.List;
-
+/**
+ * The Presneter for Diet Use Case.
+ */
 public class DietLevelPresenter implements DietLevelOutputBoundary {
 
     private final DietViewModel dietViewModel;

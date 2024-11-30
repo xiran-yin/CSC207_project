@@ -1,11 +1,24 @@
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import app.MainFrame;
 import interface_adapter.diet_level.DietLevelController;
 
-import javax.swing.*;
-import java.awt.*;
 
+/**
+ * The View for when the user is used the Diet Filter in the program.
+ */
 public class DietSearchView extends JPanel {
 
     private JPanel recipePanel;

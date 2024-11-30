@@ -1,9 +1,19 @@
 package view;
 
-import app.MainFrame;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
+import app.MainFrame;
+
+/**
+ * The View for when the user open the program, the home view.
+ */
 public class HomeView extends JPanel {
     private final MainFrame mainFrame;
     public HomeView(MainFrame mainFrame) {

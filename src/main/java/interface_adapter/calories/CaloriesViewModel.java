@@ -1,13 +1,22 @@
 package interface_adapter.calories;
 
-import entity.Recipe;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class CaloriesViewModel {
+import entity.Recipe;
+import interface_adapter.ViewModel;
+
+/**
+ * The View Model for Calories View Model.
+ */
+public class CaloriesViewModel extends ViewModel<CaloriesState> {
     private List<Recipe> recipes = new ArrayList<>();
     private boolean isLoading = true;
+
+    public CaloriesViewModel(String viewName) {
+        super(viewName);
+        setState(new CaloriesState());
+    }
 
     public List<Recipe> getRecipeNames() {
         return recipes;

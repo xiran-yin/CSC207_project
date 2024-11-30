@@ -1,11 +1,14 @@
 package interface_adapter.keyword;
 
+import java.util.List;
+
 import entity.Recipe;
 import usecase.keyword.KeywordOutputBoundary;
 import usecase.keyword.KeywordOutputData;
 
-import java.util.List;
-
+/**
+ * The Presenter for Keyword Use Case.
+ */
 public class KeywordPresenter implements KeywordOutputBoundary {
     private final KeywordViewModel keywordViewModel;
 

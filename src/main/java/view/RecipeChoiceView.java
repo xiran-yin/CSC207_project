@@ -2,6 +2,19 @@ package view;
 
 import app.MainFrame;
 import entity.Recipe;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import java.util.ArrayList;
+import java.util.List;
+
 import usecase.calories.CaloriesOutputBoundary;
 import usecase.calories.CaloriesOutputData;
 import usecase.cuisine_type.CuisineTypeOutputBoundary;
@@ -13,11 +26,10 @@ import usecase.cuisine_type.CuisineTypeOutputData;
 import usecase.random.RandomOutputBoundary;
 import usecase.random.RandomOutputData;
 
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * The View for when the user is search out the recipe in the program.
+ */
 public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary, CuisineTypeOutputBoundary, DietLevelOutputBoundary, CaloriesOutputBoundary, RandomOutputBoundary {
     private List<Recipe> keywordRecipes; // Store recipes from keyword search
     private List<Recipe> cuisineRecipes; // Store recipes from cuisine search

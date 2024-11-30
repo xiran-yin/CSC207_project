@@ -1,5 +1,8 @@
 package usecase.cuisine_type;
 
+/**
+ * The Input Data of the Cuisine Search Use Case.
+ */
 public class CuisineTypeInputData {
     private final String keyword;
     private final String cuisine;
@@ -9,9 +12,11 @@ public class CuisineTypeInputData {
         this.cuisine = cuisine;
     }
 
-    public String getKeyword() {return keyword;}
+    public String getKeyword() {
+        return keyword;
+    }
 
-    public String getCuisine() {return cuisine;}
+    public String getCuisine() {
+        return cuisine;
+    }
 }
-
-
