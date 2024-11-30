@@ -3,6 +3,7 @@ package interface_adapter.random;
 import java.util.List;
 
 import entity.Recipe;
+import interface_adapter.ViewManagerModel;
 import usecase.random.RandomOutputBoundary;
 import usecase.random.RandomOutputData;
 
@@ -17,9 +18,7 @@ public class RandomPresenter implements RandomOutputBoundary {
     }
 
     @Override
-    public void presentRecipes(RandomOutputData outputData) {
-        final List<Recipe> recipes = outputData.getRecipes();
-        randomViewModel.setRecipeNames(recipes);
-        randomViewModel.setLoading(false);
+    public void presentRecipes(RandomOutputData randomOutputData) {
+        // note: this use case actually just passing data:)
     }
 }

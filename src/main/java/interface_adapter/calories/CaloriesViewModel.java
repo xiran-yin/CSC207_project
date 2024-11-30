@@ -10,27 +10,9 @@ import interface_adapter.ViewModel;
  * The View Model for Calories View Model.
  */
 public class CaloriesViewModel extends ViewModel<CaloriesState> {
-    private List<Recipe> recipes = new ArrayList<>();
-    private boolean isLoading = true;
 
-    public CaloriesViewModel(String viewName) {
-        super(viewName);
+    public CaloriesViewModel() {
+        super("Calories");
         setState(new CaloriesState());
-    }
-
-    public List<Recipe> getRecipeNames() {
-        return recipes;
-    }
-
-    public void setRecipeNames(List<Recipe> recipeNames) {
-        this.recipes = recipeNames;
-    }
-
-    public boolean isLoading() {
-        return isLoading;
-    }
-
-    public void setLoading(boolean loading) {
-        isLoading = loading;
     }
 }

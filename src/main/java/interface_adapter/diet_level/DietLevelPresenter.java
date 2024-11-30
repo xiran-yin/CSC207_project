@@ -18,9 +18,9 @@ public class DietLevelPresenter implements DietLevelOutputBoundary {
     }
 
     @Override
-    public void presentRecipesDiet(DietLevelOutputData dietLevelOutputData) {
-        final List<Recipe> recipe = dietLevelOutputData.getRecipes();
-        dietViewModel.setRecipeNames(recipe);
-        dietViewModel.setLoading(false);
+    public void presentRecipesDiet(DietLevelOutputData dietLevelOutputData){
+//        List<Recipe> recipe = dietLevelOutputData.getRecipes();
+//        dietViewModel.setRecipeNames(recipe);
+//        dietViewModel.setLoading(false);
     }
 }

@@ -47,3 +47,41 @@ The team usecase is search by keywords :)
 -Interactor: Base on the recipes from our API, has the method which generates recipes with suitable ingridients(e.g. low fat and carb).
 -Controller: Use the RecipeSearchInteractor to generate some recipes.
 -Presenter: use view model to display the results.
+
+
+
+## Principles of Universal Design
+Principle 1: Equitable Use
+Principle 2: Flexibility in Use
+Principle 3: Simple and Intuitive Use
+Principle 4: Perceptible Information
+Principle 5: Tolerance for Error
+Principle 6: Low Physical Effort
+Principle 7: Size and Space for Approach and Use
+
+## Principle 1: Equitable Use
+
+This application embodies the principle of **Equitable Use** by ensuring it is free for all users, regardless of their financial situation. Users can interact with the app in multiple ways, including:
+
+1. **Keyword Search**: Ideal for users who have specific ingredients in mind or dietary needs.
+2. **Filter by Diet or Cuisine**: Supports users with particular preferences or restrictions.
+3. **Random Recipe Generator**: Allows users seeking inspiration or variety to find recipes easily.
+
+These features cater to a diverse range of user needs, providing an inclusive experience that avoids discrimination or exclusion.
+
+### Technical Implementation
+
+To run the application:
+1. Clone the repository from GitHub.
+2. Open the project in an IDE (e.g., IntelliJ IDEA, Eclipse).
+3. Navigate to `main.java` and click **Run**.
+4. Access the graphical interface to explore recipes through various filters or options.
+
+This simple setup ensures that users of varying technical skills can use the app effectively, promoting equitable access to its features.
+
+### Future Improvements
+To further enhance equitable use, future updates could include:
+- **Accessibility Features**: Adding text-to-speech support for visually impaired users.
+- **Multi-language Support**: Expanding the app's language options to reach a global audience.
+- **Offline Mode**: Allowing users in areas with limited internet connectivity to access saved recipes.
+

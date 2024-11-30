@@ -2,6 +2,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -50,38 +51,37 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
     private void initializeUi() {
 
         setLayout(new BorderLayout());
+        setBackground(new Color(249, 249, 232));
 
         // Back Button
         backButton = new JButton("Back");
-        backButton.addActionListener(evt -> {
-            handleBackButton();
+        backButton.setOpaque(true);
+        backButton.setBackground(new Color(185,224,84));
+        backButton.setBorderPainted(false);
+        backButton.setForeground(Color.WHITE);
+        backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+        backButton.addActionListener(e -> {
+            if ("KeywordSearchView".equals(previousView)) {
+                mainFrame.showView("KeywordSearchView");
+            } else if ("CuisineSearchView".equals(previousView)) {
+                mainFrame.showView("CuisineSearchView");
+            } else if ("DietSearchView".equals(previousView)) {
+                mainFrame.showView("DietSearchView");
+            }else if ("CalorieSearchView".equals(previousView)) {
+                mainFrame.showView("CalorieSearchView");
+            }else if ("RandomSearchView".equals(previousView)) {
+                mainFrame.showView("RandomSearchView");
+            }
+            keywordRecipes = null;
+            cuisineRecipes = null;
+            dietRecipes = null;
+            caloriesRecipes = null;
+            randomRecipes = null;
         });
         final JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);
+        buttonPanel.setBackground(new Color(249, 249, 232));
         add(buttonPanel, BorderLayout.NORTH);
-    }
-
-    private void handleBackButton() {
-        if ("KeywordSearchView".equals(previousView)) {
-            mainFrame.showView("KeywordSearchView");
-        }
-        else if ("CuisineSearchView".equals(previousView)) {
-            mainFrame.showView("CuisineSearchView");
-        }
-        else if ("DietSearchView".equals(previousView)) {
-            mainFrame.showView("DietSearchView");
-        }
-        else if ("CalorieSearchView".equals(previousView)) {
-            mainFrame.showView("CalorieSearchView");
-        }
-        else if ("RandomSearchView".equals(previousView)) {
-            mainFrame.showView("RandomSearchView");
-        }
-        keywordRecipes = null;
-        cuisineRecipes = null;
-        dietRecipes = null;
-        caloriesRecipes = null;
-        randomRecipes = null;
     }
 
     /**
@@ -173,10 +173,12 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
         final JPanel backButtonPanel = new JPanel();
         backButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         backButtonPanel.add(backButton, BorderLayout.NORTH);
+        backButtonPanel.setBackground(new Color(249, 249, 232));
         add(backButtonPanel, BorderLayout.NORTH);
 
         final JPanel recipesPanel = new JPanel();
-        recipesPanel.setLayout(new GridLayout(0, 3, 10, 10));
+        recipesPanel.setBackground(new Color(249, 249, 232));
+        recipesPanel.setLayout(new GridLayout(0, 3, 10, 10)); // 3 columns, dynamic rows
 
         final List<Recipe> allRecipes = new ArrayList<>();
         if (keywordRecipes != null) {
@@ -203,40 +205,18 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
             for (Recipe recipe : allRecipes) {
                 System.out.println("Displaying recipe: " + recipe);
                 final JPanel recipeCard = new JPanel();
+
+                recipeCard.setBackground(new Color(249, 249, 232));
                 recipeCard.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
                 recipeCard.setLayout(new BorderLayout());
                 // Recipe Label
                 final JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
                 recipeCard.add(recipeLabel, BorderLayout.CENTER);
+                recipeLabel.setBackground(new Color(185,224,84));
 
                 final JButton ingredientButton = new JButton("Ingredient");
-//                ingredientButton.addActionListener(evt -> {
-//                    final String[] ingredients = recipe.getIngredients();
-//                    final String ingredientList = String.join("\n", ingredients);
-//                    final String dietInfo;
-//                    if (recipe.getDiet().toString() != null) {
-//                        dietInfo = "Diet: " + recipe.getDiet().toString();
-//                    }
-//                    else {
-//                        dietInfo = null;
-//                    }
-//
-//                    final String cuisineInfo;
-//                    if (recipe.getCuisine() != null) {
-//                        cuisineInfo = "Cuisine: " + recipe.getCuisine().toString();
-//                    }
-//                    else {
-//                        cuisineInfo = null;
-//                    }
-//
-//                    final String message = cuisineInfo + "\n\n" + dietInfo + "\n\n" + ingredientList;
-//
-//                    JOptionPane.showMessageDialog(
-//                            this, message,
-//                            "Ingredients for " + recipe.getLabel(),
-//                            JOptionPane.INFORMATION_MESSAGE
-//                    );
-//                });
+                ingredientButton.setBackground(new Color(185,224,84));
                 ingredientButton.addActionListener(evt -> {
                     final String[] ingredients = recipe.getIngredients();
                     final String ingredientList = String.join("\n", ingredients);
