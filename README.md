@@ -1,8 +1,8 @@
-# CSC207_project Recipe
+# CSC207_project Recipe Generator
 This is a project for a recipe generator which can help the users find the recipes they want.
 
-### Basic informations
-| name      | GitHub username                                      | Usecases                  |
+## Basic informations
+| Name of Authors     | GitHub username                                      | Usecases                  |
 |-----------|------------------------------------------------------|--------------------------------|
 | EMMA YIMING CHEN | [@EmmaYimingChen](https://github.com/EmmaYimingChen) | Calories |
 |     Beryl Guo    | [@GBeryl](https://github.com/GBeryl)                 | Cuisine |
