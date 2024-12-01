@@ -1,53 +1,132 @@
-# CSC207_project Recipe
-This is a project for a recipe generator which can help the users find the recipes they want.
+#CSC207 Project: Recipe Generator
 
-### Basic informations
-| name      | GitHub username                                      | Usecases                  |
-|-----------|------------------------------------------------------|--------------------------------|
-| EMMA YIMING CHEN | [@EmmaYimingChen](https://github.com/EmmaYimingChen) | Calories |
-|     Beryl Guo    | [@GBeryl](https://github.com/GBeryl)                 | Cuisine |
-|    Ruohan Wang   | [@RuohanW1](https://github.com/RuohanW1)             | Diet |
-|     Xiran Yin    | [@xiran-yin](https://github.com/xiran-yin)           | Random |
+This is a free, open-source Recipe Generator implemented in Java. The program is designed to provide recipes that meet users’ specific dietary requirements, preferences, or restrictions. Whether you’re managing calorie intake, adhering to ingredient restrictions, seeking low-carb or high-protein options, or exploring a specific cuisine type, this app can help. Plus, it doesn’t require a login for accessibility.
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Authors](#authors)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Contributing](#contributing)
+- [License](license)
+- [Contact](#contact)
 
 
-### User Stories: 
-- Team story – Karen needs a recipe. She runs the recipe generator program. She then chooses the recipe from one of the suggestions.[Team story]
-- Karen hasn't decided what to cook today, and she is planning to use this program to help her decide what to eat.  She runs this program and gets some random recipes. She chose one of the recipes from these random recipes she likes for this meal.[Xiran’s story]
-- Karen has some ingredients and wants to cook Asian food. She runs the recipe generator program with ingredient keywords and filters Asian food specifically. She gets a list of Asian foods with various calories and diet types. She chooses from the suggestions. [Beryl’s story] 
-- Karen is losing weight, she wants to get foods with low fat and low carb. She runs the recipe generator program with food keywords and filters the diet level with Low-Fat and Low-Carb. She chooses from the lists. [Ruohan’s story]
-- Karen is controlling her calorie intake. She runs the recipe generator program with food keywords and filters the results based on a calorie range. The program provides her with a list of recipes that fit her choices. [Emma’s story]
+## Introduction
+The Recipe Generator was created to solve a common problem: deciding what to cook while accommodating specific dietary preferences or restrictions.
 
-The team usecase is search by keywords :)
+#### Purpose of the Project
+- To make meal planning easier for users with varying dietary needs and preferences.
+- To provide a user-friendly interface with versatile options, including calorie filtering, cuisine selection, or a random recipe generator for inspiration.
+- To promote healthy eating habits by offering recipes tailored to specific requirements.
 
-### Beryl's Story (Cuisine and Ingredient-based Filtering)
--Task: Implement the functionality for filtering Asian recipes based on ingredient keywords.
--Interactor: The Recipe Search Interactor that handles API requests.
--Controller: RecipeSearchController to manage user input (ingredients, cuisine type).
--Presenter: RecipeSearchPresenter to display the results.
+#### Who is it For?
+This project is ideal for:
+- People on a diet (e.g., low-fat, low-carb, or high-protein).
+- Individuals with ingredient restrictions (e.g., allergies or preferences).
+- Users who want to explore new cuisines.
+- Anyone looking for quick recipe suggestions without logging in.
 
--User Input Data
-  These are the pieces of data that the user (Karen) provides in the search interface:
-  Ingredient Keywords: A set of ingredients the user wants to search for in recipes (e.g., "chicken", "tomato", "garlic").
-  Cuisine Type: The user selects a cuisine type to filter recipes by (e.g., "Asian"). This can be a dropdown menu or a set of checkboxes where users can choose one or more types.
+## Authors
+| Name of Authors     | GitHub username                                      | 
+|-----------|------------------------------------------------------|
+| EMMA YIMING CHEN | [@EmmaYimingChen](https://github.com/EmmaYimingChen) |
+|     Beryl Guo    | [@GBeryl](https://github.com/GBeryl)                 | 
+|    Ruohan Wang   | [@RuohanW1](https://github.com/RuohanW1)             | 
+|     Xiran Yin    | [@xiran-yin](https://github.com/xiran-yin)           | 
 
-### Xiran's Story (Random Recipe)
--Task: Implement the case when the user is not choosing anything but generating the recipe, show 5 random recipes.
--Interactor: Base on the random recipes from our API, has the method which generates 5 random recipes.
--Controller: Use the RecipeSearchInteractor to randomly generate 5 recipes.
--Presenter: use view model to display the results.
 
-### Emma's Story (Calories)
--Task: Implement the case when the user is restricting the range of calories of the recipe.
--Interactor: Base on the recipes from our API, has the method which generates recipes with suitable calories.
--Controller: Use the RecipeSearchInteractor to generate some recipes.
--Presenter: use view model to display the results.
 
-### Ruohan's Story (Diet)
--Task: Implement the case when the user is restricting the fat and carb of the recipe.
--Interactor: Base on the recipes from our API, has the method which generates recipes with suitable ingridients(e.g. low fat and carb).
--Controller: Use the RecipeSearchInteractor to generate some recipes.
--Presenter: use view model to display the results.
+## Features
+The Recipe Generator provides the following functionalities:
+#### 1.Random Recipe Generator
+- Generate 5 random recipes at the click of a button. Perfect for users seeking inspiration.
+(Implemented by Xiran Yin)
+#### 2.Calorie-Based Recipe Search
+- Search recipes within a specific calorie range to suit your health goals.
+(Implemented by Emma Yiming Chen)
+#### 3.Cuisine-Based Recipe Search
+- Filter recipes by specific cuisines (e.g., Asian, Italian, etc.) based on your preferences.
+(Implemented by Beryl Guo)
+#### 4.Dietary-Based Search
+- Get recipes that are low-fat, low-carb, or meet other specific dietary needs.
+(Implemented by Ruohan Wang)
+#### 5.Keyword Search
+- Enter keywords for ingredients to find recipes that match.
 
+
+## Future Enhancements
+- Multi-language support for a global audience.
+- Accessibility features, including text-to-speech.
+- Offline mode to save recipes for areas with limited internet connectivity.
+
+## Installation
+To set up the Recipe Generator, follow these steps:
+
+#### Prerequisites
+- Java Development Kit (JDK) 17 or later.
+- An Integrated Development Environment (IDE) like IntelliJ IDEA or Eclipse.
+
+#### Steps to Install
+1. Clone this repository from GitHub.
+2. Open the project in your preferred IDE.
+3. Build the project to ensure all dependencies are resolved.
+4. Navigate to the src/main/java directory.
+5. Run the Main.java file to start the application.
+
+
+## Usage
+
+#### 1.Launching the App
+Open the graphical user interface (GUI) by running the program.
+#### 2.Using Features
+Select options from the menu:
+- Random Recipes: Displays 5 random recipe suggestions.
+- Calorie Filter: Input a calorie range to get tailored recipes.
+- Cuisine Filter: Choose a cuisine type (e.g., Asian, Italian).
+- Diet Filter: Filter recipes based on low-fat, low-carb, etc.
+- Keyword Search: Search by ingredients like “chicken” or “tomato.”
+#### 3.Output
+The program will generate a list of recipes based on your selection, displayed directly in the GUI.
+
+
+## Examples
+Here are some examples for using this app:
+
+#### Example 1: Random Recipe
+User Karen clicks on "Random Recipe", then this app will show a page including "Randomly Search" and "Back". She clicks "Randomly Search" and receives a list of 6 random recipes.
+<img width="912" alt="Screenshot 2024-12-01 at 2 08 40 AM" src="https://github.com/user-attachments/assets/15f695c9-e478-4275-bb69-1f4632824e1d">
+<img width="912" alt="Screenshot 2024-12-01 at 2 08 23 AM" src="https://github.com/user-attachments/assets/cedc5cbc-2d8a-481e-be4a-b3d1311ec7ec">
+<img width="912" alt="Screenshot 2024-12-01 at 2 08 11 AM" src="https://github.com/user-attachments/assets/0d9618a6-4450-4f66-8ac3-066fe803e23a">
+
+#### Example 2: Keyword Search + Cuisine
+Karen enters "chicken" and selects "Asian". She clicks "Go" and the app filters recipes to display Asian dishes with chicken, listing calorie counts and diet details.
+<img width="912" alt="Screenshot 2024-12-01 at 2 10 30 AM" src="https://github.com/user-attachments/assets/23bbec22-7913-4df5-86b9-0de37b26812d">
+<img width="912" alt="Screenshot 2024-12-01 at 2 11 18 AM" src="https://github.com/user-attachments/assets/7e5129e7-74c7-4638-a267-978742bbb551">
+<img width="739" alt="Screenshot 2024-12-01 at 2 12 31 AM" src="https://github.com/user-attachments/assets/93d6b9d5-e851-4465-94d5-fc73084dff17">
+
+
+## License
+See in LICENSE.md.
+
+## Feedback
+We welcome your feedback to improve the app. Please submit your suggestions via Google Forms.
+Guidelines for Feedback:
+
+- Be clear and constructive.
+- Focus on usability and functionality.
+
+
+## Contributions
+
+Contributions are open! Follow these steps to contribute:
+
+- Fork the repository on GitHub.
+- Create a feature branch:
+- git checkout -b feature-name
+- Commit your changes and create a pull request.
 
 
 ## Principles of Universal Design

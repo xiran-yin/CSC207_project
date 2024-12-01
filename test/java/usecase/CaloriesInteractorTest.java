@@ -74,15 +74,16 @@ class CaloriesInteractorTest {
         // Prepare test data
         CaloriesInputData inputData = new CaloriesInputData("Pasta", new CaloriesRange(200, 500));
 
-        // Simulate an exception in the RecipeDataBase
-        when(recipeDataBase.getAllRecipes("Pasta", null, null, 200, 500)).thenThrow(new RuntimeException("Database error"));
+        // Simulate an IOException in the RecipeDataBase
+        when(recipeDataBase.getAllRecipes("Pasta", null, null, 200, 500))
+                .thenThrow(new IOException("Simulated IO error"));
 
         // Run the use case (interactor)
         interactor.searchCaloriesRecipes(inputData);
 
         // Verify that presentRecipesCalories was called once with an empty list due to the exception
         verify(caloriesOutputBoundary, times(1)).presentRecipesCalories(argThat(output -> {
-            return output.getRecipes().isEmpty();  // Ensure the output is empty due to exception
+            return output.getRecipes().isEmpty();  // Ensure the output is empty due to the exception
         }));
     }
 }

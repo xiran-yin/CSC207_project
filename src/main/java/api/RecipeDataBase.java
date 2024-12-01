@@ -30,17 +30,6 @@ public interface RecipeDataBase {
                                int mincalories, int maxcalories) throws IOException, JSONException;
 
     /**
-     * Fetches a single recipe (first from the list).
-     * @param keyword the keyword
-     * @param diet the diet
-     * @param cuisine the cuisine
-     * @param mincalories the minimum calories
-     * @param maxcalories the maximum calories
-     * @return the recipe
-     * @throws JSONException the exception
-     */
-
-    /**
      * Retrieves the calories of a recipe based on a JSON object.
      * @param recipeObject the json file from api
      * @return calories
