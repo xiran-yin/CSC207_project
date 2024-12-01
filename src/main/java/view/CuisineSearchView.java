@@ -21,7 +21,7 @@ import interface_adapter.cuisine_type.CuisineTypeController;
  * The View for when the user is used the Cuisine Filter in the program.
  */
 public class CuisineSearchView extends JPanel {
-    private static final String[] CUISINES = {"", "American", "Asian", "British", "Caribbean",
+    private static final String[] CUISINES = {"American", "Asian", "British", "Caribbean",
         "Central Europe", "Chinese", "Eastern Europe", "French",
         "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
         "Middle Eastern", "Nordic", "South American", "South East Asian"};

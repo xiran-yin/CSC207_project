@@ -21,7 +21,7 @@ import interface_adapter.diet_level.DietLevelController;
  * The View for when the user is used the Diet Filter in the program.
  */
 public class DietSearchView extends JPanel {
-    private static final String[] DIET = {"", "balanced", "high-fiber", "high-protein",
+    private static final String[] DIET = {"balanced", "high-fiber", "high-protein",
         "low-fat", "low-carb", "low-sodium"};
     private JTextField keywordField;
     private JButton searchButton;
