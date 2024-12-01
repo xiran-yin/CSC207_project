@@ -12,8 +12,8 @@ This is a free, open-source Recipe Generator implemented in Java. The program is
 - [License](license)
 - [Contact](#contact)
 
-## Introduction
 
+## Introduction
 The Recipe Generator was created to solve a common problem: deciding what to cook while accommodating specific dietary preferences or restrictions.
 
 ### Purpose of the Project
@@ -27,6 +27,7 @@ This project is ideal for:
 - Individuals with ingredient restrictions (e.g., allergies or preferences).
 - Users who want to explore new cuisines.
 - Anyone looking for quick recipe suggestions without logging in.
+
 
 ## Features
 The Recipe Generator provides the following functionalities:
@@ -45,10 +46,25 @@ The Recipe Generator provides the following functionalities:
 ### 5.Keyword Search
 - Enter keywords for ingredients to find recipes that match.
 
+
 ## Future Enhancements
 - Multi-language support for a global audience.
 - Accessibility features, including text-to-speech.
 - Offline mode to save recipes for areas with limited internet connectivity.
+
+## Installation
+To set up the Recipe Generator, follow these steps:
+
+### Prerequisites
+- Java Development Kit (JDK) 17 or later.
+- An Integrated Development Environment (IDE) like IntelliJ IDEA or Eclipse.
+
+### Steps to Install
+1. Clone this repository from GitHub.
+2. Open the project in your preferred IDE.
+3. Build the project to ensure all dependencies are resolved.
+4. Navigate to the src/main/java directory.
+5. Run the Main.java file to start the application.
 
 
 
