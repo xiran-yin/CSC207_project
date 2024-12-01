@@ -81,11 +81,6 @@ public class GetRecipeDataBase implements RecipeDataBase {
         return recipes;
     }
 
-    @Override
-    public Recipe getRecipe(String keyword, String diet, String cuisine, int mincalories,
-                            int maxcalories) throws JSONException {
-        return null;
-    }
 
     @Override
     public double getCalories(JSONObject recipeObject) throws JSONException {

@@ -22,8 +22,9 @@ public class Recipe {
         return label;
     }
 
-    public double getCalories() {
-        return calories;
+    public int getCalories() {
+        int newcalories = (int) Math.round(calories);
+        return newcalories;
     }
 
     public Cuisine getCuisine() {

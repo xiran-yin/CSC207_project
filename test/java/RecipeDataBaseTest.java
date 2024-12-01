@@ -1,5 +1,5 @@
 import api.RecipeDataBase;
-import api.getRecipeDataBase;
+import api.GetRecipeDataBase;
 import entity.Recipe;
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ public class RecipeDataBaseTest {
     @Test
     public void testGetAllRecipes() throws Exception {
         // Arrange
-        RecipeDataBase recipeDataBase = new getRecipeDataBase(); // Replace with your implementation
+        RecipeDataBase recipeDataBase = new GetRecipeDataBase(); // Replace with your implementation
         String keyword = "chicken";
         String diet = "low-carb";
         String cuisine = "japanese";
