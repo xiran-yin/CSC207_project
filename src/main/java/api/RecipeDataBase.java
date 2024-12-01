@@ -39,6 +39,8 @@ public interface RecipeDataBase {
      * @return the recipe
      * @throws JSONException the exception
      */
+    Recipe getRecipe(String keyword, String diet, String cuisine, int mincalories,
+                     int maxcalories) throws JSONException;
 
     /**
      * Retrieves the calories of a recipe based on a JSON object.

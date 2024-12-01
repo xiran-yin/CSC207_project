@@ -233,12 +233,6 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
                         messageBuilder.append("Diet: ").append(recipe.getDiet().toString()).append("\n\n");
                     }
 
-                    final String calories = "" + recipe.getCalories();
-
-                    if (calories != null) {
-                        messageBuilder.append("Calories: ").append(calories).append("\n\n");
-                    }
-
                     // Include the ingredients
                     messageBuilder.append(ingredientList);
 
