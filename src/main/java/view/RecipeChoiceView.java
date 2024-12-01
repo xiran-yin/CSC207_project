@@ -74,6 +74,11 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
             default:
                 throw new IllegalArgumentException("Unknown view: " + pView);
         }
+        keywordRecipes = null;
+        cuisineRecipes = null;
+        dietRecipes = null;
+        caloriesRecipes = null;
+        randomRecipes = null;
     }
 
     private void initializeUi() {
