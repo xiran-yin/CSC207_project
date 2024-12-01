@@ -109,7 +109,7 @@ Karen enters "chicken" and selects "Asian". She clicks "Go" and the app filters 
 
 
 ## License
-See in LICENSE.md.
+See in [LICENSE.md](https://github.com/xiran-yin/CSC207_project/blob/main/LICENSE).
 
 ## Feedback
 We welcome your feedback to improve the app. Please submit your suggestions via Google Forms.
