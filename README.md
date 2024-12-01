@@ -8,7 +8,7 @@ This is a free, open-source Recipe Generator implemented in Java. The program is
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Examples and Tutorials](#examples)
+- [Examples](#examples)
 - [Contributing](#contributing)
 - [License](license)
 - [Contact](#contact)
@@ -92,7 +92,7 @@ Select options from the menu:
 The program will generate a list of recipes based on your selection, displayed directly in the GUI.
 
 
-## Examples and Tutorials
+## Examples
 Here are some examples for using this app:
 
 ### Example 1: Random Recipe
