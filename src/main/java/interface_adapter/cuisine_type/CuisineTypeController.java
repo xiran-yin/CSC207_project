@@ -21,7 +21,6 @@ public class CuisineTypeController {
     public void cuisineRecipes(String keyword, String cuisine) {
         // Create input data for the use case
         final CuisineTypeInputData inputData = new CuisineTypeInputData(keyword, cuisine);
-
         // Delegate the search to the interactor
         cuisineUseCaseInteractor.searchCuisineRecipe(inputData);
     }
