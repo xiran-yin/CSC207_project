@@ -58,16 +58,18 @@ public class KeywordSearchView extends JPanel {
         searchBarPanel.add(keywordField, BorderLayout.CENTER);
         searchBarPanel.add(buttonPanel, BorderLayout.EAST);
         searchBarPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
+        searchBarPanel.setBackground(new Color(249, 249, 232));
 
         add(searchBarPanel, BorderLayout.NORTH);
 
         // Search button action
-        searchButton.addActionListener(evt -> {
-            handleKeywordSearch(mainFrame, controller);
-        });
+        searchButton.addActionListener(evt -> handleKeywordSearch(mainFrame, controller));
 
         // Back button action
-        backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+        backButton.addActionListener(evt -> {
+            keywordField.setText("");
+            mainFrame.showView("HomeView");
+        });
     }
 
     private void handleKeywordSearch(MainFrame mainFrame, KeywordController controller) {
@@ -76,7 +78,7 @@ public class KeywordSearchView extends JPanel {
             try {
                 controller.keywordRecipes(keyword);
                 mainFrame.showView("RecipeChoiceView");
-
+                keywordField.setText("");
             }
             catch (IllegalArgumentException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");

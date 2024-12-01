@@ -16,12 +16,16 @@ import app.MainFrame;
  * The View for when the user open the program, the home view.
  */
 public class HomeView extends JPanel {
+    public static final int HEIGHT1 = 20;
+    public static final int WIDTH1 = 400;
+    public static final int HEIGHT2 = 65;
     private final MainFrame mainFrame;
 
     public HomeView(MainFrame mainFrame) {
         this.mainFrame = mainFrame;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBackground(new Color(249, 249, 232));
+        final Color background = new Color(249, 249, 232);
+        setBackground(background);
 
         final JButton randomRecipeButton = createStyledButton("Random Recipe");
         final JButton keywordSearchButton = createStyledButton("Search by Keyword");
@@ -33,16 +37,16 @@ public class HomeView extends JPanel {
         add(Box.createVerticalGlue());
 
         add(keywordSearchButton);
-        add(Box.createVerticalStrut(20));
+        add(Box.createVerticalStrut(HEIGHT1));
 
         add(calorieSearchButton);
-        add(Box.createVerticalStrut(20));
+        add(Box.createVerticalStrut(HEIGHT1));
 
         add(cuisineSearchButton);
-        add(Box.createVerticalStrut(20));
+        add(Box.createVerticalStrut(HEIGHT1));
 
         add(dietSearchButton);
-        add(Box.createVerticalStrut(20));
+        add(Box.createVerticalStrut(HEIGHT1));
 
         add(randomRecipeButton);
         add(Box.createVerticalGlue());
@@ -62,15 +66,16 @@ public class HomeView extends JPanel {
         // Style the button
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
         button.setBackground(Color.PINK);
-        button.setPreferredSize(new Dimension(400, 65));
-        button.setMaximumSize(new Dimension(400, 65));
+        button.setPreferredSize(new Dimension(WIDTH1, HEIGHT2));
+        button.setMaximumSize(new Dimension(WIDTH1, HEIGHT2));
 
         // Set background and word color
         button.setOpaque(true);
-        button.setBackground(new Color(185, 224, 84));
+        final Color lightGreen = new Color(185, 224, 84);
+        button.setBackground(lightGreen);
         button.setBorderPainted(false);
         button.setForeground(Color.WHITE);
-        button.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+        button.setFont(new Font("Comic Sans MS", Font.BOLD, HEIGHT1));
 
         return button;
     }
