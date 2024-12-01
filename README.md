@@ -10,7 +10,7 @@ This is a free, open-source Recipe Generator implemented in Java. The program is
 - [Usage](#usage)
 - [Examples](#examples)
 - [Contributing](#contributing)
-- [License](license)
+- [License](#license)
 - [Contact](#contact)
 
 
