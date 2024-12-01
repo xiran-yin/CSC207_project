@@ -127,4 +127,5 @@ public class CuisineSearchView extends JPanel {
             JOptionPane.showMessageDialog(this, "Please enter a keyword.");
         }
     }
+
 }

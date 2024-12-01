@@ -34,6 +34,12 @@ import usecase.random.RandomOutputData;
 public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
         CuisineTypeOutputBoundary, DietLevelOutputBoundary,
         CaloriesOutputBoundary, RandomOutputBoundary {
+    public static final String KEYWORD_SEARCH_VIEW = "KeywordSearchView";
+    public static final String CUISINE_SEARCH_VIEW = "CuisineSearchView";
+    public static final String DIET_SEARCH_VIEW = "DietSearchView";
+    public static final String CALORIE_SEARCH_VIEW = "CalorieSearchView";
+    public static final String RANDOM_SEARCH_VIEW = "RandomSearchView";
+    public static final String STR = "\n\n";
     private List<Recipe> keywordRecipes;
     private List<Recipe> cuisineRecipes;
     private List<Recipe> dietRecipes;
@@ -48,6 +54,28 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
         initializeUi();
     }
 
+    private void navigateToPreviousView(String pView) {
+        switch (pView) {
+            case KEYWORD_SEARCH_VIEW:
+                mainFrame.showView(KEYWORD_SEARCH_VIEW);
+                break;
+            case CUISINE_SEARCH_VIEW:
+                mainFrame.showView(CUISINE_SEARCH_VIEW);
+                break;
+            case DIET_SEARCH_VIEW:
+                mainFrame.showView(DIET_SEARCH_VIEW);
+                break;
+            case CALORIE_SEARCH_VIEW:
+                mainFrame.showView(CALORIE_SEARCH_VIEW);
+                break;
+            case RANDOM_SEARCH_VIEW:
+                mainFrame.showView(RANDOM_SEARCH_VIEW);
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown view: " + pView);
+        }
+    }
+
     private void initializeUi() {
 
         setLayout(new BorderLayout());
@@ -60,24 +88,9 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-        backButton.addActionListener(evt -> {
-            if ("KeywordSearchView".equals(previousView)) {
-                mainFrame.showView("KeywordSearchView");
-            } else if ("CuisineSearchView".equals(previousView)) {
-                mainFrame.showView("CuisineSearchView");
-            } else if ("DietSearchView".equals(previousView)) {
-                mainFrame.showView("DietSearchView");
-            }else if ("CalorieSearchView".equals(previousView)) {
-                mainFrame.showView("CalorieSearchView");
-            }else if ("RandomSearchView".equals(previousView)) {
-                mainFrame.showView("RandomSearchView");
-            }
-            keywordRecipes = null;
-            cuisineRecipes = null;
-            dietRecipes = null;
-            caloriesRecipes = null;
-            randomRecipes = null;
-        });
+
+        backButton.addActionListener(evt -> navigateToPreviousView(previousView));
+
         final JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);
         buttonPanel.setBackground(new Color(249, 249, 232));
@@ -91,7 +104,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
     public void presentRecipesKeyword(KeywordOutputData keywordOutputData) {
         System.out.println("Presenting recipes in RecipeChoiceView");
         this.keywordRecipes = keywordOutputData.getRecipes();
-        this.previousView = "KeywordSearchView";
+        this.previousView = KEYWORD_SEARCH_VIEW;
         displayRecipes();
     }
 
@@ -101,7 +114,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     public void presentRecipesCuisine(CuisineTypeOutputData cuisineOutputData) {
         this.cuisineRecipes = cuisineOutputData.getRecipes();
-        this.previousView = "CuisineSearchView";
+        this.previousView = CUISINE_SEARCH_VIEW;
         displayRecipes();
     }
 
@@ -111,7 +124,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     public void presentRecipesDiet(DietLevelOutputData dietLevelOutputData) {
         this.dietRecipes = dietLevelOutputData.getRecipes();
-        this.previousView = "DietSearchView";
+        this.previousView = DIET_SEARCH_VIEW;
         displayRecipes();
     }
 
@@ -121,7 +134,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     public void setKeywordRecipes(List<Recipe> recipes) {
         this.keywordRecipes = recipes;
-        this.previousView = "KeywordSearchView";
+        this.previousView = KEYWORD_SEARCH_VIEW;
         System.out.println("Keyword recipes set in RecipeChoiceView: " + keywordRecipes);
     }
 
@@ -131,7 +144,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     public void setCuisineRecipes(List<Recipe> recipes) {
         this.cuisineRecipes = recipes;
-        this.previousView = "CuisineSearchView";
+        this.previousView = CUISINE_SEARCH_VIEW;
         System.out.println("Cuisine recipes set in recipeChoiceView: " + cuisineRecipes);
     }
 
@@ -141,7 +154,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     public void setDietRecipes(List<Recipe> recipes) {
         this.dietRecipes = recipes;
-        this.previousView = "DietSearchView";
+        this.previousView = DIET_SEARCH_VIEW;
         System.out.println("Diet recipes set in RecipeChoiceView: " + dietRecipes);
     }
 
@@ -151,7 +164,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     public void presentRecipes(RandomOutputData randomOutputData) {
         this.randomRecipes = randomOutputData.getRecipes();
-        this.previousView = "RandomSearchView";
+        this.previousView = RANDOM_SEARCH_VIEW;
         displayRecipes();
     }
 
@@ -161,7 +174,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
         this.caloriesRecipes = caloriesOutputData.getRecipes();
-        this.previousView = "CalorieSearchView";
+        this.previousView = CALORIE_SEARCH_VIEW;
         displayRecipes();
     }
 
@@ -170,16 +183,42 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     public void displayRecipes() {
         removeAll();
-        final JPanel backButtonPanel = new JPanel();
-        backButtonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        // Add the back button panel
+        add(createBackButtonPanel(), BorderLayout.NORTH);
+
+        // Collect all recipes
+        final List<Recipe> allRecipes = gatherAllRecipes();
+
+        // Check if there are recipes to display
+        if (allRecipes.isEmpty()) {
+            handleNoRecipesFound();
+        }
+        else {
+            // Add the recipes panel
+            add(createRecipesPanel(allRecipes), BorderLayout.CENTER);
+        }
+
+        revalidate();
+        repaint();
+    }
+
+    /**
+     * Creates the back button panel.
+     * @return JPanel containing the back button
+     */
+    private JPanel createBackButtonPanel() {
+        final JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         backButtonPanel.add(backButton, BorderLayout.NORTH);
         backButtonPanel.setBackground(new Color(249, 249, 232));
-        add(backButtonPanel, BorderLayout.NORTH);
+        return backButtonPanel;
+    }
 
-        final JPanel recipesPanel = new JPanel();
-        recipesPanel.setBackground(new Color(249, 249, 232));
-        recipesPanel.setLayout(new GridLayout(0, 3, 10, 10)); // 3 columns, dynamic rows
-
+    /**
+     * Gathers all recipes from the different recipe lists.
+     * @return a consolidated list of recipes
+     */
+    private List<Recipe> gatherAllRecipes() {
         final List<Recipe> allRecipes = new ArrayList<>();
         if (keywordRecipes != null) {
             allRecipes.addAll(keywordRecipes);
@@ -196,67 +235,101 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
         if (randomRecipes != null) {
             allRecipes.addAll(randomRecipes);
         }
-        if (allRecipes.isEmpty()) {
-            System.out.println("No recipes to display.");
-            JOptionPane.showMessageDialog(this, "No recipes found.");
+        return allRecipes;
+    }
+
+    /**
+     * Handles the case where no recipes are found.
+     */
+    private void handleNoRecipesFound() {
+        System.out.println("No recipes to display.");
+        JOptionPane.showMessageDialog(this, "No recipes found.");
+    }
+
+    /**
+     * Creates the recipes panel with the given list of recipes.
+     * @param recipes list of recipes to display
+     * @return JPanel containing the recipe cards
+     */
+    private JPanel createRecipesPanel(List<Recipe> recipes) {
+        final JPanel recipesPanel = new JPanel(new GridLayout(0, 3, 10, 10));
+        recipesPanel.setBackground(new Color(249, 249, 232));
+
+        for (Recipe recipe : recipes) {
+            recipesPanel.add(createRecipeCard(recipe));
         }
-        else {
-            // Display recipes
-            for (Recipe recipe : allRecipes) {
-                System.out.println("Displaying recipe: " + recipe);
-                final JPanel recipeCard = new JPanel();
 
-                recipeCard.setBackground(new Color(249, 249, 232));
-                recipeCard.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        return recipesPanel;
+    }
 
-                recipeCard.setLayout(new BorderLayout());
-                // Recipe Label
-                final JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
-                recipeCard.add(recipeLabel, BorderLayout.CENTER);
-                recipeLabel.setBackground(new Color(185,224,84));
+    /**
+     * Creates a card for an individual recipe.
+     * @param recipe the recipe to display
+     * @return JPanel representing the recipe card
+     */
+    private JPanel createRecipeCard(Recipe recipe) {
+        final JPanel recipeCard = new JPanel(new BorderLayout());
+        recipeCard.setBackground(new Color(249, 249, 232));
+        recipeCard.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-                final JButton ingredientButton = new JButton("Ingredient");
-                ingredientButton.setBackground(new Color(185,224,84));
-                ingredientButton.addActionListener(evt -> {
-                    final String[] ingredients = recipe.getIngredients();
-                    final String ingredientList = String.join("\n", ingredients);
+        // Recipe Label
+        final JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
+        recipeLabel.setBackground(new Color(185, 224, 84));
+        recipeCard.add(recipeLabel, BorderLayout.CENTER);
 
-                    final StringBuilder messageBuilder = new StringBuilder();
+        // Ingredient Button
+        final JButton ingredientButton = createIngredientButton(recipe);
+        recipeCard.add(ingredientButton, BorderLayout.SOUTH);
 
-                    // Include cuisine information if not null
-                    if (recipe.getCuisine() != null) {
-                        messageBuilder.append("Cuisine: ").append(recipe.getCuisine().toString()).append("\n\n");
-                    }
+        return recipeCard;
+    }
 
-                    // Include diet information if not null
-                    if (recipe.getDiet().getDietLabels().length > 0) {
-                        messageBuilder.append("Diet: ").append(recipe.getDiet().toString()).append("\n\n");
-                    }
+    /**
+     * Creates an ingredient button for the given recipe.
+     * @param recipe the recipe whose ingredients are displayed on click
+     * @return JButton for viewing the recipe's ingredients
+     */
+    private JButton createIngredientButton(Recipe recipe) {
+        final JButton ingredientButton = new JButton("Ingredient");
+        ingredientButton.setBackground(new Color(185, 224, 84));
+        ingredientButton.addActionListener(evt -> displayRecipeDetails(recipe));
+        return ingredientButton;
+    }
 
-                    final String calories = "" + recipe.getCalories();
+    /**
+     * Displays the details of a recipe in a dialog box.
+     * @param recipe the recipe to display
+     */
+    private void displayRecipeDetails(Recipe recipe) {
+        final String[] ingredients = recipe.getIngredients();
+        final String ingredientList = String.join("\n", ingredients);
 
-                    if (calories != null) {
-                        messageBuilder.append("Calories: ").append(calories).append("\n\n");
-                    }
+        final StringBuilder messageBuilder = new StringBuilder();
 
-                    // Include the ingredients
-                    messageBuilder.append(ingredientList);
-
-                    JOptionPane.showMessageDialog(
-                            this, messageBuilder.toString(),
-                            "Ingredients for " + recipe.getLabel(),
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                });
-
-                recipeCard.add(ingredientButton, BorderLayout.SOUTH);
-                recipesPanel.add(recipeCard);
-            }
+        // Include cuisine information if not null
+        if (recipe.getCuisine() != null) {
+            messageBuilder.append("Cuisine: ").append(recipe.getCuisine().toString()).append(STR);
         }
-        add(recipesPanel, BorderLayout.CENTER);
 
-        revalidate();
-        repaint();
+        // Include diet information if not null
+        if (recipe.getDiet().getDietLabels().length > 0) {
+            messageBuilder.append("Diet: ").append(recipe.getDiet().toString()).append(STR);
+        }
+
+        // Include calories information
+        final String calories = "" + recipe.getCalories();
+        if (calories != null) {
+            messageBuilder.append("Calories: ").append(calories).append(STR);
+        }
+
+        // Include the ingredients
+        messageBuilder.append(ingredientList);
+
+        JOptionPane.showMessageDialog(
+                this, messageBuilder.toString(),
+                "Ingredients for " + recipe.getLabel(),
+                JOptionPane.INFORMATION_MESSAGE
+        );
     }
 
     public void setMainFrame(MainFrame mainFrame) {
