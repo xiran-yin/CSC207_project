@@ -13,6 +13,7 @@ This is a free, open-source Recipe Generator implemented in Java. The program is
 - [Contact](#contact)
 
 ## Introduction
+
 The Recipe Generator was created to solve a common problem: deciding what to cook while accommodating specific dietary preferences or restrictions.
 
 ### Purpose of the Project
