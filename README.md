@@ -4,7 +4,7 @@ This is a free, open-source Recipe Generator implemented in Java. The program is
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Information](#information)
+- [Authors](#authors)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -29,13 +29,13 @@ This project is ideal for:
 - Users who want to explore new cuisines.
 - Anyone looking for quick recipe suggestions without logging in.
 
-## Basic informations of the project
-| Name of Authors     | GitHub username                                      | Usecases                  |
-|-----------|------------------------------------------------------|--------------------------------|
-| EMMA YIMING CHEN | [@EmmaYimingChen](https://github.com/EmmaYimingChen) | Calories |
-|     Beryl Guo    | [@GBeryl](https://github.com/GBeryl)                 | Cuisine |
-|    Ruohan Wang   | [@RuohanW1](https://github.com/RuohanW1)             | Diet |
-|     Xiran Yin    | [@xiran-yin](https://github.com/xiran-yin)           | Random |
+## Authors
+| Name of Authors     | GitHub username                                      | 
+|-----------|------------------------------------------------------|
+| EMMA YIMING CHEN | [@EmmaYimingChen](https://github.com/EmmaYimingChen) |
+|     Beryl Guo    | [@GBeryl](https://github.com/GBeryl)                 | 
+|    Ruohan Wang   | [@RuohanW1](https://github.com/RuohanW1)             | 
+|     Xiran Yin    | [@xiran-yin](https://github.com/xiran-yin)           | 
 
 
 
@@ -92,16 +92,16 @@ Select options from the menu:
 The program will generate a list of recipes based on your selection, displayed directly in the GUI.
 
 
-##Examples
-Examples and Tutorials
+## Examples and Tutorials
+Here are some examples for using this app:
 
-Example 1: Random Recipe
+### Example 1: Random Recipe
 User Karen clicks on "Random Recipe", then this app will show a page including "Randomly Search" and "Back". She clicks "Randomly Search" and receives a list of 6 random recipes.
 <img width="912" alt="Screenshot 2024-12-01 at 2 08 40 AM" src="https://github.com/user-attachments/assets/15f695c9-e478-4275-bb69-1f4632824e1d">
 <img width="912" alt="Screenshot 2024-12-01 at 2 08 23 AM" src="https://github.com/user-attachments/assets/cedc5cbc-2d8a-481e-be4a-b3d1311ec7ec">
 <img width="912" alt="Screenshot 2024-12-01 at 2 08 11 AM" src="https://github.com/user-attachments/assets/0d9618a6-4450-4f66-8ac3-066fe803e23a">
 
-Example 2: Keyword Search + Cuisine
+### Example 2: Keyword Search + Cuisine
 Karen enters "chicken" and selects "Asian". She clicks "Go" and the app filters recipes to display Asian dishes with chicken, listing calorie counts and diet details.
 <img width="912" alt="Screenshot 2024-12-01 at 2 10 30 AM" src="https://github.com/user-attachments/assets/23bbec22-7913-4df5-86b9-0de37b26812d">
 <img width="912" alt="Screenshot 2024-12-01 at 2 11 18 AM" src="https://github.com/user-attachments/assets/7e5129e7-74c7-4638-a267-978742bbb551">
