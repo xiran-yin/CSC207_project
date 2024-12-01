@@ -82,6 +82,23 @@ Select options from the menu:
 The program will generate a list of recipes based on your selection, displayed directly in the GUI.
 
 
+##Examples
+Examples and Tutorials
+
+Example 1: Random Recipe
+User Karen clicks on "Random Recipe", then this app will show a page including "Randomly Search" and "Back". She clicks "Randomly Search" and receives a list of 6 random recipes.
+<img width="912" alt="Screenshot 2024-12-01 at 2 08 40 AM" src="https://github.com/user-attachments/assets/15f695c9-e478-4275-bb69-1f4632824e1d">
+<img width="912" alt="Screenshot 2024-12-01 at 2 08 23 AM" src="https://github.com/user-attachments/assets/cedc5cbc-2d8a-481e-be4a-b3d1311ec7ec">
+<img width="912" alt="Screenshot 2024-12-01 at 2 08 11 AM" src="https://github.com/user-attachments/assets/0d9618a6-4450-4f66-8ac3-066fe803e23a">
+
+Example 2: Keyword Search + Cuisine
+Karen enters "chicken" and selects "Asian". She clicks "Go" and the app filters recipes to display Asian dishes with chicken, listing calorie counts and diet details.
+<img width="912" alt="Screenshot 2024-12-01 at 2 10 30 AM" src="https://github.com/user-attachments/assets/23bbec22-7913-4df5-86b9-0de37b26812d">
+<img width="912" alt="Screenshot 2024-12-01 at 2 11 18 AM" src="https://github.com/user-attachments/assets/7e5129e7-74c7-4638-a267-978742bbb551">
+<img width="739" alt="Screenshot 2024-12-01 at 2 12 31 AM" src="https://github.com/user-attachments/assets/93d6b9d5-e851-4465-94d5-fc73084dff17">
+
+
+
 
 
 # CSC207_project Recipe Generator
