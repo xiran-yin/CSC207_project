@@ -22,8 +22,12 @@ public class Recipe {
         return label;
     }
 
+    /**
+     * Get calories.
+     * @return int calories.
+     */
     public int getCalories() {
-        int newcalories = (int) Math.round(calories);
+        final int newcalories = (int) Math.round(calories);
         return newcalories;
     }
 
@@ -41,14 +45,38 @@ public class Recipe {
 
     @Override
     public String toString() {
-        final String ingredientsString = String.join(", ", ingredients);
-        final String dietLabelsString = String.join(", ", diet.getDietLabels());
+        // Safely handle null for ingredients
+        final String ingredientsString;
+        if (ingredients != null) {
+            ingredientsString = String.join(", ", ingredients);
+        }
+        else {
+            ingredientsString = "No ingredients";
+        }
+
+        // Safely handle null for dietLabels
+        final String dietLabelsString;
+        if (diet != null && diet.getDietLabels() != null) {
+            dietLabelsString = String.join(", ", diet.getDietLabels());
+        }
+        else {
+            dietLabelsString = "No diet labels";
+        }
+
+        // Handle null for cuisine
+        final String cuisineString;
+        if (cuisine != null) {
+            cuisineString = cuisine.toString();
+        }
+        else {
+            cuisineString = "Unknown cuisine";
+        }
 
         return String.format(
                 "[Recipe: %s, Calories: %.2f, Cuisine: %s, Diet: [%s], Ingredients: [%s]]",
                 label,
                 calories,
-                cuisine,
+                cuisineString,
                 dietLabelsString,
                 ingredientsString
         );
