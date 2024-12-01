@@ -18,7 +18,7 @@ import okhttp3.Response;
 /**
  * Actual Connect with API.
  */
-public class GetRecipeDataBase implements RecipeDataBase {
+public class getRecipeDataBase implements RecipeDataBase {
     private static final String API_URL = "https://api.edamam.com/api/recipes/v2?type=public";
     private static final String APP_ID = "7e6602a1";
     private static final String APP_KEY = "a6c9d7096dd6346a6aecc6c4bcdc3824";
@@ -81,11 +81,6 @@ public class GetRecipeDataBase implements RecipeDataBase {
         return recipes;
     }
 
-    @Override
-    public Recipe getRecipe(String keyword, String diet, String cuisine, int mincalories,
-                            int maxcalories) throws JSONException {
-        return null;
-    }
 
     @Override
     public double getCalories(JSONObject recipeObject) throws JSONException {
