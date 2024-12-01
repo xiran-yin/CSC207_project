@@ -31,71 +31,82 @@ public class CuisineSearchView extends JPanel {
     private JComboBox<String> cuisineComboBox;
 
     public CuisineSearchView(CuisineTypeController cuisineController, MainFrame mainFrame) {
+        final Color backgroundColor = new Color(249, 249, 232);
+        final Color lightGreenColor = new Color(185, 224, 84);
+        final int ten = 10;
+        final int sixteen = 16;
+        final int thirty = 30;
+        final int twohundred = 200;
+        final int width = 250;
+        final int eighty = 80;
+
         setLayout(new BorderLayout());
-        setBackground(new Color(249, 249, 232));
+        setBackground(backgroundColor);
 
         // Search bar setup
-        final JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
+        final JPanel searchPanel = new JPanel(new BorderLayout(ten, ten));
         keywordField = new JTextField();
-        keywordField.setPreferredSize(new Dimension(250, 30));
+        keywordField.setPreferredSize(new Dimension(width, thirty));
         final String font = "Comic Sans MS";
-        keywordField.setFont(new Font(font, Font.PLAIN, 16));
+        keywordField.setFont(new Font(font, Font.PLAIN, sixteen));
 
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 
         searchButton.setOpaque(true);
-        searchButton.setBackground(new Color(185, 224, 84));
+        searchButton.setBackground(lightGreenColor);
         searchButton.setBorderPainted(false);
         searchButton.setForeground(Color.WHITE);
-        searchButton.setFont(new Font(font, Font.BOLD, 16));
-        searchButton.setPreferredSize(new Dimension(80, 30));
+        searchButton.setFont(new Font(font, Font.BOLD, sixteen));
+        searchButton.setPreferredSize(new Dimension(eighty, thirty));
 
         backButton.setOpaque(true);
-        backButton.setBackground(new Color(185, 224, 84));
+        backButton.setBackground(lightGreenColor);
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.white);
-        backButton.setFont(new Font(font, Font.BOLD, 16));
-        backButton.setPreferredSize(new Dimension(80, 30));
+        backButton.setFont(new Font(font, Font.BOLD, sixteen));
+        backButton.setPreferredSize(new Dimension(eighty, thirty));
 
-        final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
+        final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, ten));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
-        buttonPanel.setBackground(new Color(249, 249, 232));
+        buttonPanel.setBackground(backgroundColor);
 
         searchPanel.add(keywordField, BorderLayout.CENTER);
         searchPanel.add(buttonPanel, BorderLayout.EAST);
-        searchPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
-        searchPanel.setBackground(new Color(249, 249, 232));
+        searchPanel.setBorder(BorderFactory.createEmptyBorder(twohundred, ten, ten, ten));
+        searchPanel.setBackground(backgroundColor);
 
         // Cuisine Panel
         final JPanel cuisinePanel = new JPanel(new BorderLayout());
         cuisineComboBox = new JComboBox<>(CUISINES);
-        cuisineComboBox.setPreferredSize(new Dimension(200, 80));
-        cuisineComboBox.setFont(new Font(font, Font.PLAIN, 16));
+        cuisineComboBox.setPreferredSize(new Dimension(twohundred, eighty));
+        cuisineComboBox.setFont(new Font(font, Font.PLAIN, sixteen));
         cuisineComboBox.setBorder(BorderFactory.createTitledBorder("Select Cuisine"));
         cuisineComboBox.setBackground(Color.white);
         cuisinePanel.add(cuisineComboBox, BorderLayout.CENTER);
-        cuisinePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        cuisinePanel.setBackground(new Color(249, 249, 232));
+        cuisinePanel.setBorder(BorderFactory.createEmptyBorder(ten, ten, ten, ten));
+        cuisinePanel.setBackground(backgroundColor);
 
         // Combine searchBarPanel and filterPanel into a single panel
         final JPanel combinedPanel = new JPanel();
         combinedPanel.setLayout(new BoxLayout(combinedPanel, BoxLayout.Y_AXIS));
         combinedPanel.add(searchPanel);
         combinedPanel.add(cuisinePanel);
-        combinedPanel.setBackground(new Color(249, 249, 232));
+        combinedPanel.setBackground(backgroundColor);
 
         // Add combined panel to the layout
         add(combinedPanel, BorderLayout.NORTH);
 
         // Search button action
-        searchButton.addActionListener(evt -> {
-            handleCuisineSearch(cuisineController, mainFrame);
-        });
+        searchButton.addActionListener(evt -> handleCuisineSearch(cuisineController, mainFrame));
 
         // Back button action
-        backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+        backButton.addActionListener(evt -> {
+            cuisineComboBox.setSelectedIndex(0);
+            keywordField.setText("");
+            mainFrame.showView("HomeView");
+        });
     }
 
     private void handleCuisineSearch(CuisineTypeController cuisineController, MainFrame mainFrame) {
@@ -105,6 +116,8 @@ public class CuisineSearchView extends JPanel {
             try {
                 cuisineController.cuisineRecipes(keyword, cuisine);
                 mainFrame.showView("RecipeChoiceView");
+                keywordField.setText("");
+                cuisineComboBox.setSelectedIndex(0);
             }
             catch (IllegalArgumentException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");

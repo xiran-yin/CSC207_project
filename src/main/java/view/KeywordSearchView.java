@@ -58,13 +58,12 @@ public class KeywordSearchView extends JPanel {
         searchBarPanel.add(keywordField, BorderLayout.CENTER);
         searchBarPanel.add(buttonPanel, BorderLayout.EAST);
         searchBarPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
+        searchBarPanel.setBackground(new Color(249, 249, 232));
 
         add(searchBarPanel, BorderLayout.NORTH);
 
         // Search button action
-        searchButton.addActionListener(evt -> {
-            handleKeywordSearch(mainFrame, controller);
-        });
+        searchButton.addActionListener(evt -> handleKeywordSearch(mainFrame, controller));
 
         // Back button action
         backButton.addActionListener(evt -> mainFrame.showView("HomeView"));

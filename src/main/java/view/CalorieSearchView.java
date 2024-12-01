@@ -95,12 +95,17 @@ public class CalorieSearchView extends JPanel {
         add(combinedPanel, BorderLayout.NORTH);
 
         // Search button action
-        searchButton.addActionListener(evt -> {
-            handelCaloriesSearch(mainFrame, caloriesController);
-        });
+        searchButton.addActionListener(evt ->
+                handelCaloriesSearch(mainFrame, caloriesController));
 
         // Back button action
-        backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+        backButton.addActionListener(evt -> {
+                    minCaloriesField.setText("");
+                    maxCaloriesField.setText("");
+                    keywordField.setText("");
+                    mainFrame.showView("HomeView");
+                }
+        );
     }
 
     private void handelCaloriesSearch(MainFrame mainFrame, CaloriesController caloriesController) {
@@ -117,16 +122,16 @@ public class CalorieSearchView extends JPanel {
                 if (!keyword.isEmpty()) {
                     caloriesController.execute(keyword, caloriesRange);
                     mainFrame.showView("RecipeChoiceView");
-                }
-                else {
+                    maxCaloriesField.setText("");
+                    minCaloriesField.setText("");
+                    keywordField.setText("");
+                } else {
                     JOptionPane.showMessageDialog(this, "Please enter a keyword.");
                 }
-            }
-            catch (NumberFormatException ex) {
+            } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter valid calorie values.");
             }
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(this, "Please enter both minimum and maximum calorie values.");
         }
     }
