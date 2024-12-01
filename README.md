@@ -1,5 +1,36 @@
+#CSC207 Project: Recipe Generator
+
+This is a free, open-source Recipe Generator implemented in Java. The program is designed to provide recipes that meet users’ specific dietary requirements, preferences, or restrictions. Whether you’re managing calorie intake, adhering to ingredient restrictions, seeking low-carb or high-protein options, or exploring a specific cuisine type, this app can help. Plus, it doesn’t require a login for accessibility.
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Examples and Tutorials](#examples)
+- [Contributing](#contributing)
+- [License](license)
+- [Contact](#contact)
+
+## Introduction
+
+The Recipe Generator was created to solve a common problem: deciding what to cook while accommodating specific dietary preferences or restrictions.
+
+### Purpose of the Project
+- To make meal planning easier for users with varying dietary needs and preferences.
+- To provide a user-friendly interface with versatile options, including calorie filtering, cuisine selection, or a random recipe generator for inspiration.
+- To promote healthy eating habits by offering recipes tailored to specific requirements.
+
+### Who is it For?
+This project is ideal for:
+- People on a diet (e.g., low-fat, low-carb, or high-protein).
+- Individuals with ingredient restrictions (e.g., allergies or preferences).
+- Users who want to explore new cuisines.
+- Anyone looking for quick recipe suggestions without logging in.
+
 # CSC207_project Recipe Generator
-This is a project for a recipe generator which can help the users find the recipes they want.
+This is a free recipe generator implemented in Java.
+It is designed to meet the needs of users with specific dietary requirements or preferences, such as controlling calorie intake, adhering to ingredient restrictions, require low-carb, high-protein diets, or catering to particular cuisine type, without login. 
 
 ## Basic informations
 | Name of Authors     | GitHub username                                      | Usecases                  |
@@ -10,6 +41,14 @@ This is a project for a recipe generator which can help the users find the recip
 |     Xiran Yin    | [@xiran-yin](https://github.com/xiran-yin)           | Random |
 
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
+  
 ### User Stories: 
 - Team story – Karen needs a recipe. She runs the recipe generator program. She then chooses the recipe from one of the suggestions.[Team story]
 - Karen hasn't decided what to cook today, and she is planning to use this program to help her decide what to eat.  She runs this program and gets some random recipes. She chose one of the recipes from these random recipes she likes for this meal.[Xiran’s story]
