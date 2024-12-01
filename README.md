@@ -67,6 +67,19 @@ To set up the Recipe Generator, follow these steps:
 5. Run the Main.java file to start the application.
 
 
+## Usage
+
+#### 1.Launching the App
+Open the graphical user interface (GUI) by running the program.
+Using Features
+Select options from the menu:
+Random Recipes: Displays 5 random recipe suggestions.
+Calorie Filter: Input a calorie range to get tailored recipes.
+Cuisine Filter: Choose a cuisine type (e.g., Asian, Italian).
+Dietary Restrictions: Filter recipes based on low-fat, low-carb, etc.
+Keyword Search: Search by ingredients like “chicken” or “tomato.”
+Output
+The program will generate a list of recipes based on your selection, displayed directly in the GUI.
 
 
 
