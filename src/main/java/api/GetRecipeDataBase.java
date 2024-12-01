@@ -2,6 +2,7 @@ package api;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -68,9 +69,19 @@ public class GetRecipeDataBase implements RecipeDataBase {
         if (hits == null || hits.length() == 0) {
             return null;
         }
+
+        final int recipesToFetch = Math.min(hits.length(), RECIPES_NUMBER);
         final List<Recipe> recipes = new ArrayList<>();
-        for (int i = 0; i < RECIPES_NUMBER; i++) {
-            final JSONObject recipeObject = hits.getJSONObject(i).getJSONObject("recipe");
+        final List<Integer> indices = new ArrayList<>();
+
+        for (int i = 0; i < hits.length(); i++) {
+            indices.add(i);
+        }
+        Collections.shuffle(indices);
+
+        for (int i = 0; i < recipesToFetch; i++) {
+            final int index = indices.get(i);
+            final JSONObject recipeObject = hits.getJSONObject(index).getJSONObject("recipe");
             final String label = recipeObject.getString("label");
             final double calories = getCalories(recipeObject);
             final Cuisine cuisineType = getCuisineType(recipeObject);
