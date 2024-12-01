@@ -19,6 +19,9 @@ import interface_adapter.keyword.KeywordController;
  * The View for when the user is used the Keyword Search of the program.
  */
 public class KeywordSearchView extends JPanel {
+    public static final int FONTSIZE = 16;
+    public static final int TOP = 200;
+    public static final int LEFT = 10;
     private JTextField keywordField;
     private JButton searchButton;
     private JButton backButton;
@@ -26,39 +29,42 @@ public class KeywordSearchView extends JPanel {
     public KeywordSearchView(KeywordController controller, MainFrame mainFrame) {
 
         setLayout(new BorderLayout());
-        setBackground(new Color(249, 249, 232));
+        final Color background = new Color(249, 249, 232);
+        setBackground(background);
 
         // Search bar setup
         keywordField = new JTextField();
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
         final String font = "Comic Sans MS";
-        keywordField.setFont(new Font(font, Font.PLAIN, 16));
+        keywordField.setFont(new Font(font, Font.PLAIN, FONTSIZE));
 
         searchButton.setOpaque(true);
-        searchButton.setBackground(new Color(185, 224, 84));
+        final Color lightGreen = new Color(185, 224, 84);
+        searchButton.setBackground(lightGreen);
         searchButton.setBorderPainted(false);
         searchButton.setForeground(Color.WHITE);
-        searchButton.setFont(new Font(font, Font.BOLD, 16));
-        searchButton.setPreferredSize(new Dimension(80, 30));
+        searchButton.setFont(new Font(font, Font.BOLD, FONTSIZE));
+        final Dimension preferredSize = new Dimension(80, 30);
+        searchButton.setPreferredSize(preferredSize);
 
         backButton.setOpaque(true);
-        backButton.setBackground(new Color(185, 224, 84));
+        backButton.setBackground(lightGreen);
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.white);
-        backButton.setFont(new Font(font, Font.BOLD, 16));
-        backButton.setPreferredSize(new Dimension(80, 30));
+        backButton.setFont(new Font(font, Font.BOLD, FONTSIZE));
+        backButton.setPreferredSize(preferredSize);
 
-        final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
+        final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, LEFT));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
-        buttonPanel.setBackground(new Color(249, 249, 232));
+        buttonPanel.setBackground(background);
 
         final JPanel searchBarPanel = new JPanel(new BorderLayout());
         searchBarPanel.add(keywordField, BorderLayout.CENTER);
         searchBarPanel.add(buttonPanel, BorderLayout.EAST);
-        searchBarPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
-        searchBarPanel.setBackground(new Color(249, 249, 232));
+        searchBarPanel.setBorder(BorderFactory.createEmptyBorder(TOP, LEFT, LEFT, LEFT));
+        searchBarPanel.setBackground(background);
 
         add(searchBarPanel, BorderLayout.NORTH);
 

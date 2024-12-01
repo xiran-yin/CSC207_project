@@ -9,5 +9,6 @@ public class DietViewModel extends ViewModel<DietState> {
     public DietViewModel() {
         super("Diet");
         setState(new DietState());
+
     }
 }

@@ -1,5 +1,6 @@
 package interface_adapter.calories;
 
+import interface_adapter.ViewManagerModel;
 import usecase.calories.CaloriesOutputBoundary;
 import usecase.calories.CaloriesOutputData;
 
@@ -8,12 +9,15 @@ import usecase.calories.CaloriesOutputData;
  */
 public class CaloriesPresenter implements CaloriesOutputBoundary {
     private final CaloriesViewModel caloriesViewModel;
+    private final ViewManagerModel viewManagerModel;
 
-    public CaloriesPresenter(CaloriesViewModel caloriesViewModel) {
+    public CaloriesPresenter(CaloriesViewModel caloriesViewModel, ViewManagerModel viewManagerModel) {
         this.caloriesViewModel = caloriesViewModel;
+        this.viewManagerModel = viewManagerModel;
     }
 
     @Override
     public void presentRecipesCalories(CaloriesOutputData caloriesOutputData) {
+        viewManagerModel.firePropertyChanged();
     }
 }

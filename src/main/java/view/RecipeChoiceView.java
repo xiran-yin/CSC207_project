@@ -40,6 +40,7 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
     public static final String CALORIE_SEARCH_VIEW = "CalorieSearchView";
     public static final String RANDOM_SEARCH_VIEW = "RandomSearchView";
     public static final String STR = "\n\n";
+    public static final int SIZE = 20;
     private List<Recipe> keywordRecipes;
     private List<Recipe> cuisineRecipes;
     private List<Recipe> dietRecipes;
@@ -84,21 +85,23 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
     private void initializeUi() {
 
         setLayout(new BorderLayout());
-        setBackground(new Color(249, 249, 232));
+        final Color background = new Color(249, 249, 232);
+        setBackground(background);
 
         // Back Button
         backButton = new JButton("Back");
         backButton.setOpaque(true);
-        backButton.setBackground(new Color(185, 224, 84));
+        final Color lightGreen = new Color(185, 224, 84);
+        backButton.setBackground(lightGreen);
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.WHITE);
-        backButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+        backButton.setFont(new Font("Comic Sans MS", Font.BOLD, SIZE));
 
         backButton.addActionListener(evt -> navigateToPreviousView(previousView));
 
         final JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         buttonPanel.add(backButton);
-        buttonPanel.setBackground(new Color(249, 249, 232));
+        buttonPanel.setBackground(background);
         add(buttonPanel, BorderLayout.NORTH);
     }
 
@@ -215,7 +218,8 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
     private JPanel createBackButtonPanel() {
         final JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         backButtonPanel.add(backButton, BorderLayout.NORTH);
-        backButtonPanel.setBackground(new Color(249, 249, 232));
+        final Color background = new Color(249, 249, 232);
+        backButtonPanel.setBackground(background);
         return backButtonPanel;
     }
 
@@ -258,7 +262,8 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     private JPanel createRecipesPanel(List<Recipe> recipes) {
         final JPanel recipesPanel = new JPanel(new GridLayout(0, 3, 10, 10));
-        recipesPanel.setBackground(new Color(249, 249, 232));
+        final Color background = new Color(249, 249, 232);
+        recipesPanel.setBackground(background);
 
         for (Recipe recipe : recipes) {
             recipesPanel.add(createRecipeCard(recipe));
@@ -274,12 +279,14 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     private JPanel createRecipeCard(Recipe recipe) {
         final JPanel recipeCard = new JPanel(new BorderLayout());
-        recipeCard.setBackground(new Color(249, 249, 232));
+        final Color background = new Color(249, 249, 232);
+        recipeCard.setBackground(background);
         recipeCard.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         // Recipe Label
         final JLabel recipeLabel = new JLabel(recipe.getLabel(), SwingConstants.CENTER);
-        recipeLabel.setBackground(new Color(185, 224, 84));
+        final Color lightGreen = new Color(185, 224, 84);
+        recipeLabel.setBackground(lightGreen);
         recipeCard.add(recipeLabel, BorderLayout.CENTER);
 
         // Ingredient Button
@@ -296,7 +303,8 @@ public class RecipeChoiceView extends JPanel implements KeywordOutputBoundary,
      */
     private JButton createIngredientButton(Recipe recipe) {
         final JButton ingredientButton = new JButton("Ingredient");
-        ingredientButton.setBackground(new Color(185, 224, 84));
+        final Color lightGreen = new Color(185, 224, 84);
+        ingredientButton.setBackground(lightGreen);
         ingredientButton.addActionListener(evt -> displayRecipeDetails(recipe));
         return ingredientButton;
     }
