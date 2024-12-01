@@ -66,7 +66,10 @@ public class KeywordSearchView extends JPanel {
         searchButton.addActionListener(evt -> handleKeywordSearch(mainFrame, controller));
 
         // Back button action
-        backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+        backButton.addActionListener(evt -> {
+            keywordField.setText("");
+            mainFrame.showView("HomeView");
+        });
     }
 
     private void handleKeywordSearch(MainFrame mainFrame, KeywordController controller) {
@@ -75,7 +78,7 @@ public class KeywordSearchView extends JPanel {
             try {
                 controller.keywordRecipes(keyword);
                 mainFrame.showView("RecipeChoiceView");
-
+                keywordField.setText("");
             }
             catch (IllegalArgumentException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");

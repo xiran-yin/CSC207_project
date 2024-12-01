@@ -25,10 +25,10 @@ public class CuisineSearchView extends JPanel {
         "Central Europe", "Chinese", "Eastern Europe", "French",
         "Indian", "Italian", "Japanese", "Kosher", "Mediterranean", "Mexican",
         "Middle Eastern", "Nordic", "South American", "South East Asian"};
-    private JTextField keywordField;
-    private JButton searchButton;
-    private JButton backButton;
-    private JComboBox<String> cuisineComboBox;
+    private final JTextField keywordField;
+    private final JButton searchButton;
+    private final JButton backButton;
+    private final JComboBox<String> cuisineComboBox;
 
     public CuisineSearchView(CuisineTypeController cuisineController, MainFrame mainFrame) {
         final Color backgroundColor = new Color(249, 249, 232);
@@ -36,7 +36,7 @@ public class CuisineSearchView extends JPanel {
         final int ten = 10;
         final int sixteen = 16;
         final int thirty = 30;
-        final int twohundred = 200;
+        final int width1 = 200;
         final int width = 250;
         final int eighty = 80;
 
@@ -74,13 +74,13 @@ public class CuisineSearchView extends JPanel {
 
         searchPanel.add(keywordField, BorderLayout.CENTER);
         searchPanel.add(buttonPanel, BorderLayout.EAST);
-        searchPanel.setBorder(BorderFactory.createEmptyBorder(twohundred, ten, ten, ten));
+        searchPanel.setBorder(BorderFactory.createEmptyBorder(width1, ten, ten, ten));
         searchPanel.setBackground(backgroundColor);
 
         // Cuisine Panel
         final JPanel cuisinePanel = new JPanel(new BorderLayout());
         cuisineComboBox = new JComboBox<>(CUISINES);
-        cuisineComboBox.setPreferredSize(new Dimension(twohundred, eighty));
+        cuisineComboBox.setPreferredSize(new Dimension(width1, eighty));
         cuisineComboBox.setFont(new Font(font, Font.PLAIN, sixteen));
         cuisineComboBox.setBorder(BorderFactory.createTitledBorder("Select Cuisine"));
         cuisineComboBox.setBackground(Color.white);
