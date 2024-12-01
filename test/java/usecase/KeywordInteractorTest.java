@@ -1,21 +1,20 @@
-package usecase;
+package usecase.keyword;
 
 import api.RecipeDataBase;
 import entity.Cuisine;
+import entity.Diet;
 import entity.Recipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usecase.keyword.KeywordInputData;
 import usecase.keyword.KeywordInteractor;
 import usecase.keyword.KeywordOutputBoundary;
-import usecase.keyword.KeywordOutputData;
 
+import static org.mockito.Mockito.*;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-
-import static org.mockito.Mockito.*;
 
 class KeywordInteractorTest {
 
@@ -25,70 +24,67 @@ class KeywordInteractorTest {
 
     @BeforeEach
     void setUp() {
-        // Mock dependencies
         recipeDataBase = mock(RecipeDataBase.class);
         keywordOutputBoundary = mock(KeywordOutputBoundary.class);
-
-        // Initialize the interactor with mocked dependencies
-        interactor = new KeywordInteractor(recipeDataBase, keywordOutputBoundary);
+        interactor = new KeywordInteractor(keywordOutputBoundary, recipeDataBase);
     }
 
     @Test
     void testSearchKeywordRecipeSuccess() throws IOException {
         // Prepare test data
-        KeywordInputData inputData = new KeywordInputData("Tomato");
-        Recipe mockRecipe = new Recipe("Tomato Gravy", 1015.44, new Cuisine("British"), null, null);
+        KeywordInputData inputData = new KeywordInputData("Pasta");
+
+        // Create a valid Recipe object
+        Diet mockDiet = mock(Diet.class);
+        Cuisine mockCuisine = mock(Cuisine.class);
+        Recipe mockRecipe = new Recipe("Pasta Primavera", 300, mockCuisine, mockDiet, new String[]{"pasta", "tomato", "garlic"});
+
         List<Recipe> mockRecipes = Collections.singletonList(mockRecipe);
 
-        // Mock RecipeDataBase to return a list of recipes when the keyword is "Tomato"
-        when(recipeDataBase.getAllRecipes("Tomato", null, null, 0, 0))
-                .thenReturn(mockRecipes);
+        // Mock RecipeDataBase to return a list of recipes when searching for "Pasta"
+        when(recipeDataBase.getAllRecipes("Pasta", null, null, 0, 0)).thenReturn(mockRecipes);
 
         // Run the use case (interactor)
         interactor.searchKeywordRecipe(inputData);
 
-        // Verify the output boundary's presentRecipesKeyword method is called once with the correct data
-        verify(keywordOutputBoundary, times(1)).presentRecipesKeyword(any(KeywordOutputData.class));
-
-//        // Verify that the correct recipe is passed to the output boundary
-//        verify(keywordOutputBoundary).presentRecipesKeyword(argThat(output ->
-//                output.getRecipes().contains(mockRecipe)
-//        ));
+        // Verify that presentRecipesKeyword was called once with a KeywordOutputData containing mockRecipe
+        verify(keywordOutputBoundary, times(1)).presentRecipesKeyword(argThat(output -> {
+            return output.getRecipes().contains(mockRecipe);  // Ensure the output contains mockRecipe
+        }));
     }
 
     @Test
-    void testSearchKeywordRecipeEmptyResult() throws IOException {
+    void testSearchKeywordRecipeNoResults() throws IOException {
         // Prepare test data
         KeywordInputData inputData = new KeywordInputData("Pasta");
 
-        // Mock RecipeDataBase to return an empty list when the keyword is "Pasta"
-        when(recipeDataBase.getAllRecipes("Pasta", null, null, 0, 0))
-                .thenReturn(Collections.emptyList());
+        // Mock RecipeDataBase to return an empty list when no recipes are found
+        when(recipeDataBase.getAllRecipes("Pasta", null, null, 0, 0)).thenReturn(Collections.emptyList());
 
         // Run the use case (interactor)
         interactor.searchKeywordRecipe(inputData);
 
-        // Verify the output boundary's presentRecipesKeyword method is called once with an empty list
-        verify(keywordOutputBoundary, times(1)).presentRecipesKeyword(argThat(output ->
-                output.getRecipes().isEmpty()
-        ));
+        // Verify that presentRecipesKeyword was called once with an empty list
+        verify(keywordOutputBoundary, times(1)).presentRecipesKeyword(argThat(output -> {
+            return output.getRecipes().isEmpty();  // Ensure the output is empty
+        }));
     }
 
     @Test
-    void testSearchKeywordRecipeFailure() throws IOException {
+    void testSearchKeywordRecipeException() throws IOException {
         // Prepare test data
         KeywordInputData inputData = new KeywordInputData("Pasta");
 
-        // Mock RecipeDataBase to throw an exception
+        // Simulate an IOException in the RecipeDataBase
         when(recipeDataBase.getAllRecipes("Pasta", null, null, 0, 0))
-                .thenThrow(new RuntimeException("Database error"));
+                .thenThrow(new IOException("Simulated IO error"));
 
         // Run the use case (interactor)
         interactor.searchKeywordRecipe(inputData);
 
-        // Verify the output boundary's presentRecipesKeyword method is called once with an empty list due to the failure
-        verify(keywordOutputBoundary, times(1)).presentRecipesKeyword(argThat(output ->
-                output.getRecipes().isEmpty()
-        ));
+        // Verify that presentRecipesKeyword was called once with an empty list due to the exception
+        verify(keywordOutputBoundary, times(1)).presentRecipesKeyword(argThat(output -> {
+            return output.getRecipes().isEmpty();  // Ensure the output is empty due to the exception
+        }));
     }
 }
