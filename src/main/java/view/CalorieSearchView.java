@@ -6,12 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.Border;
 
 import app.MainFrame;
@@ -78,12 +73,12 @@ public class CalorieSearchView extends JPanel {
         final Dimension preferredSize = new Dimension(100, 40);
         minCaloriesField.setPreferredSize(preferredSize);
         minCaloriesField.setFont(new Font(font, Font.PLAIN, fontSize));
-        minCaloriesField.setBorder(BorderFactory.createTitledBorder("Minimum Calories"));
+        minCaloriesField.setBorder(BorderFactory.createTitledBorder("Minimum Calories(per serving)"));
 
         maxCaloriesField = new JTextField();
         maxCaloriesField.setPreferredSize(preferredSize);
         maxCaloriesField.setFont(new Font(font, Font.PLAIN, fontSize));
-        maxCaloriesField.setBorder(BorderFactory.createTitledBorder("Maximum Calories"));
+        maxCaloriesField.setBorder(BorderFactory.createTitledBorder("Maximum Calories(per serving)"));
 
         // Add both fields to the caloriePanel
         caloriePanel.add(minCaloriesField);
