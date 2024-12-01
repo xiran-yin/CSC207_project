@@ -23,6 +23,7 @@ public class GetRecipeDataBase implements RecipeDataBase {
     private static final String APP_ID = "7e6602a1";
     private static final String APP_KEY = "a6c9d7096dd6346a6aecc6c4bcdc3824";
     private static final int SUCCESS_CODE = 200;
+    public static final int RECIPES_NUMBER = 6;
 
     // Helper to call API
     private JSONObject callApi(String keyword, String diet, String cuisine, int minCalories,
@@ -68,7 +69,7 @@ public class GetRecipeDataBase implements RecipeDataBase {
             return null;
         }
         final List<Recipe> recipes = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < RECIPES_NUMBER; i++) {
             final JSONObject recipeObject = hits.getJSONObject(i).getJSONObject("recipe");
             final String label = recipeObject.getString("label");
             final double calories = getCalories(recipeObject);

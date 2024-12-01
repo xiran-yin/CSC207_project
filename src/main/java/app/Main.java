@@ -2,8 +2,8 @@ package app;
 
 import javax.swing.SwingUtilities;
 
-import api.RecipeDataBase;
 import api.GetRecipeDataBase;
+import api.RecipeDataBase;
 import interface_adapter.calories.CaloriesController;
 import interface_adapter.cuisine_type.CuisineTypeController;
 import interface_adapter.diet_level.DietLevelController;

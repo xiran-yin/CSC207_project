@@ -24,6 +24,8 @@ import view.RecipeChoiceView;
  * The Main Frame for your program.
  */
 public class MainFrame extends JFrame {
+    public static final int WIDTH1 = 800;
+    public static final int HEIGHT1 = 600;
     private JPanel mainPanel;
     private CardLayout cardLayout;
 
@@ -34,7 +36,7 @@ public class MainFrame extends JFrame {
                      RandomController randomController,
                      DietLevelController dietLevelController) {
         setTitle("Recipe Finder");
-        setSize(800, 600);
+        setSize(WIDTH1, HEIGHT1);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
@@ -43,7 +45,8 @@ public class MainFrame extends JFrame {
         mainPanel = new JPanel(cardLayout);
 
         // Set the background color.
-        setBackground(new Color(102, 204, 0));
+        final Color lightGreen = new Color(102, 204, 0);
+        setBackground(lightGreen);
 
         final HomeView homeView = new HomeView(this);
 

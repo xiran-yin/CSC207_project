@@ -30,71 +30,83 @@ public class DietSearchView extends JPanel {
 
     public DietSearchView(MainFrame mainFrame, DietLevelController dietLevelController) {
         setLayout(new BorderLayout());
-        setBackground(new Color(249, 249, 232));
+        final Color background = new Color(249, 249, 232);
+        setBackground(background);
 
         // Search bar setup
-        final JPanel searchPanel = new JPanel(new BorderLayout(10, 10));
+        final int gap = 10;
+        final JPanel searchPanel = new JPanel(new BorderLayout(gap, gap));
 
         keywordField = new JTextField();
         final String font = "Comic Sans MS";
-        keywordField.setFont(new Font(font, Font.PLAIN, 16));
+        final int size = 16;
+        keywordField.setFont(new Font(font, Font.PLAIN, size));
 
-        keywordField.setPreferredSize(new Dimension(250, 30));
+        final int width = 250;
+        final int height = 30;
+
+        keywordField.setPreferredSize(new Dimension(width, height));
         searchButton = new JButton("Go");
         backButton = new JButton("Back");
 
         searchButton.setOpaque(true);
-        searchButton.setBackground(new Color(185, 224, 84));
+        final Color lightGreen = new Color(185, 224, 84);
+        searchButton.setBackground(lightGreen);
         searchButton.setBorderPainted(false);
         searchButton.setForeground(Color.WHITE);
-        searchButton.setFont(new Font(font, Font.BOLD, 16));
-        searchButton.setPreferredSize(new Dimension(80, 30));
+        searchButton.setFont(new Font(font, Font.BOLD, size));
+        final int buttonWide = 80;
+        searchButton.setPreferredSize(new Dimension(buttonWide, height));
 
         backButton.setOpaque(true);
-        backButton.setBackground(new Color(185, 224, 84));
+        backButton.setBackground(lightGreen);
         backButton.setBorderPainted(false);
         backButton.setForeground(Color.white);
-        backButton.setFont(new Font(font, Font.BOLD, 16));
-        backButton.setPreferredSize(new Dimension(80, 30));
+        backButton.setFont(new Font(font, Font.BOLD, size));
+        backButton.setPreferredSize(new Dimension(buttonWide, height));
 
-        final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, 10));
+        final JPanel buttonPanel = new JPanel(new GridLayout(2, 1, 0, gap));
         buttonPanel.add(searchButton);
         buttonPanel.add(backButton);
-        buttonPanel.setBackground(new Color(249, 249, 232));
+        buttonPanel.setBackground(background);
 
         searchPanel.add(keywordField, BorderLayout.CENTER);
         searchPanel.add(buttonPanel, BorderLayout.EAST);
-        searchPanel.setBorder(BorderFactory.createEmptyBorder(200, 10, 10, 10));
-        searchPanel.setBackground(new Color(249, 249, 232));
+        final int top = 200;
+
+        searchPanel.setBorder(BorderFactory.createEmptyBorder(top, gap, gap, gap));
+        searchPanel.setBackground(background);
 
         // Cuisine Panel
         final JPanel dietPanel = new JPanel(new BorderLayout());
         dietComboBox = new JComboBox<>(DIET);
-        dietComboBox.setPreferredSize(new Dimension(200, 80));
-        dietComboBox.setFont(new Font(font, Font.PLAIN, 16));
+        dietComboBox.setPreferredSize(new Dimension(top, buttonWide));
+        dietComboBox.setFont(new Font(font, Font.PLAIN, size));
         dietComboBox.setBorder(BorderFactory.createTitledBorder("Select Diet Label"));
         dietComboBox.setBackground(Color.white);
         dietPanel.add(dietComboBox, BorderLayout.CENTER);
-        dietPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        dietPanel.setBackground(new Color(249, 249, 232));
+        dietPanel.setBorder(BorderFactory.createEmptyBorder(gap, gap, gap, gap));
+        dietPanel.setBackground(background);
 
         // Combine searchBarPanel and filterPanel into a single panel
         final JPanel combinedPanel = new JPanel();
         combinedPanel.setLayout(new BoxLayout(combinedPanel, BoxLayout.Y_AXIS));
         combinedPanel.add(searchPanel);
         combinedPanel.add(dietPanel);
-        combinedPanel.setBackground(new Color(249, 249, 232));
+        combinedPanel.setBackground(background);
 
         // Add combined panel to the layout
         add(combinedPanel, BorderLayout.NORTH);
 
         // Search button action
-        searchButton.addActionListener(evt -> {
-            handleDietSearch(mainFrame, dietLevelController);
-        });
+        searchButton.addActionListener(evt -> handleDietSearch(mainFrame, dietLevelController));
 
         // Back button action
-        backButton.addActionListener(evt -> mainFrame.showView("HomeView"));
+        backButton.addActionListener(evt -> {
+            dietComboBox.setSelectedIndex(0);
+            keywordField.setText("");
+            mainFrame.showView("HomeView");
+        });
     }
 
     private void handleDietSearch(MainFrame mainFrame, DietLevelController dietLevelController) {
@@ -104,6 +116,8 @@ public class DietSearchView extends JPanel {
             try {
                 dietLevelController.searchDietLevelRecipe(keyword, diet);
                 mainFrame.showView("RecipeChoiceView");
+                keywordField.setText("");
+                dietComboBox.setSelectedIndex(0);
             }
             catch (IllegalArgumentException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid keyword.");
