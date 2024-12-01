@@ -13,7 +13,6 @@ This is a free, open-source Recipe Generator implemented in Java. The program is
 - [Contact](#contact)
 
 ## Introduction
-
 The Recipe Generator was created to solve a common problem: deciding what to cook while accommodating specific dietary preferences or restrictions.
 
 ### Purpose of the Project
@@ -27,6 +26,33 @@ This project is ideal for:
 - Individuals with ingredient restrictions (e.g., allergies or preferences).
 - Users who want to explore new cuisines.
 - Anyone looking for quick recipe suggestions without logging in.
+
+## Features
+The Recipe Generator provides the following functionalities:
+### 1.Random Recipe Generator
+- Generate 5 random recipes at the click of a button. Perfect for users seeking inspiration.
+(Implemented by Xiran Yin)
+### 2.Calorie-Based Recipe Search
+- Search recipes within a specific calorie range to suit your health goals.
+(Implemented by Emma Yiming Chen)
+### 3.Cuisine-Based Recipe Search
+- Filter recipes by specific cuisines (e.g., Asian, Italian, etc.) based on your preferences.
+(Implemented by Beryl Guo)
+### 4.Dietary-Based Search
+- Get recipes that are low-fat, low-carb, or meet other specific dietary needs.
+(Implemented by Ruohan Wang)
+### 5.Keyword Search
+- Enter keywords for ingredients to find recipes that match.
+
+## Future Enhancements
+- Multi-language support for a global audience.
+- Accessibility features, including text-to-speech.
+- Offline mode to save recipes for areas with limited internet connectivity.
+
+
+
+
+
 
 # CSC207_project Recipe Generator
 This is a free recipe generator implemented in Java.
