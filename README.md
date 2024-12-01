@@ -17,12 +17,12 @@ This is a free, open-source Recipe Generator implemented in Java. The program is
 ## Introduction
 The Recipe Generator was created to solve a common problem: deciding what to cook while accommodating specific dietary preferences or restrictions.
 
-### Purpose of the Project
+#### Purpose of the Project
 - To make meal planning easier for users with varying dietary needs and preferences.
 - To provide a user-friendly interface with versatile options, including calorie filtering, cuisine selection, or a random recipe generator for inspiration.
 - To promote healthy eating habits by offering recipes tailored to specific requirements.
 
-### Who is it For?
+#### Who is it For?
 This project is ideal for:
 - People on a diet (e.g., low-fat, low-carb, or high-protein).
 - Individuals with ingredient restrictions (e.g., allergies or preferences).
@@ -41,19 +41,19 @@ This project is ideal for:
 
 ## Features
 The Recipe Generator provides the following functionalities:
-### 1.Random Recipe Generator
+#### 1.Random Recipe Generator
 - Generate 5 random recipes at the click of a button. Perfect for users seeking inspiration.
 (Implemented by Xiran Yin)
-### 2.Calorie-Based Recipe Search
+#### 2.Calorie-Based Recipe Search
 - Search recipes within a specific calorie range to suit your health goals.
 (Implemented by Emma Yiming Chen)
-### 3.Cuisine-Based Recipe Search
+#### 3.Cuisine-Based Recipe Search
 - Filter recipes by specific cuisines (e.g., Asian, Italian, etc.) based on your preferences.
 (Implemented by Beryl Guo)
-### 4.Dietary-Based Search
+#### 4.Dietary-Based Search
 - Get recipes that are low-fat, low-carb, or meet other specific dietary needs.
 (Implemented by Ruohan Wang)
-### 5.Keyword Search
+#### 5.Keyword Search
 - Enter keywords for ingredients to find recipes that match.
 
 
@@ -65,11 +65,11 @@ The Recipe Generator provides the following functionalities:
 ## Installation
 To set up the Recipe Generator, follow these steps:
 
-### Prerequisites
+#### Prerequisites
 - Java Development Kit (JDK) 17 or later.
 - An Integrated Development Environment (IDE) like IntelliJ IDEA or Eclipse.
 
-### Steps to Install
+#### Steps to Install
 1. Clone this repository from GitHub.
 2. Open the project in your preferred IDE.
 3. Build the project to ensure all dependencies are resolved.
@@ -95,13 +95,13 @@ The program will generate a list of recipes based on your selection, displayed d
 ## Examples
 Here are some examples for using this app:
 
-### Example 1: Random Recipe
+#### Example 1: Random Recipe
 User Karen clicks on "Random Recipe", then this app will show a page including "Randomly Search" and "Back". She clicks "Randomly Search" and receives a list of 6 random recipes.
 <img width="912" alt="Screenshot 2024-12-01 at 2 08 40 AM" src="https://github.com/user-attachments/assets/15f695c9-e478-4275-bb69-1f4632824e1d">
 <img width="912" alt="Screenshot 2024-12-01 at 2 08 23 AM" src="https://github.com/user-attachments/assets/cedc5cbc-2d8a-481e-be4a-b3d1311ec7ec">
 <img width="912" alt="Screenshot 2024-12-01 at 2 08 11 AM" src="https://github.com/user-attachments/assets/0d9618a6-4450-4f66-8ac3-066fe803e23a">
 
-### Example 2: Keyword Search + Cuisine
+#### Example 2: Keyword Search + Cuisine
 Karen enters "chicken" and selects "Asian". She clicks "Go" and the app filters recipes to display Asian dishes with chicken, listing calorie counts and diet details.
 <img width="912" alt="Screenshot 2024-12-01 at 2 10 30 AM" src="https://github.com/user-attachments/assets/23bbec22-7913-4df5-86b9-0de37b26812d">
 <img width="912" alt="Screenshot 2024-12-01 at 2 11 18 AM" src="https://github.com/user-attachments/assets/7e5129e7-74c7-4638-a267-978742bbb551">
@@ -109,8 +109,7 @@ Karen enters "chicken" and selects "Asian". She clicks "Go" and the app filters 
 
 
 ## License
-This project is licensed under the University of Toronto Computerscienc Department.
-
+See in LICENSE.md.
 
 ## Feedback
 We welcome your feedback to improve the app. Please submit your suggestions via Google Forms.
