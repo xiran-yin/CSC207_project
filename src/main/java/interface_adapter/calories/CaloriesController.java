@@ -3,6 +3,7 @@ package interface_adapter.calories;
 import entity.CaloriesRange;
 import usecase.calories.CaloriesInputBoundary;
 import usecase.calories.CaloriesInputData;
+import usecase.calories.CaloriesInputDataFactory;
 
 /**
  * The Controller for Calories Use Case.
@@ -20,7 +21,8 @@ public class CaloriesController {
      * @param caloriesRange the calories eneter for recipe search
      */
     public void execute(String keyword, CaloriesRange caloriesRange) {
-        final CaloriesInputData caloriesInputData = new CaloriesInputData(keyword, caloriesRange);
+        final CaloriesInputData caloriesInputData = CaloriesInputDataFactory
+                .createCaloriesInputData(keyword, caloriesRange);
 
         caloriesInteractor.searchCaloriesRecipes(caloriesInputData);
     }
