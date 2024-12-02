@@ -36,7 +36,7 @@ class DietLevelInteractorTest {
     @Test
     void testSearchDietLevelRecipeSuccess() throws IOException {
         // Prepare the test data
-        Diet diet = new Diet("low-fat");
+        Diet diet = new Diet(new String[]{"low-fat"});
         DietLevelInputData inputData = new DietLevelInputData("Tomato", "low-fat");
         Recipe mockRecipe = new Recipe("Tomato Essnce", 0, null, diet, null);
         List<Recipe> mockRecipes = Collections.singletonList(mockRecipe);
@@ -49,7 +49,7 @@ class DietLevelInteractorTest {
         interactor.searchDietLevelRecipe(inputData);
 
         // Verify that the output boundary's presentRecipesCuisine method is called
-        verify(dietLevelOutputBoundary, times(1)).presentRecipesDiet(any(DietLevelTypeOutputData.class));
+        verify(dietLevelOutputBoundary, times(1)).presentRecipesDiet(any(DietLevelOutputData.class));
 
         // Further verify that the recipes were correctly passed
         verify(dietLevelOutputBoundary).presentRecipesDiet(argThat(output ->
@@ -60,7 +60,7 @@ class DietLevelInteractorTest {
     @Test
     void testSearchDietLevelRecipeFailure() throws IOException {
         // Prepare the test data
-        CuisineTypeInputData inputData = new CuisineTypeInputData("Tomato", "low-fat");
+        DietLevelInputData inputData = new DietLevelInputData("Tomato", "low-fat");
 
         // Mock the behavior of the recipeDataBase to throw an exception
         when(recipeDataBase.getAllRecipes("Tomato passata", "balanced", null, 0, 0))
