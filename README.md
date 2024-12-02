@@ -42,7 +42,7 @@ This project is ideal for:
 ## Features
 The Recipe Generator provides the following functionalities:
 #### 1.Random Recipe Generator
-- Generate 5 random recipes at the click of a button. Perfect for users seeking inspiration.
+- Generate random recipes at the click of a button. Perfect for users seeking inspiration.
 (Implemented by Xiran Yin)
 #### 2.Calorie-Based Recipe Search
 - Search recipes within a specific calorie range to suit your health goals.
@@ -71,10 +71,13 @@ To set up the Recipe Generator, follow these steps:
 
 #### Steps to Install
 1. Clone this repository from GitHub.
-2. Open the project in your preferred IDE.
+2. Open the project in your preferred IDE (e.g., IntelliJ IDEA, Eclipse).
 3. Build the project to ensure all dependencies are resolved.
 4. Navigate to the src/main/java directory.
 5. Run the Main.java file to start the application.
+
+Then you can access the graphical interface to explore recipes through various filters or options.
+This simple setup ensures that users of varying technical skills can use the app effectively, promoting equitable access to its features.
 
 
 ## Usage
@@ -129,38 +132,4 @@ Contributions are open! Follow these steps to contribute:
 - Commit your changes and create a pull request.
 
 
-## Principles of Universal Design
-Principle 1: Equitable Use
-Principle 2: Flexibility in Use
-Principle 3: Simple and Intuitive Use
-Principle 4: Perceptible Information
-Principle 5: Tolerance for Error
-Principle 6: Low Physical Effort
-Principle 7: Size and Space for Approach and Use
-
-## Principle 1: Equitable Use
-
-This application embodies the principle of **Equitable Use** by ensuring it is free for all users, regardless of their financial situation. Users can interact with the app in multiple ways, including:
-
-1. **Keyword Search**: Ideal for users who have specific ingredients in mind or dietary needs.
-2. **Filter by Diet or Cuisine**: Supports users with particular preferences or restrictions.
-3. **Random Recipe Generator**: Allows users seeking inspiration or variety to find recipes easily.
-
 These features cater to a diverse range of user needs, providing an inclusive experience that avoids discrimination or exclusion.
-
-### Technical Implementation
-
-To run the application:
-1. Clone the repository from GitHub.
-2. Open the project in an IDE (e.g., IntelliJ IDEA, Eclipse).
-3. Navigate to `main.java` and click **Run**.
-4. Access the graphical interface to explore recipes through various filters or options.
-
-This simple setup ensures that users of varying technical skills can use the app effectively, promoting equitable access to its features.
-
-### Future Improvements
-To further enhance equitable use, future updates could include:
-- **Accessibility Features**: Adding text-to-speech support for visually impaired users.
-- **Multi-language Support**: Expanding the app's language options to reach a global audience.
-- **Offline Mode**: Allowing users in areas with limited internet connectivity to access saved recipes.
-
