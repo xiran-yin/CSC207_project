@@ -1,4 +1,4 @@
-#CSC207 Project: Recipe Generator
+# CSC207 Project: Recipe Generator
 
 This is a free, open-source Recipe Generator implemented in Java. The program is designed to provide recipes that meet users’ specific dietary requirements, preferences, or restrictions. Whether you’re managing calorie intake, adhering to ingredient restrictions, seeking low-carb or high-protein options, or exploring a specific cuisine type, this app can help. Plus, it doesn’t require a login for accessibility.
 
