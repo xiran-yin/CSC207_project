@@ -117,13 +117,17 @@ public class CalorieSearchView extends JPanel {
         final String minCalories = minCaloriesField.getText().trim();
         final String maxCalories = maxCaloriesField.getText().trim();
 
+
         if (!minCalories.isEmpty() && !maxCalories.isEmpty()) {
             try {
                 final int minCal = Integer.parseInt(minCalories);
                 final int maxCal = Integer.parseInt(maxCalories);
                 final CaloriesRange caloriesRange = new CaloriesRange(minCal, maxCal);
 
-                if (!keyword.isEmpty()) {
+                if (minCal >= maxCal) {
+                    JOptionPane.showMessageDialog(this, "Invalid Calories Range.");
+                }
+                else if (!keyword.isEmpty()) {
                     caloriesController.execute(keyword, caloriesRange);
                     mainFrame.showView("RecipeChoiceView");
                     maxCaloriesField.setText("");
