@@ -6,7 +6,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import app.MainFrame;
@@ -118,7 +123,10 @@ public class CalorieSearchView extends JPanel {
                 final int maxCal = Integer.parseInt(maxCalories);
                 final CaloriesRange caloriesRange = new CaloriesRange(minCal, maxCal);
 
-                if (!keyword.isEmpty()) {
+                if (minCal >= maxCal) {
+                    JOptionPane.showMessageDialog(this, "Invalid Calories Range.");
+                }
+                else if (!keyword.isEmpty()) {
                     caloriesController.execute(keyword, caloriesRange);
                     mainFrame.showView("RecipeChoiceView");
                     maxCaloriesField.setText("");
