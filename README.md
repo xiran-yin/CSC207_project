@@ -11,7 +11,8 @@ This is a free, open-source Recipe Generator implemented in Java. The program is
 - [Examples](#examples)
 - [Contributing](#contributing)
 - [License](#license)
-- [Contact](#contact)
+- [Feedback](#feedback)
+- [Contributions](#contributions)
 
 
 ## Introduction
@@ -113,6 +114,7 @@ Karen enters "chicken" and selects "Asian". She clicks "Go" and the app filters 
 
 ## License
 See in [LICENSE.md](https://github.com/xiran-yin/CSC207_project/blob/main/LICENSE).
+
 
 ## Feedback
 We welcome your feedback to improve the app. Please submit your suggestions via Google Forms.
