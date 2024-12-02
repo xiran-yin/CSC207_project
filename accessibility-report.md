@@ -1,4 +1,4 @@
-## Principles of Universal Design
+## Accessibility report - Applications of Principles of Universal Design in this project
 #### Principle 1: Equitable Use
 Your app ensures equitable use by being free and open-source, making it accessible regardless of the user's financial situation. The absence of a login requirement eliminates barriers, ensuring inclusivity for individuals with varying technical skills or privacy concerns.
 
