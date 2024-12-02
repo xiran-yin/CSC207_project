@@ -6,7 +6,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 
 import app.MainFrame;
@@ -111,7 +116,6 @@ public class CalorieSearchView extends JPanel {
         final String keyword = keywordField.getText().trim();
         final String minCalories = minCaloriesField.getText().trim();
         final String maxCalories = maxCaloriesField.getText().trim();
-
 
         if (!minCalories.isEmpty() && !maxCalories.isEmpty()) {
             try {
