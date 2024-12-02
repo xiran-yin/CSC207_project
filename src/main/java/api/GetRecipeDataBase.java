@@ -48,6 +48,9 @@ public class GetRecipeDataBase implements RecipeDataBase {
                 .url(url.toString())
                 .build();
 
+        System.out.println(url);
+
+
         try (Response response = client.newCall(request).execute()) {
             if (response.code() == SUCCESS_CODE) {
                 final String responseBody = response.body().string();
