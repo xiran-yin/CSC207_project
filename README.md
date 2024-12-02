@@ -57,11 +57,6 @@ The Recipe Generator provides the following functionalities:
 - Enter keywords for ingredients to find recipes that match.
 
 
-## Future Enhancements
-- Multi-language support for a global audience.
-- Accessibility features, including text-to-speech.
-- Offline mode to save recipes for areas with limited internet connectivity.
-
 ## Installation
 To set up the Recipe Generator, follow these steps:
 
@@ -70,11 +65,12 @@ To set up the Recipe Generator, follow these steps:
 - An Integrated Development Environment (IDE) like IntelliJ IDEA or Eclipse.
 
 #### Steps to Install
-1. Clone this repository from GitHub.
-2. Open the project in your preferred IDE (e.g., IntelliJ IDEA, Eclipse).
+1. Clone this repository from GitHub.![image](https://github.com/user-attachments/assets/39930c0f-ef08-4c8a-b8e2-824c22caaeeb)
+2. Open the project in your preferred IDE (e.g., IntelliJ IDEA, Eclipse).![image](https://github.com/user-attachments/assets/03ec01b7-d7f6-4009-bab3-f72b2da2742f)(after pasting the URL, click "Clone")
 3. Build the project to ensure all dependencies are resolved.
 4. Navigate to the src/main/java directory.
-5. Run the Main.java file to start the application.
+5. Run the Main.java file to start the application.![image](https://github.com/user-attachments/assets/09afd6dc-ef9b-4a3a-8759-a7258af38e87)
+
 
 Then you can access the graphical interface to explore recipes through various filters or options.
 This simple setup ensures that users of varying technical skills can use the app effectively, promoting equitable access to its features.
@@ -116,9 +112,9 @@ See in [LICENSE.md](https://github.com/xiran-yin/CSC207_project/blob/main/LICENS
 
 
 ## Feedback
-We welcome your feedback to improve the app. Please submit your suggestions via Google Forms.
-Guidelines for Feedback:
+We welcome your feedback to improve the app! Please fill out this form to share your thoughts with us: [to xiran.yin@mail.utoronto.ca in either .pdf or .docx format](https://docs.google.com/forms/d/e/1FAIpQLSfvY_K9xNoCpZiAG-00ytd2mZnt15hofZ3OYkr0i0_1Y_rVkA/viewform?usp=sf_link).
 
+Guidelines for Feedback:
 - Be clear and constructive.
 - Focus on usability and functionality.
 
@@ -127,10 +123,15 @@ Guidelines for Feedback:
 
 Contributions are open! Follow these steps to contribute:
 
-- Fork the repository on GitHub.
+- Fork the repository on GitHub(steps are shown in the image).
+![image](https://github.com/user-attachments/assets/39930c0f-ef08-4c8a-b8e2-824c22caaeeb)
+- Clone the repository
+![image](https://github.com/user-attachments/assets/03ec01b7-d7f6-4009-bab3-f72b2da2742f)
+![image](https://github.com/user-attachments/assets/6f11f79e-8d23-49a3-bba1-b08c1c35c86d)
 - Create a feature branch:
 - git checkout -b feature-name
 - Commit your changes and create a pull request.
+- Our team member will check your pull request and merge to the main, and you will be the contributor of our project:).
 
 
 These features cater to a diverse range of user needs, providing an inclusive experience that avoids discrimination or exclusion.
