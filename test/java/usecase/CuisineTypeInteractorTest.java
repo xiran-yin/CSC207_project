@@ -93,4 +93,21 @@ class CuisineTypeInteractorTest {
         ));
     }
 
+    @Test
+    void testSearchCuisineRecipeIOException() throws IOException {
+        // Prepare the test data
+        CuisineTypeInputData inputData = new CuisineTypeInputData("Tomato", "Chinese");
+
+        // Mock the behavior of the recipeDataBase to throw an IOException
+        when(recipeDataBase.getAllRecipes("Tomato", null, "Chinese", 0, 0))
+                .thenThrow(new IOException("Mocked IO exception"));
+
+        // Run the use case (interactor)
+        interactor.searchCuisineRecipe(inputData);
+
+        // Verify that the output boundary's presentRecipesCuisine method is called with an empty list
+        verify(cuisineOutputBoundary, times(1)).presentRecipesCuisine(argThat(output ->
+                output.getRecipes().isEmpty()
+        ));
+    }
 }
