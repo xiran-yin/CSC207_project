@@ -1,4 +1,5 @@
-# Accessibility report - Applications of Principles of Universal Design in this project
+# Accessibility report
+## Applications of Principles of Universal Design in this project
 ### Principle 1: Equitable Use
 Our app ensures equitable use by being free and open-source, making it accessible regardless of the user's financial situation. The absence of a login requirement eliminates barriers, ensuring inclusivity for individuals with varying technical skills or privacy concerns.
 
@@ -29,3 +30,21 @@ Interacting with the app requires minimal effort:
 #### Principle 7: Size and Space for Approach and Use
 The app's GUI is designed to function well across devices (e.g., desktops, tablets) with sufficient space for all controls, ensuring ease of access regardless of screen size.
 
+## Facing Users (Those likely to benefit the most):
+#### Busy Individuals:
+- Students or professionals with limited time who need quick, easy-to-follow recipes.
+- Individuals who prefer simplified options over long cooking videos or complex instructions.
+#### Health-Conscious Users:
+- People managing specific dietary requirements (e.g., keto, gluten-free).
+- Those tracking calorie intake for weight management or fitness goals.
+#### Home Cooks Seeking Inspiration:
+- Users looking for new recipe ideas without the need for in-depth planning.
+- Individuals who enjoy the spontaneity of a random recipe generator.
+
+## User may not intersted in this app:
+#### Visually Impaired Users (Before Accessibility Updates):
+- Until features like text-to-speech are implemented, these users might face challenges accessing recipe details.
+#### Highly Advanced Cooks:
+- Professionals or experienced chefs may find the app too basic or limiting in scope.
+#### User who don't understand English:
+- Users who don't speak the app's primary language may face barriers until changing language options are implemented.
