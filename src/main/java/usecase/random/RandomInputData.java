@@ -40,7 +40,8 @@ public class RandomInputData {
         final String diet = "Diet";
         final String cuisine = "CuisineType";
         final String calories = "Calories";
-        final String[] filters = {diet, cuisine, calories, null};
+        final String keywordFilter = "Keyword";
+        final String[] filters = {diet, cuisine, calories, keyword};
         final String selectedFilter = filters[random.nextInt(filters.length)];
 
         if (diet.equals(selectedFilter)) {
@@ -68,7 +69,7 @@ public class RandomInputData {
             this.dietLevel = null;
             this.cuisineType = null;
             this.caloriesRange = null;
-            this.filter = null;
+            this.filter = keywordFilter;
         }
     }
 
@@ -91,4 +92,5 @@ public class RandomInputData {
     public String getFilter() {
         return filter;
     }
+
 }
