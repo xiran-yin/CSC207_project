@@ -7,6 +7,7 @@ import entity.Diet;
 import entity.Recipe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import usecase.cuisine_type.CuisineTypeInputData;
 import usecase.diet_level.DietLevelInteractor;
 import usecase.diet_level.DietLevelOutputBoundary;
 import usecase.diet_level.DietLevelInputData;
@@ -83,6 +84,24 @@ class DietLevelInteractorTest {
         // Mock the behavior of the recipeDataBase to return an empty list
         when(recipeDataBase.getAllRecipes("Spaghetti", "low-fat", null, 0, 0))
                 .thenReturn(Collections.emptyList());
+
+        // Run the use case (interactor)
+        interactor.searchDietLevelRecipe(inputData);
+
+        // Verify that the output boundary's presentRecipesCuisine method is called with an empty list
+        verify(dietLevelOutputBoundary, times(1)).presentRecipesDiet(argThat(output ->
+                output.getRecipes().isEmpty()
+        ));
+    }
+
+    @Test
+    void testSearchCuisineRecipeIOException() throws IOException {
+        // Prepare the test data
+        DietLevelInputData inputData = new DietLevelInputData("Tomato", "low-fat");
+
+        // Mock the behavior of the recipeDataBase to throw an IOException
+        when(recipeDataBase.getAllRecipes("Tomato", "low-fat",null, 0, 0))
+                .thenThrow(new IOException("Mocked IO exception"));
 
         // Run the use case (interactor)
         interactor.searchDietLevelRecipe(inputData);
