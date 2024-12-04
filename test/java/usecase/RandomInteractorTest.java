@@ -78,7 +78,7 @@ class RandomInteractorTest {
         Assertions.assertNotNull("Keyword should not be null", inputData.getKeyword());
 
         String filter = inputData.getFilter();
-        assertTrue(Objects.equals(filter, "keywordFilter") || filter.equals("Diet") || filter.equals("CuisineType") || filter.equals("Calories"),
+        assertTrue(Objects.equals(filter, "Keyword") || filter.equals("Diet") || filter.equals("CuisineType") || filter.equals("Calories"),
                 "Filter should be one of 'Diet', 'CuisineType', 'Calories', or null");
 
         // Check the correctness of the filter-specific attributes
